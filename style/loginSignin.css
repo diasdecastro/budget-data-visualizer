@@ -1,6 +1,46 @@
-table, th, td {
+body {
+    margin: 0;
+    padding: 0;
+}
+
+table, th, td, tr {
     border-collapse: collapse;
     border: 1px solid black;
 }
 
-#id {visibility: hidden;}
+table {
+    margin: 0 auto;
+    width: 60vw;
+}
+#id{
+    min-width: 5vw;
+    max-width: 5vw; 
+    display: flex;
+    justify-content: space-evenly;
+    border: none;
+    margin: 0 auto;
+}
+
+td {
+    min-width: 12vw;
+    max-width: 12vw; 
+}
+
+#formRow input, select {
+    max-width: 95%;
+    min-height: 1.5em;
+    max-height: 1.5em;
+}
+.cancel { 
+    min-width: 5vw;
+    min-height: 1.5em;
+    max-height: 1.5em;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    border: none;
+}
+
+*.fa-trash:hover , *.fa-edit:hover, *.fa-times:hover {
+    cursor: pointer;
+}

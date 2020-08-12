@@ -18,7 +18,8 @@ function makeList(entries) {
                                         "<th id='dateCol'>Date   <a id='sortDate' href='#'><i class='fa fa-sort'></i></a></th>" + 
                                         "<th id='categoryCol'>Category   <a id='sortCategory' href='#'><i class='fa fa-sort'></i></a></th>" + 
                                         "<th id='amountCol'>Amount   <a id='sortAmount' href='#'><i class='fa fa-sort'></i></a></th>" +
-                                        "<th id='categoryCol'>Details   <a id='sortDetails' href='#'><i class='fa fa-sort'></i></a></th>" + 
+                                        "<th id='categoryCol'>Details   <a id='sortDetails' href='#'><i class='fa fa-sort'></i></a></th>" +
+                                        "<th></th>" + 
                                     "</tr>"+ 
                                 "</thead>" +
                                 "<tbody id='tableBody'></tbody>";    
@@ -38,16 +39,32 @@ function makeList(entries) {
                     let year = new Date(results[i][prop]).getFullYear();
                     let dateString = day + "/" + month + "/" + year;
                     entry.innerHTML = dateString;
-                    newRow.appendChild(entry);
 
+                } else if(prop == "id") {
+                    /* delete entry icon */
+                    let deleteElem = document.createElement("a");
+                    deleteElem.id = results[i][prop];
+                    deleteElem.className = "deleteEntry";
+                    deleteElem.innerHTML = "<i class='fa fa-trash'></i>";
+                    deleteElem.addEventListener("click", () => { //onclick call deteleEntry function
+                        deleteEntry(deleteElem.id);
+                    });
+            
+
+                    let editElem = document.createElement("a");
+                    editElem.id = results[i][prop];
+                    deleteElem.className = "deleteEntry";
+                    editElem.innerHTML = "<i class='fa fa-edit'></i>";
+
+                    entry.appendChild(editElem);
+                    entry.appendChild(deleteElem);
+                    
                 } else {
-                    entry.innerHTML = results[i][prop];                            
-                    newRow.appendChild(entry)
+                    entry.innerHTML = results[i][prop];
                 }
-                                                      
+                newRow.appendChild(entry);                                    
             }
         }
-        //add delete thing
     }
     addEventListeners();  
 }
@@ -104,14 +121,7 @@ function addEventListeners() {
     });
     document.getElementById("sortDetails").addEventListener("click", () => { 
         changeOrder("details", detailsOrder, "detailsOrder");
-     });
-
-
-
-    document.getElementById("listRow").addEventListener("click", () => {
-        console.log(this.id);
-    });
-    
+     });    
 }
 
 function changeOrder(column, order, columnName){    
@@ -135,13 +145,14 @@ function changeFilters(minDate, maxDate, inOrOut, minAmountCents, maxAmountCents
 /* Insert new entry handles */
 
 function createInsertForm() {
-    let rootElem = document.getElementById("root")
-    rootElem.innerHTML = "<form method='POST' id='insertForm' onsubmit='insertNewEntry(this.date.value, this.category.value, this.amountCents.value, this.details.value); return false'></form>" + 
-                            "<input type='submit' style='visibility: hidden;' form='insertForm'>" + rootElem.innerHTML;
-    let tableBodyElem = document.getElementById("tableBody");
-    let newRow = document.createElement("tr");
-    newRow.id = "formRow";
-    newRow.innerHTML = "<td><input type='date' name='date' placeholder='Insert Date' autocomplete='off' form='insertForm' required/></td>" + 
+    if (!document.getElementById("formRow")){ //if for element doesn't already exist, create one
+        let rootElem = document.getElementById("root")
+        rootElem.innerHTML = "<form method='POST' id='insertForm' onsubmit='insertNewEntry(this.date.value, this.category.value, this.amountCents.value, this.details.value); return false'></form>" + 
+                                "<input id='insertSubmit' type='submit' style='position:absolute; visibility: hidden; z-index:-1;'  form='insertForm'>" + rootElem.innerHTML;
+        let tableBodyElem = document.getElementById("tableBody");        
+        let newRow = document.createElement("tr");
+        newRow.id = "formRow";
+        newRow.innerHTML = "<td><input type='date' name='date' placeholder='Insert Date' autocomplete='off' form='insertForm' required/></td>" + 
                         "<td>" + 
                         "<select name='category' form='insertForm'>" + 
                             "<option value='Work'>Work</option>" + 
@@ -150,8 +161,23 @@ function createInsertForm() {
                         "</select>" +
                         "</td>" +
                         "<td><input type='number' step='1' min='0' max='9223372036854775806' name='amountCents' placeholder='Insert Amount' autocomplete='off' form='insertForm' required/></td>" +
-                        "<td><input type='text' name='details' placeholder='Insert Details' autocomplete='off' form='insertForm' required/></td>";
-    tableBodyElem.insertBefore(newRow, tableBodyElem.firstChild);
+                        "<td><input type='text' name='details' placeholder='Insert Details' autocomplete='off' form='insertForm' required/></td>" +
+                        "<td class='cancel'><i class='fa fa-times'></i></td>";
+        tableBodyElem.insertBefore(newRow, tableBodyElem.firstChild);
+        document.addEventListener('keydown', (e) => {
+            if (e.keyCode === 27) { //if escape key gets pressed, delete insert form
+                if (document.getElementById("insertForm") && document.getElementById("insertSubmit")){
+                    //if elements exist
+                    document.getElementById("insertForm").remove();
+                    document.getElementById("insertSubmit").remove();
+                }
+                newRow.remove();
+            };
+        })
+    } else {
+        return 0;
+    }
+        
 }
 
 //budget_data: day_date | category | amount_cents | details
@@ -183,3 +209,28 @@ function insertNewEntry(date, category, amountCents, details) {
     document.getElementById("formRow").remove();
     getAllEntries();
 }
+
+/////////////////////////////////////////////////////////////////////////////
+
+/* delete entry */
+
+function deleteEntry(id) {
+    let httpRequest = new XMLHttpRequest();
+
+    httpRequest.open("DELETE", `http://localhost:3000/budget?id=${id}`, true);
+    httpRequest.send();
+
+    httpRequest.onreadystatechange = () => {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+            if (httpRequest.status === 200) {
+                if (httpRequest.response) {
+                    console.log("Entry deleted");
+                    getAllEntries();
+                } else {
+                    alert("Something Wrong");
+                }
+            }
+        }
+    }
+}
+

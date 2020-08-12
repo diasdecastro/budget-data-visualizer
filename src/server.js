@@ -7,6 +7,7 @@ const bodyparser = require('body-parser');
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*"); // * allows any origin
     res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+    res.header("Access-Control-Allow-Methods", "GET, POST, OPTIONS, PUT, DELETE");
     next();
 });
 
@@ -39,7 +40,7 @@ app.get('/budget', (req, res) => {
     //FILTERS TODO: Handle categories filters
     let minDate = (req.query.mindate) ? req.query.mindate : "(SELECT MIN(day_date) from budget_data)";
     let maxDate = (req.query.maxdate) ? req.query.maxdate : "(SELECT MAX(day_date) from budget_data)";
-    let minAmountCents = (req.query.mincents) ? req.query.mincents : -9223372036854775807; // -infinity TODO: make it 0
+    let minAmountCents = (req.query.mincents) ? req.query.mincents : 0; // -infinity TODO: make it 0
     let maxAmountCents = (req.query.maxcents) ? req.query.maxcents : 9223372036854775807; //infinity
 
     //ORDER BY COLUMN
@@ -79,5 +80,16 @@ app.post('/budget', (req, res) => {
     });
 });
 
-//alter entry
-app.put('')
+//delete entry
+app.delete('/budget', (req, res) => {
+    let id = req.query.id;
+
+    let deleteQuery = "DELETE FROM budget_data WHERE id = ?;";
+    mysqlConnection.query(deleteQuery, [id], (err, results, fields) => {
+        if (err) {
+            throw err;
+        } else {
+            res.send("Entry deleted");
+        }
+    })
+});

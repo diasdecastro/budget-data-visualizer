@@ -11,11 +11,13 @@ var detailsOrder = "desc";
 /* Data display functions */
 
 function makeList(entries) {
-    let results = JSON.parse(entries);
-    let rootElem = document.getElementById("root");
-    let listTable = document.createElement("table");
-    listTable.id = "listTable";
-    rootElem.appendChild(listTable);
+    if (!document.getElementById("listTable")) {
+        let listTable = document.createElement("table");
+        let rootElem = document.getElementById("root");
+        listTable.id = "listTable";
+        rootElem.appendChild(listTable);
+    }
+    let results = JSON.parse(entries);                
     let listTableELem = document.getElementById("listTable");
     listTableELem.innerHTML = "<thead>" + 
                                     "<tr>" + 
@@ -57,10 +59,13 @@ function makeList(entries) {
             }
         }
     }
-    addEventsForOrder();  
+    addEventsForWindow();
+        
+    
+         
 }
 
-/* Order data */
+/* Order data */    
 
 function changeOrder(column, order, columnName){    
     if (order == "asc") {
@@ -121,13 +126,35 @@ function createInsertEditForm(action, editId) {
 
         document.querySelectorAll('.cancel').forEach( item => {
             item.addEventListener("click", () => {
-                removeInsertEditForm(newRow);
+
+                if (document.getElementById("insertForm") && document.getElementById("insertSubmit")){
+                    //if elements exist
+                    document.getElementById("insertForm").remove();
+                    document.getElementById("insertSubmit").remove();
+                }
+                /* if (editElem) {                    
+                    getEntries();
+                } */
+                newRow.remove();   
             });
         });
 
+
+        
         document.addEventListener('keydown', (e) => {
             if (e.keyCode === 27) { //if escape key gets pressed, delete insert form
-                removeInsertEditForm(newRow);
+
+                /* removeInsertEditForm(newRow, "edit"); */
+
+                if (document.getElementById("insertForm") && document.getElementById("insertSubmit")){
+                    //if elements exist
+                    document.getElementById("insertForm").remove();
+                    document.getElementById("insertSubmit").remove();
+                }
+                if (action == "edit") {                   
+                    getEntries();
+                }
+                newRow.remove();
             };
         });
 
@@ -160,8 +187,8 @@ function editDeleteButton(row, id) {
     row.appendChild(deleteElem);
 }
 
-function removeInsertEditForm(row) {
-    if (document.getElementById("insertForm") && document.getElementById("insertSubmit")){
+function removeInsertEditForm(row, action) {
+    /* if (document.getElementById("insertForm") && document.getElementById("insertSubmit")){
         //if elements exist
         document.getElementById("insertForm").remove();
         document.getElementById("insertSubmit").remove();
@@ -169,12 +196,12 @@ function removeInsertEditForm(row) {
     if (editElem) {                    
         getEntries();
     }
-    row.remove();
+    row.remove(); */
 }
 
 /* Change Order handlers */
 
-function addEventsForOrder() {
+function addEventsForWindow() {
     /* Order elements */
     document.getElementById("sortDate").addEventListener("click", () => { 
         changeOrder("day_date", dateOrder, "dateOrder"); 
@@ -187,17 +214,12 @@ function addEventsForOrder() {
     });
     document.getElementById("sortDetails").addEventListener("click", () => { 
         changeOrder("details", detailsOrder, "detailsOrder");
-     });    
+    });    
+    document.getElementById("insertEntry").addEventListener("click", () => {
+        createInsertEditForm('insert');
+    });
+    
 }
-
-
-
-
-////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-
-
 
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////

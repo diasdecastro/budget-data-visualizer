@@ -9,9 +9,12 @@
     <script src="./src/index.js"></script>
 </head>
 <body onload="getEntries();">
-    <div id="root"></div>
-    <div id="test">
-        <button onclick="createInsertEditForm('insert');">Insert</button>
-    </div>
+    <header id="topbar">
+        <ul id="topbarList">
+            <li id="insertEntry">Insert New Entry</li>
+            <li id="statistics">Statistics</li>
+        </ul>
+    </header>
+    <div id="root"></div>    
 </body>
 </html>

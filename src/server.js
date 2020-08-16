@@ -33,7 +33,7 @@ app.listen(3000, () => console.log("Express server is runnung at port 3000"));
 
 //############################### OPERATIONS ON BUDGET_DATA TABLE (GETERS) #############################################
 
-//budget_data: day_date | in_or_out | category | amount_cents | details
+//budget_data: day_date | category | amount_cents | details | id
 
 //get entries
 app.get('/budget', (req, res) => {    
@@ -44,8 +44,8 @@ app.get('/budget', (req, res) => {
     let maxAmountCents = (req.query.maxcents) ? req.query.maxcents : 9223372036854775807; //infinity
 
     //ORDER BY COLUMN
-    let column = (req.query.column) ? req.query.column : "day_date";
-    let order = (req.query.order) ? req.query.order : "desc";
+    let column = (!"undefined") ? req.query.column : "day_date";
+    let order = (!"undefined") ? req.query.order : "desc";
     
     let mySqlQuery = `SELECT * FROM budget_data WHERE day_date >= ${minDate} AND day_date <= ${maxDate} AND amount_cents >= ${minAmountCents} AND amount_cents <= ${maxAmountCents} ORDER BY ${column} ${order};`;    
     mysqlConnection.query(mySqlQuery, (err, results, fields) => {
@@ -93,3 +93,24 @@ app.delete('/budget', (req, res) => {
         }
     })
 });
+
+/* update entry */
+app.put('/budget', (req, res) => {
+    let id = req.query.id;
+    let date = req.query.date;
+    let category = req.query.category;
+    let amountCents = req.query.amountCents;
+    let details = req.query.details;
+
+    let updateQuery = `UPDATE budget_data SET day_date = '${date}', category = '${category}', amount_cents = ${amountCents}, details = '${details}' WHERE ID = ${id}`;
+    mysqlConnection.query(updateQuery, (err, results, fields) => {
+        if (err) {
+            throw err;
+        } else {
+            res.send("Entry updated");
+        }
+    }) 
+});
+
+
+//budget_data: day_date | category | amount_cents | details | id

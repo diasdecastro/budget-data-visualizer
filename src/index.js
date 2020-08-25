@@ -1,3 +1,5 @@
+/* imports */
+
 /* Global variables */
 
 var orderCol = "day_date"
@@ -92,9 +94,9 @@ function filters() {
     /* Date */
 
     let dateCol = document.getElementById("dateFilter");
-    dateCol.innerHTML = "<input name='minDate' type='date'>" +
+    dateCol.innerHTML = "<input id='minDate' name='minDate' type='date' value='2000-01-01'>" +
             "<lable for='minDate'>Min Date</lable>" +
-            "<input name='maxDate' type='date'>" +
+            "<input id='maxDate' name='maxDate' type='date' value='2030-01-01'>" +
             "<label for='maxDate'>Max Date</label>";
 
     /* Category */
@@ -119,15 +121,70 @@ function filters() {
 
     /* Amount */
     let amountCol = document.getElementById("amountFilter");
-    amountCol.innerHTML = "<input type='range' name='minAmount'>" +
-                    "<label for='minAmount'>Min Amount</label>" +
-                    "<input type='range' name='maxAmount'>" +
-                    "<label for='maxAmount'>Max Amount</label>";
+
+    let slider = document.createElement("div");
+    noUiSlider.create(slider, {
+        start: [2000, 8000],
+        connect: true,
+        range: {
+            'min': 0,
+            'max': 10000
+        }
+    });
+    amountCol.appendChild(slider);
+
+    /* output of slider values */
+
+    let showMinValue = document.createElement("input");
+    showMinValue.id = "minAmount";
+    showMinValue.type = "number";
+    showMinValue.name = "minAmount";
+    showMinValue.step = "0.01";
+    
+    
+    let showMaxValue = document.createElement("input");
+    showMaxValue.id = "maxAmount";
+    showMaxValue.type = "number";
+    showMaxValue.name = "maxAmount";
+    showMaxValue.step = "0.01";
+    showMaxValue.setAttribute("form", "filterForm");
+
+        
+    amountCol.appendChild(showMinValue);
+    amountCol.appendChild(showMaxValue);
+    
+    slider.noUiSlider.on('update', () => {
+        showMinValue.value = slider.noUiSlider.get()[0];
+        showMaxValue.value = slider.noUiSlider.get()[1];
+    });
+
+    showMinValue.addEventListener("change", () => {
+        slider.noUiSlider.set([showMinValue.value, showMaxValue.value]);
+    });
+
+    showMaxValue.addEventListener("change", () => {
+        slider.noUiSlider.set([showMinValue.value, showMaxValue.value]);
+    });
+
+    let submit = document.createElement("button");
+    submit.innerHTML = "Submit";
+    submit.addEventListener('click', () => {
+        let minDate = document.getElementById("minDate").value;
+        let maxDate = document.getElementById("maxDate").value;
+        let minAmount = document.getElementById("minAmount").value;
+        let maxAmount = document.getElementById("maxAmount").value;
+        changeFilters(minDate, maxDate, minAmount, maxAmount);
+    });
+
+    document.getElementById("filters").appendChild(submit);
 
 }
 
-function changeFilters(minDate, maxDate, inOrOut, minAmountCents, maxAmountCents) {
-
+function changeFilters(minDate, maxDate, minAmount, maxAmount) {
+    console.log("Min Date" + minDate);
+    console.log("Max Date" + maxDate);
+    console.log("Min Amount" + minAmount);
+    console.log("Max Amount" + maxAmount);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////

@@ -51,7 +51,14 @@ function makeList(entries) {
                     newRow.setAttributeNode(attr);
 
                     editDeleteButton(entry, results[i][prop]);
-                    
+                 
+                } else if(prop == "amount_cents") {
+                    /* transforms cents in euros */
+                    const formatter = new Intl.NumberFormat('de-DE', {
+                        style: 'currency',
+                        currency: 'EUR'
+                    });
+                    entry.innerHTML = formatter.format(results[i][prop] / 100);                                        
                 } else {
                     entry.innerHTML = results[i][prop];
                 }
@@ -81,6 +88,44 @@ function changeOrder(column, order, columnName){
 
 /* Filter data */
 
+function filters() {
+    /* Date */
+
+    let dateCol = document.getElementById("dateFilter");
+    dateCol.innerHTML = "<input name='minDate' type='date'>" +
+            "<lable for='minDate'>Min Date</lable>" +
+            "<input name='maxDate' type='date'>" +
+            "<label for='maxDate'>Max Date</label>";
+
+    /* Category */
+
+    let categoryCol = document.getElementById("categoryFilter");
+    categoryCol.innerHTML = "<input type='checkbox' name='housing'>" +
+                    "<lable for='Housing'>Housing</lable>" +
+                    "<input type='checkbox' name='Tranportation'>" +
+                    "<lable for='Transportation'>Transportation</lable>" +
+                    "<input type='checkbox' name='Food'>" +
+                    "<lable for='Food'>Food</lable>" +
+                    "<input type='checkbox' name='Utilities'>" +
+                    "<lable for='Utilities'>Utilities</lable>" +
+                    "<input type='checkbox' name='Insurence'>" +
+                    "<lable for='Insurance'>Insurence</lable>" +
+                    "<input type='checkbox' name='Health'>" +
+                    "<lable for='Health'>Health</lable>" +
+                    "<input type='checkbox' name='Saving'>" +
+                    "<lable for='Saving'>Saving</lable>" +
+                    "<input type='checkbox' name='Other'>" +
+                    "<lable for='Other'>Other</lable>"
+
+    /* Amount */
+    let amountCol = document.getElementById("amountFilter");
+    amountCol.innerHTML = "<input type='range' name='minAmount'>" +
+                    "<label for='minAmount'>Min Amount</label>" +
+                    "<input type='range' name='maxAmount'>" +
+                    "<label for='maxAmount'>Max Amount</label>";
+
+}
+
 function changeFilters(minDate, maxDate, inOrOut, minAmountCents, maxAmountCents) {
 
 }
@@ -93,10 +138,10 @@ function createInsertEditForm(action, editId) {
     if (!document.getElementById("formRow")){ //if for element doesn't already exist, create one
         let rootElem = document.getElementById("root");
         if (action == "insert") {
-            rootElem.innerHTML = "<form method='POST' id='insertForm' onsubmit='insertNewEntry(this.date.value, this.category.value, this.amountCents.value, this.details.value); return false'></form>" + 
+            rootElem.innerHTML = `<form method='POST' id='insertForm' onsubmit='insertNewEntry(this.date.value, this.category.value, this.amount.value, this.details.value); return false'></form>` + 
                                 "<input id='insertSubmit' type='submit' style='position:absolute; visibility: hidden; z-index:-1;'  form='insertForm'>" + rootElem.innerHTML;
         } else if (action == "edit") {
-            rootElem.innerHTML = `<form method='POST' id='insertForm' onsubmit='editEntry(${editId}, this.date.value, this.category.value, this.amountCents.value, this.details.value); return false'></form>` + 
+            rootElem.innerHTML = `<form method='POST' id='insertForm' onsubmit='editEntry(${editId}, this.date.value, this.category.value, this.amount.value, this.details.value); return false'></form>` + 
                                 "<input id='insertSubmit' type='submit' style='position:absolute; visibility: hidden; z-index:-1;'  form='insertForm'>" + rootElem.innerHTML;
         
         }
@@ -106,12 +151,17 @@ function createInsertEditForm(action, editId) {
         newRow.innerHTML = "<td><input type='date' name='date' placeholder='Insert Date' autocomplete='off' form='insertForm' required/></td>" + 
                         "<td>" + 
                         "<select name='category' form='insertForm'>" + 
-                            "<option value='Work'>Work</option>" + 
+                            "<option value='Housing'>Housing</option>" + 
+                            "<option value='Tranportation'>Transportation</option>" +
                             "<option value='Food'>Food</option>" +
+                            "<option value='Utilities'>Utilities</option>" +
+                            "<option value='Insurence'>Insurence</option>" +
+                            "<option value='Health'>Health</option>" +
+                            "<option value='Saving'>Saving</option>" +
                             "<option value='Other'>Other</option>" +
                         "</select>" +
                         "</td>" +
-                        "<td><input type='number' step='1' min='0' max='9223372036854775806' name='amountCents' placeholder='Insert Amount' autocomplete='off' form='insertForm' required/></td>" +
+                        "<td><input type='number' step='0.01' min='0' max='9223372036854775806' name='amount' placeholder='Insert Amount' autocomplete='off' form='insertForm' required/></td>" +
                         "<td><input type='text' name='details' placeholder='Insert Details' autocomplete='off' form='insertForm' required/></td>" +
                         "<td class='cancel'><i class='fa fa-times'></i></td>";
                         
@@ -132,9 +182,6 @@ function createInsertEditForm(action, editId) {
                     document.getElementById("insertForm").remove();
                     document.getElementById("insertSubmit").remove();
                 }
-                /* if (editElem) {                    
-                    getEntries();
-                } */
                 newRow.remove();   
             });
         });
@@ -187,18 +234,6 @@ function editDeleteButton(row, id) {
     row.appendChild(deleteElem);
 }
 
-function removeInsertEditForm(row, action) {
-    /* if (document.getElementById("insertForm") && document.getElementById("insertSubmit")){
-        //if elements exist
-        document.getElementById("insertForm").remove();
-        document.getElementById("insertSubmit").remove();
-    }
-    if (editElem) {                    
-        getEntries();
-    }
-    row.remove(); */
-}
-
 /* Change Order handlers */
 
 function addEventsForWindow() {
@@ -236,6 +271,7 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
     httpRequest.onreadystatechange = () => {
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
+                filters();
                 makeList(httpRequest.response);
             } else {
                 alert("something wrong");
@@ -248,7 +284,7 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
 
 /* insert new entry */
 
-function insertNewEntry(date, category, amountCents, details) {
+function insertNewEntry(date, category, amount, details) {
     let httpRequest = new XMLHttpRequest();
 
     httpRequest.open("POST", "http://localhost:3000/budget/", true);
@@ -256,7 +292,7 @@ function insertNewEntry(date, category, amountCents, details) {
     httpRequest.send(JSON.stringify({
         "day_date": date,
         "category": category,
-        "amount_cents": amountCents,
+        "amount": amount,
         "details": details
     }));
 
@@ -304,10 +340,10 @@ function deleteEntry(id) {
 
 /* edit entry */
 
-function editEntry(id, date, category, amountCents, details) {   
+function editEntry(id, date, category, amount, details) {   
     let httpRequest = new XMLHttpRequest();
 
-    httpRequest.open("PUT", `http://localhost:3000/budget?id=${id}&date=${date}&category=${category}&amountCents=${amountCents}&details=${details}`);
+    httpRequest.open("PUT", `http://localhost:3000/budget?id=${id}&date=${date}&category=${category}&amount=${amount}&details=${details}`);
     httpRequest.send();
 
     httpRequest.onreadystatechange = () => {

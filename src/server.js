@@ -40,7 +40,7 @@ app.get('/budget', (req, res) => {
     //FILTERS TODO: Handle categories filters
     let minDate = (req.query.mindate) ? req.query.mindate : "(SELECT MIN(day_date) from budget_data)";
     let maxDate = (req.query.maxdate) ? req.query.maxdate : "(SELECT MAX(day_date) from budget_data)";
-    let minAmountCents = (req.query.mincents) ? req.query.mincents : 0; // -infinity TODO: make it 0
+    let minAmountCents = (req.query.mincents) ? req.query.mincents : 0;
     let maxAmountCents = (req.query.maxcents) ? req.query.maxcents : 9223372036854775807; //infinity
 
     //ORDER BY COLUMN
@@ -67,11 +67,11 @@ app.get('/budget', (req, res) => {
 app.post('/budget', (req, res) => {
     let day_date = req.body.day_date;
     let category = req.body.category;
-    let amount_cents = req.body.amount_cents;
+    let amount = req.body.amount * 100;
     let details = req.body.details;
 
     let insertNewEntry = "INSERT INTO budget_data (id, day_date, category, amount_cents, details) VALUES (0, ?, ?, ?, ?);";
-    mysqlConnection.query(insertNewEntry, [day_date, category, amount_cents, details], (err, results, fields) => {
+    mysqlConnection.query(insertNewEntry, [day_date, category, amount, details], (err, results, fields) => {
         if (err) {
             throw err;
         } else {
@@ -99,10 +99,10 @@ app.put('/budget', (req, res) => {
     let id = req.query.id;
     let date = req.query.date;
     let category = req.query.category;
-    let amountCents = req.query.amountCents;
+    let amount = req.query.amount * 100;
     let details = req.query.details;
 
-    let updateQuery = `UPDATE budget_data SET day_date = '${date}', category = '${category}', amount_cents = ${amountCents}, details = '${details}' WHERE ID = ${id}`;
+    let updateQuery = `UPDATE budget_data SET day_date = '${date}', category = '${category}', amount_cents = ${amount}, details = '${details}' WHERE ID = ${id}`;
     mysqlConnection.query(updateQuery, (err, results, fields) => {
         if (err) {
             throw err;

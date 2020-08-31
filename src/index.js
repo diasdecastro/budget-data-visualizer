@@ -93,35 +93,55 @@ function changeOrder(column, order, columnName){
 function filters() {
     /* Date */
     if (!document.getElementById("dateFilter").innerHTML){
-
     
         let dateCol = document.getElementById("dateFilter");
-        dateCol.innerHTML = "<input id='minDate' name='minDate' type='date' value='2000-01-01'>" +
-                "<lable for='minDate'>Min Date</lable>" +
-                "<input id='maxDate' name='maxDate' type='date' value='2030-01-01'>" +
-                "<label for='maxDate'>Max Date</label>";
+        dateCol.innerHTML = "<lable for='minDate'>Min Date</lable>" +        
+                "<input id='minDate' name='minDate' type='date' value='2000-01-01'>" +
+                "<label for='maxDate'>Max Date</label>" +
+                "<input id='maxDate' name='maxDate' type='date' value='2030-01-01'>";
 
         /* Category */
 
         let categoryCol = document.getElementById("categoryFilter");
-        categoryCol.innerHTML = "<input type='checkbox' name='housing'>" +
-                        "<lable for='Housing'>Housing</lable>" +
-                        "<input type='checkbox' name='Tranportation'>" +
-                        "<lable for='Transportation'>Transportation</lable>" +
-                        "<input type='checkbox' name='Food'>" +
-                        "<lable for='Food'>Food</lable>" +
-                        "<input type='checkbox' name='Utilities'>" +
-                        "<lable for='Utilities'>Utilities</lable>" +
-                        "<input type='checkbox' name='Insurence'>" +
-                        "<lable for='Insurance'>Insurence</lable>" +
-                        "<input type='checkbox' name='Health'>" +
-                        "<lable for='Health'>Health</lable>" +
-                        "<input type='checkbox' name='Saving'>" +
-                        "<lable for='Saving'>Saving</lable>" +
-                        "<input type='checkbox' name='Other'>" +
-                        "<lable for='Other'>Other</lable>"
+        categoryCol.innerHTML = "<div class='categCol'>" +
+                                    "<div class='input'>" +
+                                        "<input class='categoryCheck' type='checkbox' name='housing'>" +
+                                        "<lable for='Housing'>Housing</lable>" +
+                                    "</div>" +
+                                    "<div class='input'>" +
+                                        "<input class='categoryCheck' type='checkbox' name='Tranportation'>" +
+                                        "<lable for='Transportation'>Transportation</lable>" +
+                                    "</div>" +
+                                    "<div class='input'>" +
+                                        "<input class='categoryCheck' type='checkbox' name='Food'>" +
+                                        "<lable for='Food'>Food</lable>" +
+                                    "</div>" +
+                                    "<div class='input'>" +
+                                        "<input class='categoryCheck' type='checkbox' name='Utilities'>" +
+                                        "<lable for='Utilities'>Utilities</lable>" +
+                                     "</div>" +
+                                "</div>" +
+                                "<div class='categCol'>" +
+                                    "<div class='input'>" +
+                                        "<input class='categoryCheck' type='checkbox' name='Insurence'>" +
+                                        "<lable for='Insurance'>Insurence</lable>" +
+                                    "</div>" +
+                                    "<div class='input'>" +
+                                        "<input class='categoryCheck' type='checkbox' name='Health'>" +
+                                        "<lable for='Health'>Health</lable>" +
+                                    "</div>" + 
+                                    "<div class='input'>" +
+                                        "<input class='categoryCheck' type='checkbox' name='Saving'>" +
+                                        "<lable for='Saving'>Saving</lable>" +
+                                    "</div>"+
+                                    "<div class='input'>" +
+                                        "<input class='categoryCheck' type='checkbox' name='Other'>" +
+                                        "<lable for='Other'>Other</lable>" +
+                                    "</div>" +
+                                "</div>";
 
         /* Amount */
+
         let amountCol = document.getElementById("amountFilter");
 
         let slider = document.createElement("div");
@@ -137,13 +157,16 @@ function filters() {
 
         /* output of slider values */
 
+        let minValueSpan = document.createElement("div");
+        minValueSpan.id = "minValueSpan";
         let showMinValue = document.createElement("input");
         showMinValue.id = "minAmount";
         showMinValue.type = "number";
         showMinValue.name = "minAmount";
         showMinValue.step = "0.01";
         
-        
+        let maxValueSpan = document.createElement("div");
+        maxValueSpan.id = "maxValueSpan";
         let showMaxValue = document.createElement("input");
         showMaxValue.id = "maxAmount";
         showMaxValue.type = "number";
@@ -152,8 +175,10 @@ function filters() {
         showMaxValue.setAttribute("form", "filterForm");
 
             
-        amountCol.appendChild(showMinValue);
-        amountCol.appendChild(showMaxValue);
+        minValueSpan.appendChild(showMinValue);
+        maxValueSpan.appendChild(showMaxValue);
+        amountCol.appendChild(minValueSpan);
+        amountCol.appendChild(maxValueSpan);
         
         slider.noUiSlider.on('update', () => {
             showMinValue.value = slider.noUiSlider.get()[0];
@@ -168,6 +193,10 @@ function filters() {
             slider.noUiSlider.set([showMinValue.value, showMaxValue.value]);
         });
 
+        /* Button to submit filters */
+
+        let submitContainer = document.createElement("div");
+        submitContainer.id = "submitContainer";
         let submit = document.createElement("button");
         submit.innerHTML = "Submit";
         submit.addEventListener('click', () => {
@@ -178,15 +207,27 @@ function filters() {
             changeFilters(minDate, maxDate, minAmount, maxAmount);
         });
 
-        document.getElementById("filters").appendChild(submit);
+        submitContainer.appendChild(submit);
+        document.getElementById("filters").appendChild(submitContainer);
     }
 }
 
 function changeFilters(minDate, maxDate, minAmount, maxAmount) {
+
+    let categoryCheckElems = document.getElementsByClassName("categoryCheck");
+    let chekedBoxes = [];
+
+    for(let i = 0; i < categoryCheckElems.length; i++){
+        if (categoryCheckElems[i].checked) {
+            chekedBoxes.push(categoryCheckElems[i].name);
+        }
+    }    
+
     console.log("Min Date" + minDate);
     console.log("Max Date" + maxDate);
     console.log("Min Amount" + minAmount);
     console.log("Max Amount" + maxAmount);
+    console.log("Selected categories " + chekedBoxes.toString());
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -261,9 +302,8 @@ function createInsertEditForm(action, editId) {
                     getEntries();
                 }
                 newRow.remove();
-            };
+            }
         });
-
     } else {
         return 0;
     }   
@@ -293,10 +333,12 @@ function editDeleteButton(row, id) {
     row.appendChild(deleteElem);
 }
 
-/* Change Order handlers */
+/* Event listeners */
 
 function addEventsForWindow() {
+
     /* Order elements */
+
     document.getElementById("sortDate").addEventListener("click", () => { 
         changeOrder("day_date", dateOrder, "dateOrder"); 
     });
@@ -313,6 +355,19 @@ function addEventsForWindow() {
         createInsertEditForm('insert');
     });
     
+    /* hide, collapse filters */
+
+    let filterContainer = document.getElementById("filters");
+    let hideCollapseButton = document.getElementById("hideCollapse");
+    hideCollapseButton.addEventListener("click", () => {
+        if (filterContainer.className == "filter hidden") {
+            hideCollapseButton.className = "fa fa-angle-up";
+            filterContainer.className = "filter collapse";
+        } else {
+            hideCollapseButton.className = "fa fa-angle-down";
+            filterContainer.className = "filter hidden";
+        }
+    });
 }
 
 

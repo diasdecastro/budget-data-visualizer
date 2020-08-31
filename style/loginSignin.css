@@ -80,3 +80,112 @@ input, select {
 #topbarList li:hover {
     cursor: pointer;
 }
+
+#filters {
+    display: block;
+    min-height: 5vh;
+    width: 61vw;
+    margin: 3% auto 3% auto;
+    overflow: auto;
+    background-color: blanchedalmond;
+}
+
+#filterTable {
+    border: none;
+}
+
+.date, #dateFilter {        
+    width: 20%;
+}
+
+#dateFilter{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border: none
+}
+
+.category, #categoryFilter {
+    width: 40%;
+}
+
+.categCol {
+    width: 50%;
+    float: left;
+}
+
+#maxValueSpan, #minValueSpan {
+    display: inline-block;
+    width: 50%;
+    position: relative;
+    margin: 10% 0 0 0;
+}
+
+
+#minAmount, #maxAmount {
+    width: 88%;
+    float: left;
+    border: 0;
+    padding: 0 10% 0 1%;
+    border: 1px solid black;
+}
+
+#maxValueSpan:after, #minValueSpan:after {
+    position: absolute;
+    color: black;    
+    top: 10%;
+    content:"€";
+    right: 3%;
+}
+
+.noUi-target.noUi-ltr.noUi-horizontal.noUi-background {
+    width: 90%;
+    margin: 0 auto;
+}
+
+
+#submitContainer {
+    width: 100%;
+    /* display: flex;
+    justify-content: center; */  
+    text-align: center;  
+    margin: 2% auto 2% auto; 
+    
+}
+
+#submitContainer button {
+    padding: 1vw 2vw;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 0.9em;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    border: 2px solid #4CAF50;
+  }
+  
+  #submitContainer button:hover {
+    background-color: #4CAF50;
+    color: white;
+  }
+
+  .hidden *{
+    display: none;
+  }
+
+  #filters h2{
+    display: block;
+    text-align: center;
+
+}
+
+.fa-angle-down, .fa-angle-up{
+    float: right;
+    margin-right: 5%;
+}
+
+.fa-angle-down:hover, .fa-angle-up:hover{
+    cursor: pointer;
+}

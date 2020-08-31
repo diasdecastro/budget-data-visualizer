@@ -1,6 +1,10 @@
+
+/* List */
+
 body {
     margin: 0;
     padding: 0;
+    background-color: lightgray;
 }
 
 table {
@@ -47,6 +51,9 @@ input, select {
     cursor: pointer;
 }
 
+/* Topbar */
+
+
 #topbar {
     height: 3em;
     background-color: gray;
@@ -81,12 +88,14 @@ input, select {
     cursor: pointer;
 }
 
+/* Filters */
+
+
 #filters {
     display: block;
-    min-height: 5vh;
     width: 61vw;
-    margin: 3% auto 3% auto;
-    overflow: auto;
+    margin: 0 auto 3% auto;
+    overflow: hidden;
     background-color: blanchedalmond;
 }
 
@@ -171,14 +180,31 @@ input, select {
     color: white;
   }
 
-  .hidden *{
-    display: none;
+  .hidden{
+    max-height: 0px;
+    -webkit-transition: max-height 0.3s linear;
+       -moz-transition: max-height 0.3s linear;
+        -ms-transition: max-height 0.3s linear;
+         -o-transition: max-height 0.3s linear;
+            transition: max-height 0.3s linear;
   }
 
-  #filters h2{
+  .collapse {
+    height: auto;
+    max-height: 300px;
+    -webkit-transition: max-height 0.3s linear;
+       -moz-transition: max-height 0.3s linear;
+        -ms-transition: max-height 0.3s linear;
+         -o-transition: max-height 0.3s linear;
+            transition: max-height 0.3s linear;
+  }
+
+  .filterToggle{
     display: block;
     text-align: center;
-
+    background-color: blanchedalmond;
+    width:61vw;
+    margin: 3% auto 0 auto;
 }
 
 .fa-angle-down, .fa-angle-up{
@@ -188,4 +214,5 @@ input, select {
 
 .fa-angle-down:hover, .fa-angle-up:hover{
     cursor: pointer;
+    color: turquoise;
 }

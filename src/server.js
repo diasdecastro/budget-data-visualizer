@@ -38,21 +38,29 @@ app.listen(3000, () => console.log("Express server is runnung at port 3000"));
 //get entries
 app.get('/budget', (req, res) => {    
     //FILTERS TODO: Handle categories filters
-    let minDate = (req.query.mindate) ? req.query.mindate : "(SELECT MIN(day_date) from budget_data)";
-    let maxDate = (req.query.maxdate) ? req.query.maxdate : "(SELECT MAX(day_date) from budget_data)";
-    let minAmountCents = (req.query.mincents) ? req.query.mincents : 0;
-    let maxAmountCents = (req.query.maxcents) ? req.query.maxcents : 9223372036854775807; //infinity
+    let minDate = (req.query.mindate != "undefined") ? "\'" + req.query.mindate + "\'" : "(SELECT MIN(day_date) from budget_data)";
+    let maxDate = (req.query.maxdate != "undefined") ? "\'" + req.query.maxdate + "\'" : "(SELECT MAX(day_date) from budget_data)";
+    let minAmountCents = (req.query.mincents != "undefined") ? req.query.mincents : 0;
+    let maxAmountCents = (req.query.maxcents != "undefined") ? req.query.maxcents : 9223372036854775807; //infinity
+    let categoryArr = req.query.category; //returns elements of the category Array as a string e.g. "Housing, Other"
+    let categoryHandler = "";
+    
+    if (categoryArr.length > 0) {
+        categoryHandler = "AND category in " + "(" + categoryArr + ")";        
+    }
 
     //ORDER BY COLUMN
-    let column = (!"undefined") ? req.query.column : "day_date";
-    let order = (!"undefined") ? req.query.order : "desc";
+    let column = (req.query.column != "undefined") ? req.query.column : "day_date";
+    let order = (req.query.order != "undefined") ? req.query.order : "desc";
     
-    let mySqlQuery = `SELECT * FROM budget_data WHERE day_date >= ${minDate} AND day_date <= ${maxDate} AND amount_cents >= ${minAmountCents} AND amount_cents <= ${maxAmountCents} ORDER BY ${column} ${order};`;    
+    let mySqlQuery = `SELECT * FROM budget_data WHERE day_date >= ${minDate} AND day_date <= ${maxDate} AND amount_cents >= ${minAmountCents} AND amount_cents <= ${maxAmountCents} ${categoryHandler} ORDER BY ${column} ${order};`;
+    
+    console.log(mySqlQuery);
     mysqlConnection.query(mySqlQuery, (err, results, fields) => {
         if (err) {
             throw err;
         } else {
-            console.log(results);
+            // console.log(results);
             res.send(results);
         }
     });     

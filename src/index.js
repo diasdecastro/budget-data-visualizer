@@ -44,7 +44,7 @@ function makeList(entries) {
                     let day = new Date(results[i][prop]).getDate();
                     let month = new Date(results[i][prop]).getMonth();
                     let year = new Date(results[i][prop]).getFullYear();
-                    let dateString = day + "/" + month + "/" + year;
+                    let dateString = day + "/" + (month + 1) + "/" + year;
                     entry.innerHTML = dateString;
 
                 } else if(prop == "id") {
@@ -68,21 +68,18 @@ function makeList(entries) {
             }
         }
     }
-    addEventsForWindow();
-        
-    
-         
+    addEventsForWindow();        
 }
 
 /* Order data */    
 
 function changeOrder(column, order, columnName){    
     if (order == "asc") {
-        handleChanges(column, order);
+        getEntries(column, order);
         window[orderCol] = column;
         window[columnName] = "desc";
     } else {
-        handleChanges(column, order);
+        getEntries(column, order);
         window[orderCol] = column;
         window[columnName] = "asc";
     }
@@ -223,11 +220,12 @@ function changeFilters(minDate, maxDate, minAmount, maxAmount) {
         }
     }    
 
-    console.log("Min Date" + minDate);
+    getEntries("day_date", "desc", minDate, maxDate, minAmount*100, maxAmount*100, chekedBoxes);
+    /* console.log("Min Date" + minDate);
     console.log("Max Date" + maxDate);
     console.log("Min Amount" + minAmount);
     console.log("Max Amount" + maxAmount);
-    console.log("Selected categories " + chekedBoxes.toString());
+    console.log("Selected categories " + chekedBoxes.toString()); */
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -375,11 +373,18 @@ function addEventsForWindow() {
 
 /* AJAX requests */
 
-function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCents) {
+function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCents, categories) {
     //filters();
     let httpRequest = new XMLHttpRequest();
+    console.log(minAmountCents + " " + maxAmountCents);
+    let categ = (categories) ? categories : [];
+    let categoryArray = [];
 
-    httpRequest.open("GET", `http://localhost:3000/budget?minDate=${minDate}&maxDate=${maxDate}&minAmountCents=${minAmountCents}&maxAmountCents=${maxAmountCents}&column=${column}&order=${order}`, true);
+    for (let i = 0; i < categ.length; i++) {
+        categoryArray.push("\'" + categ[i] + "\'")
+    }
+
+    httpRequest.open("GET", `http://localhost:3000/budget?mindate=${minDate}&maxdate=${maxDate}&mincents=${minAmountCents}&maxcents=${maxAmountCents}&category=${categoryArray}&column=${column}&order=${order}`, true);
     httpRequest.send();
 
     httpRequest.onreadystatechange = () => {

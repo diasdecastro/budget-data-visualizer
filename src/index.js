@@ -2,11 +2,25 @@
 
 /* Global variables */
 
-var orderCol = "day_date"
-var dateOrder = "asc";
-var categoryOrder = "desc";
-var amountOrder = "desc";
-var detailsOrder = "desc";
+var orderCol = "day_date"; //ordered by this column
+
+/* order varables */
+var day_date = "asc";
+var category = "desc";
+var amount_cents = "desc";
+var details = "desc";
+
+/* filter variables */
+var minDateVar = "2000-01-01";
+var maxDateVar = "2030-01-01";
+var categoriesVar;
+var minAmountVar = 0;
+var maxAmountVar = 9223372036854775807; //infinity
+
+/* helpers to check if insert or hide/collapse filters have events */
+var insertHasEvent = false;
+var hideCollapseHasEvent = false;
+
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -73,16 +87,15 @@ function makeList(entries) {
 
 /* Order data */    
 
-function changeOrder(column, order, columnName){    
+function changeOrder(column, order){    
     if (order == "asc") {
-        getEntries(column, order);
-        window[orderCol] = column;
-        window[columnName] = "desc";
+        orderCol = column;
+        window[column] = "desc";
     } else {
-        getEntries(column, order);
-        window[orderCol] = column;
-        window[columnName] = "asc";
+        orderCol = column;
+        window[column] = "asc";
     }
+    getEntries(column, order, minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
 }
 
 /* Filter data */
@@ -220,12 +233,13 @@ function changeFilters(minDate, maxDate, minAmount, maxAmount) {
         }
     }    
 
-    getEntries("day_date", "desc", minDate, maxDate, minAmount*100, maxAmount*100, chekedBoxes);
-    /* console.log("Min Date" + minDate);
-    console.log("Max Date" + maxDate);
-    console.log("Min Amount" + minAmount);
-    console.log("Max Amount" + maxAmount);
-    console.log("Selected categories " + chekedBoxes.toString()); */
+    minDateVar = minDate;
+    maxDateVar = maxDate;
+    minAmountVar = minAmount;
+    maxAmountVar = maxAmount;
+    categoriesVar = chekedBoxes;
+
+    getEntries("day_date", "desc", minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -239,7 +253,7 @@ function createInsertEditForm(action, editId) {
             rootElem.innerHTML = `<form method='POST' id='insertForm' onsubmit='insertNewEntry(this.date.value, this.category.value, this.amount.value, this.details.value); return false'></form>` + 
                                 "<input id='insertSubmit' type='submit' style='position:absolute; visibility: hidden; z-index:-1;'  form='insertForm'>" + rootElem.innerHTML;
         } else if (action == "edit") {
-            rootElem.innerHTML = `<form method='POST' id='insertForm' onsubmit='editEntry(${editId}, this.date.value, this.category.value, this.amount.value, this.details.value); return false'></form>` + 
+            rootElem.innerHTML = `<form method='POST' id='insertForm' onsubmit='editEntry(${editId}, this.date.value, this.category.value, this.amount.value, this.details.value, ${orderCol}); return false'></form>` + 
                                 "<input id='insertSubmit' type='submit' style='position:absolute; visibility: hidden; z-index:-1;'  form='insertForm'>" + rootElem.innerHTML;
         
         }
@@ -267,7 +281,6 @@ function createInsertEditForm(action, editId) {
         if (action == "insert"){
             tableBodyElem.insertBefore(newRow, tableBodyElem.firstChild);
         } else if (action == "edit") {
-            console.log(editId);
             editElem = document.querySelector(`tr[db_id="${editId}"]`);
             editElem.innerHTML = newRow.innerHTML;
         }
@@ -304,7 +317,8 @@ function createInsertEditForm(action, editId) {
         });
     } else {
         return 0;
-    }   
+    } 
+    addEventsForWindow();  
 }
 
 function editDeleteButton(row, id) {
@@ -323,7 +337,6 @@ function editDeleteButton(row, id) {
     editElem.className = "editEntry";
     editElem.innerHTML = "<i class='fa fa-edit'></i>";
     editElem.addEventListener("click", () => { //onclick call editEntry function
-        console.log(editElem.id);
         createInsertEditForm("edit", editElem.id);
     });
 
@@ -335,37 +348,49 @@ function editDeleteButton(row, id) {
 
 function addEventsForWindow() {
 
-    /* Order elements */
-
-    document.getElementById("sortDate").addEventListener("click", () => { 
-        changeOrder("day_date", dateOrder, "dateOrder"); 
-    });
-    document.getElementById("sortCategory").addEventListener("click", () => { 
-        changeOrder("category", categoryOrder, "categoryOrder"); 
-    });
-    document.getElementById("sortAmount").addEventListener("click", () => { 
-        changeOrder("amount_cents", amountOrder, "amountOrder"); 
-    });
-    document.getElementById("sortDetails").addEventListener("click", () => { 
-        changeOrder("details", detailsOrder, "detailsOrder");
-    });    
-    document.getElementById("insertEntry").addEventListener("click", () => {
-        createInsertEditForm('insert');
-    });
-    
     /* hide, collapse filters */
 
     let filterContainer = document.getElementById("filters");
     let hideCollapseButton = document.getElementById("hideCollapse");
-    hideCollapseButton.addEventListener("click", () => {
-        if (filterContainer.className == "filter hidden") {
-            hideCollapseButton.className = "fa fa-angle-up";
-            filterContainer.className = "filter collapse";
-        } else {
-            hideCollapseButton.className = "fa fa-angle-down";
-            filterContainer.className = "filter hidden";
-        }
+    if (!hideCollapseHasEvent){
+        hideCollapseButton.addEventListener("click", () => {
+            if (filterContainer.className == "filter hidden") {
+                hideCollapseButton.className = "fa fa-angle-up";
+                filterContainer.className = "filter collapse";
+                console.log("collapse");
+            } else {
+                hideCollapseButton.className = "fa fa-angle-down";
+                filterContainer.className = "filter hidden";
+                console.log("hidden");
+            }
+        });
+
+        hideCollapseHasEvent = true;
+    }
+    
+
+    /* Order elements */
+
+    document.getElementById("sortDate").addEventListener("click", () => { 
+        changeOrder("day_date", day_date);
     });
+    document.getElementById("sortCategory").addEventListener("click", () => { 
+        changeOrder("category", category); 
+    });
+    document.getElementById("sortAmount").addEventListener("click", () => { 
+        changeOrder("amount_cents", amount_cents); 
+    });
+    document.getElementById("sortDetails").addEventListener("click", () => { 
+        changeOrder("details", details);
+    });
+    if (!insertHasEvent){
+        document.getElementById("insertEntry").addEventListener("click", () => {
+            createInsertEditForm('insert');
+        }); 
+        insertHasEvent = true;
+    }   
+      
+    
 }
 
 
@@ -374,9 +399,8 @@ function addEventsForWindow() {
 /* AJAX requests */
 
 function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCents, categories) {
-    //filters();
+
     let httpRequest = new XMLHttpRequest();
-    console.log(minAmountCents + " " + maxAmountCents);
     let categ = (categories) ? categories : [];
     let categoryArray = [];
 
@@ -459,7 +483,7 @@ function deleteEntry(id) {
 
 /* edit entry */
 
-function editEntry(id, date, category, amount, details) {   
+function editEntry(id, date, category, amount, details, keepOrderCol) {   
     let httpRequest = new XMLHttpRequest();
 
     httpRequest.open("PUT", `http://localhost:3000/budget?id=${id}&date=${date}&category=${category}&amount=${amount}&details=${details}`);
@@ -469,9 +493,16 @@ function editEntry(id, date, category, amount, details) {
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
                 console.log("Entry updated");
-                getEntries();
+                console.log(orderCol);
+                console.log(keepOrderCol);
+                console.log(minDateVar);
+                console.log(maxDateVar);
+                console.log(minAmountVar);
+                console.log(maxAmountVar);
+                console.log(categoriesVar);
+                getEntries(orderCol, keepOrderCol, minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
             } else {
-                alert("Something wrong")
+                alert("Something wrong");
             }
         }
     }

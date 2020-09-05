@@ -20,6 +20,7 @@ var maxAmountVar = 9223372036854775807; //infinity
 /* helpers to check if insert or hide/collapse filters have events */
 var insertHasEvent = false;
 var hideCollapseHasEvent = false;
+var escapeRemoveEvent = false;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -37,11 +38,11 @@ function makeList(entries) {
     let listTableELem = document.getElementById("listTable");
     listTableELem.innerHTML = "<thead>" + 
                                     "<tr>" + 
-                                        "<th id='dateCol'>Date   <a id='sortDate' href='#'><i class='fa fa-sort'></i></a></th>" + 
+                                        "<th id='dateCol'><span class='dateSpan'>Date</span>   <a id='sortDate' href='#'><i class='fa fa-sort'></i></a></th>" + 
                                         "<th id='categoryCol'>Category   <a id='sortCategory' href='#'><i class='fa fa-sort'></i></a></th>" + 
                                         "<th id='amountCol'>Amount   <a id='sortAmount' href='#'><i class='fa fa-sort'></i></a></th>" +
-                                        "<th id='categoryCol'>Details   <a id='sortDetails' href='#'><i class='fa fa-sort'></i></a></th>" +
-                                        "<th></th>" + 
+                                        "<th id='detailsCol'>Details   <a id='sortDetails' href='#'><i class='fa fa-sort'></i></a></th>" +
+                                        "<th id='action'>Action</th>" + 
                                     "</tr>"+ 
                                 "</thead>" +
                                 "<tbody id='tableBody'></tbody>";    
@@ -74,7 +75,11 @@ function makeList(entries) {
                         style: 'currency',
                         currency: 'EUR'
                     });
-                    entry.innerHTML = formatter.format(results[i][prop] / 100);                                        
+                    entry.innerHTML = formatter.format(results[i][prop] / 100);
+                } else if (prop == "details") {
+                    let container = document.createElement("div");
+                    container.innerHTML = results[i][prop];
+                    entry.appendChild(container);                                                     
                 } else {
                     entry.innerHTML = results[i][prop];
                 }
@@ -105,10 +110,12 @@ function filters() {
     if (!document.getElementById("dateFilter").innerHTML){
     
         let dateCol = document.getElementById("dateFilter");
-        dateCol.innerHTML = "<lable for='minDate'>Min Date</lable>" +        
+        let dateContainer = document.createElement("div");
+        dateContainer.innerHTML = "<lable for='minDate'>Min Date</lable>" +        
                 "<input id='minDate' name='minDate' type='date' value='2000-01-01'>" +
                 "<label for='maxDate'>Max Date</label>" +
                 "<input id='maxDate' name='maxDate' type='date' value='2030-01-01'>";
+        dateCol.appendChild(dateContainer);
 
         /* Category */
 
@@ -156,7 +163,7 @@ function filters() {
 
         let slider = document.createElement("div");
         noUiSlider.create(slider, {
-            start: [2000, 8000],
+            start: [0, 10000],
             connect: true,
             range: {
                 'min': 0,
@@ -247,7 +254,7 @@ function changeFilters(minDate, maxDate, minAmount, maxAmount) {
 /* Helper functions */
 
 function createInsertEditForm(action, editId) {
-    if (!document.getElementById("formRow")){ //if for element doesn't already exist, create one
+    if (!document.getElementById("insertForm")){ //if for element doesn't already exist, create one
         let rootElem = document.getElementById("root");
         if (action == "insert") {
             rootElem.innerHTML = `<form method='POST' id='insertForm' onsubmit='insertNewEntry(this.date.value, this.category.value, this.amount.value, this.details.value); return false'></form>` + 
@@ -273,7 +280,7 @@ function createInsertEditForm(action, editId) {
                             "<option value='Other'>Other</option>" +
                         "</select>" +
                         "</td>" +
-                        "<td><input type='number' step='0.01' min='0' max='9223372036854775806' name='amount' placeholder='Insert Amount' autocomplete='off' form='insertForm' required/></td>" +
+                        "<td><input type='number' step='0.01' min='0' max='10000' name='amount' placeholder='Insert Amount' autocomplete='off' form='insertForm' required/></td>" +
                         "<td><input type='text' name='details' placeholder='Insert Details' autocomplete='off' form='insertForm' required/></td>" +
                         "<td class='cancel'><i class='fa fa-times'></i></td>";
                         
@@ -282,13 +289,18 @@ function createInsertEditForm(action, editId) {
             tableBodyElem.insertBefore(newRow, tableBodyElem.firstChild);
         } else if (action == "edit") {
             editElem = document.querySelector(`tr[db_id="${editId}"]`);
+            editElem.className = "editRow";
             editElem.innerHTML = newRow.innerHTML;
         }
 
         document.querySelectorAll('.cancel').forEach( item => {
             item.addEventListener("click", () => {
 
-                if (document.getElementById("insertForm") && document.getElementById("insertSubmit")){
+                if (action == "edit") {
+                    document.getElementById("insertForm").remove();
+                    document.getElementById("insertSubmit").remove();
+                    getEntries(orderCol, window[orderCol], minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
+                } else if (document.getElementById("insertForm") && document.getElementById("insertSubmit")){
                     //if elements exist
                     document.getElementById("insertForm").remove();
                     document.getElementById("insertSubmit").remove();
@@ -298,23 +310,26 @@ function createInsertEditForm(action, editId) {
         });
 
 
+        if (!escapeRemoveEvent) {
+
+            document.addEventListener('keydown', (e) => {
+                if (e.keyCode === 27) { //if escape key gets pressed, delete insert form
+    
+                    if (action == "edit") {                   
+                        document.getElementById("insertForm").remove();
+                        document.getElementById("insertSubmit").remove();
+                        getEntries(orderCol, window[orderCol], minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
+                    } else if (document.getElementById("insertForm") && document.getElementById("insertSubmit")){
+                        //if elements exist
+                        document.getElementById("insertForm").remove();
+                        document.getElementById("insertSubmit").remove();
+                    }
+                    newRow.remove();
+                }
+            });
+            escapeRemoveEvent = true;
+        }
         
-        document.addEventListener('keydown', (e) => {
-            if (e.keyCode === 27) { //if escape key gets pressed, delete insert form
-
-                /* removeInsertEditForm(newRow, "edit"); */
-
-                if (document.getElementById("insertForm") && document.getElementById("insertSubmit")){
-                    //if elements exist
-                    document.getElementById("insertForm").remove();
-                    document.getElementById("insertSubmit").remove();
-                }
-                if (action == "edit") {                   
-                    getEntries();
-                }
-                newRow.remove();
-            }
-        });
     } else {
         return 0;
     } 
@@ -349,7 +364,7 @@ function editDeleteButton(row, id) {
 function addEventsForWindow() {
 
     /* hide, collapse filters */
-
+    let filterToggle = document.getElementById("filterToggle");
     let filterContainer = document.getElementById("filters");
     let hideCollapseButton = document.getElementById("hideCollapse");
     if (!hideCollapseHasEvent){
@@ -357,11 +372,13 @@ function addEventsForWindow() {
             if (filterContainer.className == "filter hidden") {
                 hideCollapseButton.className = "fa fa-angle-up";
                 filterContainer.className = "filter collapse";
-                console.log("collapse");
+                filterToggle.className = "collapseToggle";
+                /* console.log("collapse"); */
             } else {
                 hideCollapseButton.className = "fa fa-angle-down";
                 filterContainer.className = "filter hidden";
-                console.log("hidden");
+                filterToggle.className = "hiddenToggle";
+                /* console.log("hidden"); */
             }
         });
 
@@ -408,7 +425,7 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
         categoryArray.push("\'" + categ[i] + "\'")
     }
 
-    httpRequest.open("GET", `http://localhost:3000/budget?mindate=${minDate}&maxdate=${maxDate}&mincents=${minAmountCents}&maxcents=${maxAmountCents}&category=${categoryArray}&column=${column}&order=${order}`, true);
+    httpRequest.open("GET", `http://localhost:3000/list/budget?mindate=${minDate}&maxdate=${maxDate}&mincents=${minAmountCents}&maxcents=${maxAmountCents}&category=${categoryArray}&column=${column}&order=${order}`, true);
     httpRequest.send();
 
     httpRequest.onreadystatechange = () => {
@@ -430,7 +447,7 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
 function insertNewEntry(date, category, amount, details) {
     let httpRequest = new XMLHttpRequest();
 
-    httpRequest.open("POST", "http://localhost:3000/budget/", true);
+    httpRequest.open("POST", "http://localhost:3000/list/budget/", true);
     httpRequest.setRequestHeader("Content-Type", "application/json");
     httpRequest.send(JSON.stringify({
         "day_date": date,
@@ -462,7 +479,7 @@ function insertNewEntry(date, category, amount, details) {
 function deleteEntry(id) {
     let httpRequest = new XMLHttpRequest();
 
-    httpRequest.open("DELETE", `http://localhost:3000/budget?id=${id}`, true);
+    httpRequest.open("DELETE", `http://localhost:3000/list/budget?id=${id}`, true);
     httpRequest.send();
 
     httpRequest.onreadystatechange = () => {
@@ -486,20 +503,13 @@ function deleteEntry(id) {
 function editEntry(id, date, category, amount, details, keepOrderCol) {   
     let httpRequest = new XMLHttpRequest();
 
-    httpRequest.open("PUT", `http://localhost:3000/budget?id=${id}&date=${date}&category=${category}&amount=${amount}&details=${details}`);
+    httpRequest.open("PUT", `http://localhost:3000/list/budget?id=${id}&date=${date}&category=${category}&amount=${amount}&details=${details}`);
     httpRequest.send();
 
     httpRequest.onreadystatechange = () => {
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
                 console.log("Entry updated");
-                console.log(orderCol);
-                console.log(keepOrderCol);
-                console.log(minDateVar);
-                console.log(maxDateVar);
-                console.log(minAmountVar);
-                console.log(maxAmountVar);
-                console.log(categoriesVar);
                 getEntries(orderCol, keepOrderCol, minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
             } else {
                 alert("Something wrong");

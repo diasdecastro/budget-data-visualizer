@@ -6,43 +6,54 @@
     <title></title>
     <link href="//cdn.bootcss.com/noUiSlider/8.5.1/nouislider.min.css" rel="stylesheet">
     <script src="//cdn.bootcss.com/noUiSlider/8.5.1/nouislider.js"></script>
-    <link rel="stylesheet" href="./style/loginSignin.css">
+    <link rel="stylesheet" href="style/listPageStyle.css">
+    <link rel="stylesheet" href="style/noUIslider.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <script src="./src/index.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <script src="src/listPage.js"></script>
 </head>
 <body onload="getEntries();">
-    <h1>TODO: SORT FILTERED CONTENT</h1>
     <header id="topbar">
         <ul id="topbarList">
-            <li id="insertEntry">Insert New Entry</li>
-            <li id="statistics">Statistics</li>
+            <div class='middleContent'>
+                <li id="insertEntry">Insert New Entry</li>
+                <li id="statistics">Statistics</li>
+            </div>
+            <div class='rightContent'>
+                <li id='logout'>Logout</li>
+            </div>
+            
         </ul>
     </header>
-    <h2 class='filterToggle'>
-        Filters
-        <i id="hideCollapse" class="fa fa-angle-down"></i>
-    </h2>
-    <div id="filters" class='filter hidden'>
-        <form id="filterForm" onsubmit="changeFilters(this.minDate.value, this.maxDate.value, this.minAmount.value, this.maxAmount.value); return false"></form>
-        
-        
-        <table id="filterTable">
-            <thead>
-                <tr>
-                    <th class='date'>Date</th>
-                    <th class='category'>Category</th>
-                    <th class='amount'>Amount</th>
-                </tr>
-            </thead>
-            <tbody id="filterBody">
-                <tr>
-                    <td id="dateFilter"></td>
-                    <td id="categoryFilter"></td>
-                    <td id='amountFilter'></td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+    <div id='filterToggle' class='hiddenToggle'>
+        <h2>
+            Filters
+            <i id="hideCollapse" class="fa fa-angle-down"></i>
+        </h2>
+
+        <div id="filters" class='filter hidden'>
+            <form id="filterForm" onsubmit="changeFilters(this.minDate.value, this.maxDate.value, this.minAmount.value, this.maxAmount.value); return false"></form>
+            
+            
+            <table id="filterTable">
+                <thead>
+                    <tr>
+                        <th class='date'>Date</th>
+                        <th class='category'>Category</th>
+                        <th class='amount'>Amount</th>                        
+                    </tr>
+                </thead>
+                <tbody id="filterBody">
+                    <tr>
+                        <td id="dateFilter"></td>
+                        <td id="categoryFilter"></td>
+                        <td id='amountFilter'></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>   
+    
     <div id="root"></div>    
 </body>
 </html>

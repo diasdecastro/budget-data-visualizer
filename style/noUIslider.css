@@ -1,0 +1,32 @@
+/**** Custom styles for noUiSlider ****/
+.noUi-horizontal .noUi-handle {
+    background-color: black;
+    height: 1.1em;
+    width: 1.1em;
+    border-radius: 50%;
+    cursor: pointer;
+    margin-left: 0.5em;
+}
+
+.noUi-handle::after, .noUi-handle::before{
+    height: 0px;
+}
+
+/**** Custom styles for noUiSlider ****/
+.noUi-connect {
+    height: 0.4em;
+    cursor: pointer;
+    background: black;
+}
+
+.noUi-base {
+    height: 0.4em;
+    cursor: pointer;
+    background-color: white;
+}
+
+.noUi-target {
+    height: 0.4em;
+    background: white ;
+}
+

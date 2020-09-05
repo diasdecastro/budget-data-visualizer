@@ -1,6 +1,7 @@
 const mysql = require('mysql');
 const express = require('express');
 var app = express();
+const path = require('path');
 const bodyparser = require('body-parser');
 
 // CORS on ExpressJS
@@ -31,12 +32,18 @@ mysqlConnection.connect((err) => {
 
 app.listen(3000, () => console.log("Express server is runnung at port 3000"));
 
+app.use(express.static(path.join(__dirname, '/../')));
+
+app.get('/list', (req, res) => {
+    res.sendFile(path.join(__dirname, "/../index.html"));
+});
+
 //############################### OPERATIONS ON BUDGET_DATA TABLE (GETERS) #############################################
 
 //budget_data: day_date | category | amount_cents | details | id
 
 //get entries
-app.get('/budget', (req, res) => {    
+app.get('/list/budget', (req, res) => {    
     //FILTERS TODO: Handle categories filters
     let minDate = (req.query.mindate != "undefined") ? "\'" + req.query.mindate + "\'" : "(SELECT MIN(day_date) from budget_data)";
     let maxDate = (req.query.maxdate != "undefined") ? "\'" + req.query.maxdate + "\'" : "(SELECT MAX(day_date) from budget_data)";
@@ -72,7 +79,7 @@ app.get('/budget', (req, res) => {
 //############################### OPERATIONS ON BUDGET_DATA TABLE (SETERS) #############################################
 
 //insert new entry
-app.post('/budget', (req, res) => {
+app.post('/list/budget', (req, res) => {
     let day_date = req.body.day_date;
     let category = req.body.category;
     let amount = req.body.amount * 100;
@@ -89,7 +96,7 @@ app.post('/budget', (req, res) => {
 });
 
 //delete entry
-app.delete('/budget', (req, res) => {
+app.delete('/list/budget', (req, res) => {
     let id = req.query.id;
 
     let deleteQuery = "DELETE FROM budget_data WHERE id = ?;";
@@ -103,7 +110,7 @@ app.delete('/budget', (req, res) => {
 });
 
 /* update entry */
-app.put('/budget', (req, res) => {
+app.put('/list/budget', (req, res) => {
     let id = req.query.id;
     let date = req.query.date;
     let category = req.query.category;

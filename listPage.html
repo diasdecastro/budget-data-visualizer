@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title></title>
+    <title>List</title>
     <link href="//cdn.bootcss.com/noUiSlider/8.5.1/nouislider.min.css" rel="stylesheet">
     <script src="//cdn.bootcss.com/noUiSlider/8.5.1/nouislider.js"></script>
     <link rel="stylesheet" href="style/listPageStyle.css">
@@ -15,9 +15,12 @@
 <body onload="getEntries();">
     <header id="topbar">
         <ul id="topbarList">
+            <div class='leftContent'>
+                <li id='home'><a href="http://localhost:3000/">Home</a></li>
+            </div>
             <div class='middleContent'>
                 <li id="insertEntry">Insert New Entry</li>
-                <li id="statistics">Statistics</li>
+                <li id="statistics"><a href="http://localhost:3000/statistics">Statistics</a></li>
             </div>
             <div class='rightContent'>
                 <li id='logout'>Logout</li>

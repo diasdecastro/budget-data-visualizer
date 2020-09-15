@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics</title>
+    <link rel="stylesheet" href="style/statisticsPage.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="https://cdn.jsdelivr.net/gh/emn178/chartjs-plugin-labels/src/chartjs-plugin-labels.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-piechart-outlabels"></script>
+    <script src="src/statisticsPage.js"></script>
+</head>
+<body>
+    <header id="topbar">
+        <ul id="topbarList">
+            <div class='leftContent'>
+                <li id='home'><a href="http://localhost:3000/">Home</a></li>
+            </div>
+            <div class='middleContent'>
+                <li id="list"><a href="http://localhost:3000/statistics">List</a></li>
+                <!-- <li id="statistics"><a href="http://localhost:3000/statistics">Statistics</a></li> -->
+            </div>
+            <div class='rightContent'>
+                <li id='logout'>Logout</li>
+            </div>            
+        </ul>
+    </header>
+    <div id='root'>
+        <h1>Welcome to the Statistics Page</h1>
+
+        <div class="actionField">
+            <button id="weekStats" onclick="createForm('week');">Weekly</button>
+            <button id="monthStats" onclick="createForm('month');">Monthly</button>
+            <button id="yearStats" onclick="createForm('year');">Yearly</button>
+        </div>
+
+        
+
+        <div id='statisticsForm'></div>
+        <div id='inner'>
+            <div id="noData" style="display: none;">
+                <span id="noDataTitle"></span>
+                <h1>No data Available</h1>
+            </div>
+            <!-- <canvas id='canvasElem'></canvas> -->
+        </div>
+    </div>
+</body>
+</html>

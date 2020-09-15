@@ -1,0 +1,174 @@
+day_date;category;amount_cents;details;id
+"""2019-12-01""";"""Work""";100;"""Irgendwas""";1
+"""2019-12-02""";"""Food""";150;"""Irgendwas anderes""";2
+"""2019-12-03""";"""Other""";200;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";3
+"""2019-12-04""";"""Work""";250;"""Noch etwas""";4
+"""2019-12-05""";"""Food""";300;"""Wasser""";5
+"""2019-12-06""";"""Other""";350;"""Banane""";6
+"""2019-12-07""";"""Work""";400;"""Wasserbanane""";7
+"""2019-12-08""";"""Food""";450;"""Banane""";8
+"""2019-12-09""";"""Other""";500;"""Was war das nochmal?""";9
+"""2019-12-10""";"""Work""";550;"""Irgendwas""";10
+"""2019-12-11""";"""Food""";600;"""Irgendwas anderes""";11
+"""2019-12-12""";"""Other""";650;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";12
+"""2019-12-13""";"""Work""";700;"""Noch etwas""";13
+"""2019-12-14""";"""Food""";750;"""Wasser""";14
+"""2019-12-15""";"""Other""";800;"""Banane""";15
+"""2019-12-16""";"""Work""";850;"""Wasserbanane""";16
+"""2019-12-17""";"""Food""";900;"""Banane""";17
+"""2019-12-18""";"""Other""";950;"""Was war das nochmal?""";18
+"""2019-12-19""";"""Work""";1000;"""Irgendwas""";19
+"""2019-12-20""";"""Food""";1050;"""Irgendwas anderes""";20
+"""2019-12-21""";"""Other""";1100;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";21
+"""2019-12-22""";"""Work""";1150;"""Noch etwas""";22
+"""2019-12-23""";"""Food""";1200;"""Wasser""";23
+"""2019-12-24""";"""Other""";1250;"""Banane""";24
+"""2019-12-25""";"""Work""";1300;"""Wasserbanane""";25
+"""2019-12-26""";"""Food""";1350;"""Banane""";26
+"""2019-12-27""";"""Other""";1400;"""Was war das nochmal?""";27
+"""2019-12-28""";"""Work""";1450;"""Irgendwas""";28
+"""2019-12-29""";"""Food""";1500;"""Irgendwas anderes""";29
+"""2019-12-30""";"""Other""";1550;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";30
+"""2019-12-31""";"""Work""";1600;"""Noch etwas""";31
+"""2020-01-01""";"""Food""";1650;"""Wasser""";32
+"""2020-01-02""";"""Other""";1700;"""Banane""";33
+"""2020-01-03""";"""Work""";1750;"""Wasserbanane""";34
+"""2020-01-04""";"""Food""";1800;"""Banane""";35
+"""2020-01-05""";"""Other""";1850;"""Was war das nochmal?""";36
+"""2020-01-06""";"""Work""";1900;"""Irgendwas""";37
+"""2020-01-07""";"""Food""";1950;"""Irgendwas anderes""";38
+"""2020-01-08""";"""Other""";2000;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";39
+"""2020-01-09""";"""Work""";2050;"""Noch etwas""";40
+"""2020-01-10""";"""Food""";2100;"""Wasser""";41
+"""2020-01-11""";"""Other""";2150;"""Banane""";42
+"""2020-01-12""";"""Work""";2200;"""Wasserbanane""";43
+"""2020-01-13""";"""Food""";2250;"""Banane""";44
+"""2020-01-14""";"""Other""";2300;"""Was war das nochmal?""";45
+"""2020-01-15""";"""Work""";2350;"""Irgendwas""";46
+"""2020-01-16""";"""Food""";2400;"""Irgendwas anderes""";47
+"""2020-01-17""";"""Other""";2450;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";48
+"""2020-01-18""";"""Work""";2500;"""Noch etwas""";49
+"""2020-01-19""";"""Food""";2550;"""Wasser""";50
+"""2020-01-20""";"""Other""";2600;"""Banane""";51
+"""2020-01-21""";"""Work""";2650;"""Wasserbanane""";52
+"""2020-01-22""";"""Food""";2700;"""Banane""";53
+"""2020-01-23""";"""Other""";2750;"""Was war das nochmal?""";54
+"""2020-01-24""";"""Work""";2800;"""Irgendwas""";55
+"""2020-01-25""";"""Food""";2850;"""Irgendwas anderes""";56
+"""2020-01-26""";"""Other""";2900;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";57
+"""2020-01-27""";"""Work""";2950;"""Noch etwas""";58
+"""2020-01-28""";"""Food""";3000;"""Wasser""";59
+"""2020-01-29""";"""Other""";3050;"""Banane""";60
+"""2020-01-30""";"""Work""";3100;"""Wasserbanane""";61
+"""2020-01-31""";"""Food""";3150;"""Banane""";62
+"""2020-02-01""";"""Other""";3200;"""Was war das nochmal?""";63
+"""2020-02-02""";"""Work""";3250;"""Irgendwas""";64
+"""2020-02-03""";"""Food""";3300;"""Irgendwas anderes""";65
+"""2020-02-04""";"""Other""";3350;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";66
+"""2020-02-05""";"""Work""";3400;"""Noch etwas""";67
+"""2020-02-06""";"""Food""";3450;"""Wasser""";68
+"""2020-02-07""";"""Other""";3500;"""Banane""";69
+"""2020-02-08""";"""Work""";3550;"""Wasserbanane""";70
+"""2020-02-09""";"""Food""";3600;"""Banane""";71
+"""2020-02-10""";"""Other""";3650;"""Was war das nochmal?""";72
+"""2020-02-11""";"""Work""";3700;"""Irgendwas""";73
+"""2020-02-12""";"""Food""";3750;"""Irgendwas anderes""";74
+"""2020-02-13""";"""Other""";3800;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";75
+"""2020-02-14""";"""Work""";3850;"""Noch etwas""";76
+"""2020-02-15""";"""Food""";3900;"""Wasser""";77
+"""2020-02-16""";"""Other""";3950;"""Banane""";78
+"""2020-02-17""";"""Work""";4000;"""Wasserbanane""";79
+"""2020-02-18""";"""Food""";4050;"""Banane""";80
+"""2020-02-19""";"""Other""";4100;"""Was war das nochmal?""";81
+"""2020-02-20""";"""Work""";4150;"""Irgendwas""";82
+"""2020-02-21""";"""Food""";4200;"""Irgendwas anderes""";83
+"""2020-02-22""";"""Other""";4250;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";84
+"""2020-02-23""";"""Work""";4300;"""Noch etwas""";85
+"""2020-02-24""";"""Food""";4350;"""Wasser""";86
+"""2020-02-25""";"""Other""";4400;"""Banane""";87
+"""2020-02-26""";"""Work""";4450;"""Wasserbanane""";88
+"""2020-02-27""";"""Food""";4500;"""Banane""";89
+"""2020-02-28""";"""Other""";4550;"""Was war das nochmal?""";90
+"""2020-02-29""";"""Work""";4600;"""Irgendwas""";91
+"""2020-03-01""";"""Food""";4650;"""Irgendwas anderes""";92
+"""2020-03-02""";"""Other""";4700;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";93
+"""2020-03-03""";"""Work""";4750;"""Noch etwas""";94
+"""2020-03-04""";"""Food""";4800;"""Wasser""";95
+"""2020-03-05""";"""Other""";4850;"""Banane""";96
+"""2020-03-06""";"""Work""";4900;"""Wasserbanane""";97
+"""2020-03-07""";"""Food""";4950;"""Banane""";98
+"""2020-03-08""";"""Other""";5000;"""Was war das nochmal?""";99
+"""2020-03-09""";"""Work""";5050;"""Irgendwas""";100
+"""2020-03-10""";"""Food""";5100;"""Irgendwas anderes""";101
+"""2020-03-11""";"""Other""";5150;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";102
+"""2020-03-12""";"""Work""";5200;"""Noch etwas""";103
+"""2020-03-13""";"""Food""";5250;"""Wasser""";104
+"""2020-03-14""";"""Other""";5300;"""Banane""";105
+"""2020-03-15""";"""Work""";5350;"""Wasserbanane""";106
+"""2020-03-16""";"""Food""";5400;"""Banane""";107
+"""2020-03-17""";"""Other""";5450;"""Was war das nochmal?""";108
+"""2020-03-18""";"""Work""";5500;"""Irgendwas""";109
+"""2020-03-19""";"""Food""";5550;"""Irgendwas anderes""";110
+"""2020-03-20""";"""Other""";5600;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";111
+"""2020-03-21""";"""Work""";5650;"""Noch etwas""";112
+"""2020-03-22""";"""Food""";5700;"""Wasser""";113
+"""2020-03-23""";"""Other""";5750;"""Banane""";114
+"""2020-03-24""";"""Work""";5800;"""Wasserbanane""";115
+"""2020-03-25""";"""Food""";5850;"""Banane""";116
+"""2020-03-26""";"""Other""";5900;"""Was war das nochmal?""";117
+"""2020-03-27""";"""Work""";5950;"""Irgendwas""";118
+"""2020-03-28""";"""Food""";6000;"""Irgendwas anderes""";119
+"""2020-03-29""";"""Other""";6050;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";120
+"""2020-03-30""";"""Work""";6100;"""Noch etwas""";121
+"""2020-03-31""";"""Food""";6150;"""Wasser""";122
+"""2020-04-01""";"""Other""";6200;"""Banane""";123
+"""2020-04-02""";"""Work""";6250;"""Wasserbanane""";124
+"""2020-04-03""";"""Food""";6300;"""Banane""";125
+"""2020-04-04""";"""Other""";6350;"""Was war das nochmal?""";126
+"""2020-04-05""";"""Work""";6400;"""Irgendwas""";127
+"""2020-04-06""";"""Food""";6450;"""Irgendwas anderes""";128
+"""2020-04-07""";"""Other""";6500;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";129
+"""2020-04-08""";"""Work""";6550;"""Noch etwas""";130
+"""2020-04-09""";"""Food""";6600;"""Wasser""";131
+"""2020-04-10""";"""Other""";6650;"""Banane""";132
+"""2020-04-11""";"""Work""";6700;"""Wasserbanane""";133
+"""2020-04-12""";"""Food""";6750;"""Banane""";134
+"""2020-04-13""";"""Other""";6800;"""Was war das nochmal?""";135
+"""2020-04-14""";"""Work""";6850;"""Irgendwas""";136
+"""2020-04-15""";"""Food""";6900;"""Irgendwas anderes""";137
+"""2020-04-16""";"""Other""";6950;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";138
+"""2020-04-17""";"""Work""";7000;"""Noch etwas""";139
+"""2020-04-18""";"""Food""";7050;"""Wasser""";140
+"""2020-04-19""";"""Other""";7100;"""Banane""";141
+"""2020-04-20""";"""Work""";7150;"""Wasserbanane""";142
+"""2020-04-21""";"""Food""";7200;"""Banane""";143
+"""2020-04-22""";"""Other""";7250;"""Was war das nochmal?""";144
+"""2020-04-23""";"""Work""";7300;"""Irgendwas""";145
+"""2020-04-24""";"""Food""";7350;"""Irgendwas anderes""";146
+"""2020-04-25""";"""Other""";7400;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";147
+"""2020-04-26""";"""Work""";7450;"""Noch etwas""";148
+"""2020-04-27""";"""Food""";7500;"""Wasser""";149
+"""2020-04-28""";"""Other""";7550;"""Banane""";150
+"""2020-04-29""";"""Work""";7600;"""Wasserbanane""";151
+"""2020-04-30""";"""Food""";7650;"""Banane""";152
+"""2020-05-01""";"""Other""";7700;"""Was war das nochmal?""";153
+"""2020-05-02""";"""Work""";7750;"""Irgendwas""";154
+"""2020-05-03""";"""Food""";7800;"""Irgendwas anderes""";155
+"""2020-05-04""";"""Other""";7850;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";156
+"""2020-05-05""";"""Work""";7900;"""Noch etwas""";157
+"""2020-05-06""";"""Food""";7950;"""Wasser""";158
+"""2020-05-07""";"""Other""";8000;"""Banane""";159
+"""2020-05-08""";"""Work""";8050;"""Wasserbanane""";160
+"""2020-05-09""";"""Food""";8100;"""Banane""";161
+"""2020-05-10""";"""Other""";8150;"""Was war das nochmal?""";162
+"""2020-05-11""";"""Work""";8200;"""Irgendwas""";163
+"""2020-05-12""";"""Food""";8250;"""Irgendwas anderes""";164
+"""2020-05-13""";"""Other""";8300;"""Eine lange Beschreibung. Damit die Animation getestet wird. Hoffentlich funktioniert alles super duper gut.""";165
+"""2020-05-14""";"""Work""";8350;"""Noch etwas""";166
+"""2020-05-15""";"""Food""";8400;"""Wasser""";167
+"""2020-05-16""";"""Other""";8450;"""Banane""";168
+"""2020-05-17""";"""Work""";8500;"""Wasserbanane""";169
+"""2020-05-18""";"""Food""";8550;"""Banane""";170
+"""2020-05-19""";"""Other""";8600;"""Was war das nochmal?""";171
+"""2020-05-20""";"""Work""";8650;"""Irgendwas""";172
+"""2020-05-21""";"""Food""";8700;"""Irgendwas anderes""";173

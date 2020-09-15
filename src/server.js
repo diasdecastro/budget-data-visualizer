@@ -3,7 +3,8 @@ const express = require('express');
 var app = express();
 const path = require('path');
 const bodyparser = require('body-parser');
-
+const moment = require('moment');
+const { type } = require('os');
 // CORS on ExpressJS
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*"); // * allows any origin
@@ -34,13 +35,18 @@ app.listen(3000, () => console.log("Express server is runnung at port 3000"));
 
 app.use(express.static(path.join(__dirname, '/../')));
 
-app.get('/list', (req, res) => {
-    res.sendFile(path.join(__dirname, "/../index.html"));
+app.get('/', (req, res) => {
+    res.sendFile(path.join(__dirname, "/../homePage.html"));
 });
 
-//############################### OPERATIONS ON BUDGET_DATA TABLE (GETERS) #############################################
+//############################### ROUTERS FOR THE LISTING PAGE #############################################
 
 //budget_data: day_date | category | amount_cents | details | id
+
+app.get('/list', (req, res) => {
+    res.sendFile(path.join(__dirname, "/../listPage.html"));
+});
+
 
 //get entries
 app.get('/list/budget', (req, res) => {    
@@ -62,7 +68,7 @@ app.get('/list/budget', (req, res) => {
     
     let mySqlQuery = `SELECT * FROM budget_data WHERE day_date >= ${minDate} AND day_date <= ${maxDate} AND amount_cents >= ${minAmountCents} AND amount_cents <= ${maxAmountCents} ${categoryHandler} ORDER BY ${column} ${order};`;
     
-    console.log(mySqlQuery);
+    // console.log(mySqlQuery);
     mysqlConnection.query(mySqlQuery, (err, results, fields) => {
         if (err) {
             throw err;
@@ -73,10 +79,6 @@ app.get('/list/budget', (req, res) => {
     });     
        
 });
-
-
-
-//############################### OPERATIONS ON BUDGET_DATA TABLE (SETERS) #############################################
 
 //insert new entry
 app.post('/list/budget', (req, res) => {
@@ -129,3 +131,108 @@ app.put('/list/budget', (req, res) => {
 
 
 //budget_data: day_date | category | amount_cents | details | id
+
+//############################### ROUTERS FOR THE STATISTICS PAGE (SETERS) #############################################
+
+app.get('/statistics', (req, res) => {
+    res.sendFile(path.join(__dirname, "/../statisticsPage.html"));
+});
+
+/* date calculations */
+
+function getBeginEndOfWeek (year, weekNumber) {
+    
+    let begin = moment().year(year).week(weekNumber).weekday(0).format("YYYY-MM-DD");
+    let end = moment().year(year).week(weekNumber).weekday(6).format("YYYY-MM-DD");
+    console.log(begin + " : " + end);
+    return [begin, end];
+}
+
+
+
+/* How much  */
+
+
+app.get('/statistics/weekly', (req, res) => {
+    let year = req.query.year;
+    let weekNumber = req.query.weekNumber;
+    let displayType = req.query.displayType;
+    let dates = getBeginEndOfWeek(year, weekNumber);
+    let getWeeklyQuery = "";
+
+    if (displayType == "Amount") {
+        console.log("comming here");
+        getWeeklyQuery = `SELECT day_date AS date, DAYNAME(day_date) AS day, SUM(amount_cents) AS sum FROM budget_data WHERE day_date >= '${dates[0]}' AND day_date <= '${dates[1]}' GROUP BY 1, 2;`;
+    } else {
+        getWeeklyQuery = `SELECT category, SUM(amount_cents) AS sum FROM budget_data WHERE day_date >= '${dates[0]}' AND day_date <= '${dates[1]}' GROUP BY 1`;
+    }
+    console.log(getWeeklyQuery);
+    
+    mysqlConnection.query(getWeeklyQuery, (err, results, fields) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log(results);
+            if (displayType === "Amount") {
+                console.log("comming here too");
+                res.json({
+                    begWeek: dates[0],
+                    endWeek: dates[1],
+                    results: results
+                });
+            } else {
+                res.json({
+                    begWeek: dates[0],
+                    endWeek: dates[1],
+                    results: results
+                });
+            }
+        }
+    });
+});
+
+app.get('/statistics/monthly', (req, res) => {
+    let year = req.query.year;
+    let month = req.query.month;
+    let displayType = req.query.displayType;
+    let getMonthlyQuery = "";
+
+    if (displayType === "Amount") {
+        getMonthlyQuery = `SELECT day_date AS date, SUM(amount_cents) AS sum FROM budget_data WHERE MONTH(day_date) = ${month} and YEAR(day_date) = ${year} GROUP BY 1`;
+    } else {
+        getMonthlyQuery = `SELECT category, SUM(amount_cents) AS sum FROM budget_data WHERE MONTH(day_date) = ${month} AND YEAR(day_date) =${year} GROUP BY 1;`;
+    }
+    console.log(getMonthlyQuery);
+
+    mysqlConnection.query(getMonthlyQuery, (err, results, fields) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log(results);
+            res.send(results);
+        }
+    });
+
+});
+
+app.get('/statistics/yearly', (req, res) => {
+    let year = req.query.year;
+    let displayType = req.query.displayType;
+    let getYearlyQuery = "";
+
+    if (displayType === "Amount") {
+        getYearlyQuery = `SELECT MONTH(day_date) AS month, SUM(amount_cents) AS sum FROM budget_data WHERE YEAR(day_date) = ${year} GROUP BY 1`;
+    } else {
+        getYearlyQuery = `SELECT category, SUM(amount_cents) AS sum FROM budget_data WHERE YEAR(day_date) = ${year} GROUP BY 1;`
+    }
+    console.log(getYearlyQuery);
+
+    mysqlConnection.query(getYearlyQuery, (err, results, fields) => {
+        if (err) {
+            throw err;
+        } else {
+            console.log(results);
+            res.send(results)
+        }
+    });
+});

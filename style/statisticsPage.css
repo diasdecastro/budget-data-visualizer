@@ -5,17 +5,14 @@ body {
     font-family: 'Libre Baskerville', serif;
 }  
 
-#root {
-    
-}
 
 #inner {
     overflow: hidden;
     position: relative;
-    width: 70%;
-    /* height: 50vh; */
+    width: 60%;
     margin: 0 auto;
-    /* border: 5px solid black; */
+    margin-bottom: 5vh;
+    
 }
 
 /* topbar */
@@ -23,6 +20,10 @@ body {
 #topbar {
     height: 3em;
     background-color: black;
+    position: fixed;
+    top: 0; 
+    width: 100%; 
+    z-index: 2;
 }
 
 #topbarList {
@@ -102,8 +103,89 @@ body {
 }
 
 
-/* graphs */
+/* Action Buttons */
 
-#weekBarChart {
-    
+.actionField {
+    display: flex;
+    justify-content: space-around;
+    width: 40vw;
+    margin: 0 auto;
 }
+
+#weekStats, #monthStats, #yearStats {
+    display: inline-block;
+    height: 4vh;
+    width: 8vw;
+    padding:0.35em 1.2em;
+    border:0.1em solid black;
+    margin:0 0.3em 0.3em 0;
+    border-radius:0.12em;
+    box-sizing: border-box;
+    text-decoration:none;
+    font-size: 1em;
+    font-weight:300;
+    color:black;
+    text-align:center;
+    transition: all 0.2s;
+}
+
+#weekStats:hover, #monthStats:hover, #yearStats:hover {
+    color:white;
+    background-color:black;
+    cursor: pointer;
+}
+
+/* statistics form */
+
+#statisticsForm {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 3vh;
+    margin-bottom: 4vh;
+}
+
+#displayFieldContainer, .yearFieldContainer, .weekFieldContainer, .monthFieldContainer {
+    margin-top: 1vh;
+}
+
+#statisticsForm button {
+    border: none;
+    outline: none;
+    overflow: hidden;
+    background-color: #eff4f5;
+}
+
+#statisticsForm button:hover {
+    cursor: pointer;
+}
+
+#statisticsForm input[type="number"]::-webkit-outer-spin-button,  #statisticsForm input[type="number"]::-webkit-inner-spin-button{
+    -webkit-appearance: none;
+    margin: 0;    
+}
+
+#statisticsForm input[type="number"] {
+    text-align: center;
+}
+
+canvas {
+    height: 53vh !important;
+    width: 100% !important;
+}
+
+/* title image */
+
+.titleImg {
+    display: block;
+    height: 20vh;
+    margin: 8vh auto 4vh;
+}
+
+#noData {
+    text-align: center;
+}
+
+
+
+

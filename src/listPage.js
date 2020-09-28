@@ -38,10 +38,10 @@ function makeList(entries) {
     let listTableELem = document.getElementById("listTable");
     listTableELem.innerHTML = "<thead>" + 
                                     "<tr>" + 
-                                        "<th id='dateCol'><span class='dateSpan'>Date</span>   <a id='sortDate' href='#'><i class='fa fa-sort'></i></a></th>" + 
-                                        "<th id='categoryCol'>Category   <a id='sortCategory' href='#'><i class='fa fa-sort'></i></a></th>" + 
-                                        "<th id='amountCol'>Amount   <a id='sortAmount' href='#'><i class='fa fa-sort'></i></a></th>" +
-                                        "<th id='detailsCol'>Details   <a id='sortDetails' href='#'><i class='fa fa-sort'></i></a></th>" +
+                                        "<th id='dateCol'><span class='dateSpan'>Date</span>   <a id='sortDate' title='Sort' href='#'><i class='fa fa-sort'></i></a></th>" + 
+                                        "<th id='categoryCol'>Category   <a id='sortCategory' title='Sort' href='#'><i class='fa fa-sort'></i></a></th>" + 
+                                        "<th id='amountCol'>Amount   <a id='sortAmount' title='Sort' href='#'><i class='fa fa-sort'></i></a></th>" +
+                                        "<th id='detailsCol'>Details   <a id='sortDetails' title='Sort' href='#'><i class='fa fa-sort'></i></a></th>" +
                                         "<th id='action'>Action</th>" + 
                                     "</tr>"+ 
                                 "</thead>" +
@@ -342,6 +342,7 @@ function editDeleteButton(row, id) {
     deleteElem.id = id;
     deleteElem.className = "deleteEntry";
     deleteElem.innerHTML = "<i class='fa fa-trash'></i>";
+    deleteElem.title = "Delete";
     deleteElem.addEventListener("click", () => { //onclick call deteleEntry function
         deleteEntry(deleteElem.id);
     });
@@ -351,6 +352,7 @@ function editDeleteButton(row, id) {
     editElem.id = id;
     editElem.className = "editEntry";
     editElem.innerHTML = "<i class='fa fa-edit'></i>";
+    editElem.title = "Edit";
     editElem.addEventListener("click", () => { //onclick call editEntry function
         createInsertEditForm("edit", editElem.id);
     });
@@ -367,15 +369,18 @@ function addEventsForWindow() {
     let filterToggle = document.getElementById("filterToggle");
     let filterContainer = document.getElementById("filters");
     let hideCollapseButton = document.getElementById("hideCollapse");
+    hideCollapseButton.title = "Collapse";
     if (!hideCollapseHasEvent){
         hideCollapseButton.addEventListener("click", () => {
             if (filterContainer.className == "filter hidden") {
                 hideCollapseButton.className = "fa fa-angle-up";
+                hideCollapseButton.title = "Hide";
                 filterContainer.className = "filter collapse";
                 filterToggle.className = "collapseToggle";
                 /* console.log("collapse"); */
             } else {
                 hideCollapseButton.className = "fa fa-angle-down";
+                hideCollapseButton.title = "Collapse";
                 filterContainer.className = "filter hidden";
                 filterToggle.className = "hiddenToggle";
                 /* console.log("hidden"); */
@@ -432,6 +437,7 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
                 filters();
+                console.log(httpRequest.response);
                 makeList(httpRequest.response);
             } else {
                 alert("something wrong");
@@ -513,6 +519,25 @@ function editEntry(id, date, category, amount, details, keepOrderCol) {
                 getEntries(orderCol, keepOrderCol, minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
             } else {
                 alert("Something wrong");
+            }
+        }
+    }
+}
+
+////////////////////////////////////////////////////////////////
+
+/* logout */
+
+function logout() {
+    let httpRequest = new XMLHttpRequest();
+
+    httpRequest.open("POST", 'http://localhost:3000/logout');
+    httpRequest.send(JSON.stringify(null));
+
+    httpRequest.onreadystatechange = () => {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+            if (httpRequest.status === 200) {
+                window.location.replace("http://localhost:3000/");
             }
         }
     }

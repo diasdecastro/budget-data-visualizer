@@ -3,11 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
-    <title>Document</title>
+    <title>Home Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="./style/loginSignup.css">
+    <script src="./src/login.js" type="text/javascript"></script>
+    <script src="./src/signup.js" type="text/javascript"></script>
+    <script src="./src/homePage.js" type="text/javascript"></script>
 </head>
-<body>
+<body onload="renderPage();">
     <h1>Home Page!!</h1>
-    <a href="http://localhost:3000/list">Go to list page!</a>
-    <a href="http://localhost:3000/statistics">Go to statistics page!</a>
+    <!-- <a href="http://localhost:3000/list">Go to list page!</a>
+    <a href="http://localhost:3000/statistics">Go to statistics page!</a> -->
+    <div id='loginSignup'>
+        <div id='tabs'>
+            <div id='loginTab'>
+                <h2>Login</h2>
+            </div>
+            <!--           -->
+            <div id='signupTab'>
+                <h2>Sign Up</h2>
+            </div>
+        </div>        
+        <!--         -->
+        <div id="login">
+            <form id='loginForm' action="/login" method="POST" onsubmit="login(this.username.value, this.password.value); return false;">
+                <label for='username'>Username: </label>
+                <input type="text" name="username" id="usernameLogin" placeholder="Insert Username" autocomplete="off" required>
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="passwordLogin" placeholder="Insert Password" autocomplete="off" required>
+                <input id="loginSubmit" class="submit" type="submit" value="Login">
+            </form>
+        </div>
+        <!--         -->
+        <div id='signup'>
+            <form id="signupForm" method="POST" onsubmit="signup(this.username.value, this.email.value, this.password.value, this.confirm.value); return false;">
+                <label for="username">Username: </label>
+                <input type="text" name="username" id="usernameSign" placeholder="Insert Username" autocomplete="off" required>
+                <label for="email">Email: </label>
+                <input type="email" name="email" id="emailSign" placeholder="Insert Email" autocomplete="off" required>
+                <label for="password">Password: </label>
+                <input type="password" name="password" id="passwordSign" placeholder="Insert Password" autocomplete="off" required>
+                <label for="confirm">Confirm Password: </label>
+                <input type="password" name="confirm" id="confirmSign" placeholder="Confirm Password" autocomplete="off" required>
+                <input id="signupSubmit" class="submit" type="submit" value="Sign Up">
+            </form>
+        </div>
+    </div>
 </body>
 </html>

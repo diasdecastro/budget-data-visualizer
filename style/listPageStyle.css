@@ -14,6 +14,10 @@ body {
 #topbar {
     height: 3em;
     background-color: black;
+    position: fixed;
+    top: 0; 
+    width: 100%; 
+    z-index: 2;
 }
 
 #topbarList {
@@ -102,7 +106,7 @@ body {
     width: 61vw;
     margin: 0 auto 3% auto;
     overflow: hidden;
-    background-color: #c0c0c0;
+    background-color: #cbeaef;
 }
 
 #filterTable{
@@ -209,17 +213,17 @@ body {
   #filterToggle.hiddenToggle{
     display: block;
     text-align: center;
-    background-color: #c0c0c0;
+    background-color: #cbeaef;
     width:61vw;
-    margin: 3% auto 0 auto;
+    margin: 10vh auto 0 auto;
 }
 
 #filterToggle.collapseToggle{
     display: block;
     text-align: center;
-    background-color: #c0c0c0;
+    background-color: #cbeaef;
     width:61vw;
-    margin: 3% auto 0 auto;
+    margin: 10vh auto 0 auto;
 }
 
   .hidden{
@@ -257,7 +261,7 @@ body {
 /* List */
 
 #listTable{
-    margin: 3% auto 0 auto;
+    margin: 3% auto 3% auto;
     width: 61vw;
     table-layout: fixed;
     border-collapse: separate;
@@ -277,7 +281,7 @@ body {
 }
 
 #tableBody tr:nth-child(even) {
-    background-color: #c0c0c0;
+    background-color: #cbeaef;
 }
 
 #listTable thead > tr {
@@ -294,10 +298,6 @@ body {
     text-indent: 10%;
 }
 
-#dateCol {
-    /* border-top-left-radius: 9px; */
-} 
-
 .dateSpan {
     margin-left: 10%;
 }
@@ -308,10 +308,6 @@ body {
 
 #details {
     border-right: 1px solid black;
-}
-
-#action {
-    /* border-top-right-radius: 9px; */
 }
 
 #id{

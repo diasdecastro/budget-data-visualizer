@@ -1,0 +1,104 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #eff4f5;
+    font-family: 'Libre Baskerville', serif;
+}  
+
+#loginSignup {
+    width: 40vw;
+    margin: 0 auto;
+}
+
+#tabs {
+    display: flex;
+    justify-content: flex-start;
+}
+
+#loginTab, #signupTab {
+    width: 50%;   
+    text-align: center;
+    border: 1px solid black;
+    border-bottom: none;    
+}
+
+#loginTab:hover, #signupTab:hover {
+    cursor: pointer;
+}
+
+#loginTab {
+    border-right: none;
+}
+
+#signupTab {
+    border-left: none;
+}
+
+#login, #signup {    
+    border: 1px solid black;
+    border-top: none;
+    height: 40vh;    
+}
+
+
+#loginForm, #signupForm {
+    width: 40%;
+    margin: 0 auto ;
+    display: flex;
+    flex-direction: column;
+}
+
+#usernameLogin, #passwordLogin, #usernameSign, #emailSign, #passwordSign, #confirmSign {
+    margin-bottom: 1vh;
+    height: 2vh;
+}
+
+.submit {
+    width: 60%;
+    margin-top: 1vh;
+    align-self: center;
+    height: 4vh;
+    font-size: 1.2em;
+}
+
+.hiddenForm {
+    display: none;
+}
+
+.collapsedForm {
+    display: flex;
+    align-items: center;
+}
+
+.collapsedForm, .collapsedTab {
+    background-color: #cbeaef;
+}
+
+label {
+    font-size: 1.3em;
+}
+
+input[type="submit"] {
+    font-family: 'Libre Baskerville', serif;
+    /* padding: 1vw 2vw; */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 1.3em;
+    transition-duration: 0.4s;
+    cursor: pointer;
+    background-color: white; 
+    color: black; 
+    border: 3px solid white;
+}
+
+input[type="submit"]:hover {
+    background-color: black;
+    color: white;
+}
+
+.loginError {
+    color: red;
+    font-size: 0.8em;
+}
+

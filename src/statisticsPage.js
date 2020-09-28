@@ -20,12 +20,12 @@ function createForm(formType) {
 
     let leftButton = document.createElement("button");
     let leftIcon = document.createElement("i");
-    leftIcon.className = "fa fa-chevron-circle-left";
+    leftIcon.className = "fa fa-chevron-circle-left fa-lg";
     leftButton.appendChild(leftIcon);
 
     let rightButton = document.createElement("button");
     let rightIcon = document.createElement("i");
-    rightIcon.className = "fa fa-chevron-circle-right";
+    rightIcon.className = "fa fa-chevron-circle-right fa-lg";
     rightButton.appendChild(rightIcon);
 
     let selectDisplay = document.createElement("div");
@@ -80,24 +80,24 @@ function createForm(formType) {
     /* minus button */    
     let decrease1 = document.createElement("button");
     let minusIcon1 = document.createElement("i");
-    minusIcon1.className = "fa fa-minus-circle";
+    minusIcon1.className = "fa fa-minus-circle fa-lg";
     decrease1.appendChild(minusIcon1);
 
     let decrease2 = document.createElement("button");
     let minusIcon2 = document.createElement("i");
-    minusIcon2.className = "fa fa-minus-circle";
+    minusIcon2.className = "fa fa-minus-circle fa-lg";
     decrease2.appendChild(minusIcon2);
     
 
     /* plus button */
     let increase1 = document.createElement("button");
     let plusIcon1 = document.createElement("i");
-    plusIcon1.className = "fa fa-plus-circle";
+    plusIcon1.className = "fa fa-plus-circle fa-lg";
     increase1.appendChild(plusIcon1);
 
     let increase2 = document.createElement("button");
     let plusIcon2 = document.createElement("i");
-    plusIcon2.className = "fa fa-plus-circle";
+    plusIcon2.className = "fa fa-plus-circle fa-lg";
     increase2.appendChild(plusIcon2);
 
     /* Form field for the year */
@@ -380,7 +380,7 @@ function createWeekBarChart(data, year, weekNumber, begWeek, endWeek) {
 
 /* TODO: compare to month before */
 function createMonthBarChart(data, year, month) {
-
+    
     document.getElementById('noData').style.display = 'none';
 
     /* only one canvas element */
@@ -569,7 +569,7 @@ function createYearBarChart(data, year) {
 
 function createDoughnutChart (data, titleString, noDataString) {
 
-    document.getElementById("inner").style.height = "70vh";
+    /* document.getElementById("inner").style.height = "60vh"; */
     document.getElementById('noData').style.display = 'none';
     
     // only one canvas element 
@@ -773,6 +773,25 @@ function getYearData(year, displayType) {
     }
 }
 
+////////////////////////////////////////////////////////////////
+
+/* logout */
+
+function logout() {
+    let httpRequest = new XMLHttpRequest();
+
+    httpRequest.open("POST", 'http://localhost:3000/logout');
+    httpRequest.send(JSON.stringify(null));
+
+    httpRequest.onreadystatechange = () => {
+        if (httpRequest.readyState === XMLHttpRequest.DONE) {
+            if (httpRequest.status === 200) {
+                window.location.replace("http://localhost:3000/");
+            }
+        }
+    }
+}
+
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
 /* helper functions */
@@ -793,3 +812,4 @@ const formatter = new Intl.NumberFormat('de-DE', {
     style: 'currency',
     currency: 'EUR'
 });
+

@@ -12,23 +12,22 @@
     <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-piechart-outlabels"></script>
     <script src="src/statisticsPage.js"></script>
 </head>
-<body>
+<body onload="createForm('week');">
     <header id="topbar">
         <ul id="topbarList">
             <div class='leftContent'>
                 <li id='home'><a href="http://localhost:3000/">Home</a></li>
             </div>
             <div class='middleContent'>
-                <li id="list"><a href="http://localhost:3000/statistics">List</a></li>
-                <!-- <li id="statistics"><a href="http://localhost:3000/statistics">Statistics</a></li> -->
+                <li id="list"><a href="http://localhost:3000/list">List</a></li>
             </div>
             <div class='rightContent'>
-                <li id='logout'>Logout</li>
+                <li id='logout' onclick="return logout();">Logout</li>
             </div>            
         </ul>
     </header>
-    <div id='root'>
-        <h1>Welcome to the Statistics Page</h1>
+    <div id='root'>        
+        <!-- <img class="titleImg" src="resources/statistics2.png"> -->
 
         <div class="actionField">
             <button id="weekStats" onclick="createForm('week');">Weekly</button>
@@ -44,7 +43,6 @@
                 <span id="noDataTitle"></span>
                 <h1>No data Available</h1>
             </div>
-            <!-- <canvas id='canvasElem'></canvas> -->
         </div>
     </div>
 </body>

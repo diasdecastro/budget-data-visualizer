@@ -5,7 +5,7 @@ const path = require('path');
 const bodyparser = require('body-parser');
 const moment = require('moment');
 const { type } = require('os');
-var session = require('cookie-session');
+var cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 // CORS on ExpressJS
 app.use((req, res, next) => {
@@ -20,7 +20,7 @@ app.use(bodyparser.json());
 
 app.use(cookieParser());
 
-app.use(session({
+app.use(cookieSession({
     name: 'session',
     keys: 'secret',
     maxAge: new Date(Date.now() + 1600000)    

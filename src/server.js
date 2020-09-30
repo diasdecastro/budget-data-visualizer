@@ -44,7 +44,7 @@ app.use((req, res, next) => {
 }); */
 
 var mysqlConnection = mysql.createConnection({
-    host: '@eu-cdbr-west-03.cleardb.net',
+    host: 'eu-cdbr-west-03.cleardb.net',
     user: 'b7fb6d40b8a98c',
     password: 'df93831d',
     database:'heroku_e8b20f35a10448a',

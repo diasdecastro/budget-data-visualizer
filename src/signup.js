@@ -2,7 +2,7 @@ function signup(username, email, password, confirm) {
 
     let httpRequest = new XMLHttpRequest();
 
-    httpRequest.open("POST", "http://localhost:3000/signup", true);
+    httpRequest.open("POST", "https://my-expenditure-overview.herokuapp.com/signup", true);
     httpRequest.setRequestHeader("Content-Type", "application/json");
     httpRequest.send(JSON.stringify({
         "username": username,
@@ -22,7 +22,7 @@ function signup(username, email, password, confirm) {
             if (httpRequest.status === 200) {
                 // Perfect!   //NOT TESTED YET!!!!!!    TEST IT!!!!!!!!!!           
                 if(httpRequest.response === "success") {
-                    window.location.replace("http://localhost:3000/list"); 
+                    window.location.replace("https://my-expenditure-overview.herokuapp.com/list"); 
                 } else {
                     let signupForm = document.getElementById("signupForm");
                     let errorMessege = document.createElement("div");

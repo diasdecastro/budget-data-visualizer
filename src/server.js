@@ -67,7 +67,7 @@ app.get('/', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
         res.sendFile(path.join(__dirname, "/../listPage.html"));
     } else {
-        res.sendFile(path.join(__dirname, "/../homePage.html"));
+        res.sendFile(path.join(__dirname, "/../index.html"));
     }    
 });
 
@@ -177,7 +177,7 @@ app.get('/list', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
         res.sendFile(path.join(__dirname, "/../listPage.html"));
     } else {
-        res.sendFile(path.join(__dirname, "/../homePage.html"));
+        res.sendFile(path.join(__dirname, "/../index.html"));
     }
 });
 
@@ -185,7 +185,7 @@ app.get('/list', (req, res) => {
 //get entries
 app.get('/list/budget', (req, res) => {
     if (!(req.session.user && req.cookies.user_sid)) {
-        res.sendFile(path.join(__dirname, "/../homePage.html"));        
+        res.sendFile(path.join(__dirname, "/../index.html"));        
     }
     //FILTERS TODO: Handle categories filters
     let minDate = (req.query.mindate != "undefined") ? "\'" + req.query.mindate + "\'" : `(SELECT MIN(day_date) from ${req.session.user}_budget_data)`;
@@ -221,7 +221,7 @@ app.get('/list/budget', (req, res) => {
 app.post('/list/budget', (req, res) => {
 
     if (!(req.session.user && req.cookies.user_sid)) {
-        res.sendFile(path.join(__dirname, "/../homePage.html"));        
+        res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
     let day_date = req.body.day_date;
@@ -243,7 +243,7 @@ app.post('/list/budget', (req, res) => {
 app.delete('/list/budget', (req, res) => {
 
     if (!(req.session.user && req.cookies.user_sid)) {
-        res.sendFile(path.join(__dirname, "/../homePage.html"));        
+        res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
     let id = req.query.id;
@@ -262,7 +262,7 @@ app.delete('/list/budget', (req, res) => {
 app.put('/list/budget', (req, res) => {
 
     if (!(req.session.user && req.cookies.user_sid)) {
-        res.sendFile(path.join(__dirname, "/../homePage.html"));        
+        res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
     let id = req.query.id;
@@ -289,7 +289,7 @@ app.get('/statistics', (req, res) => {
     if (req.session.user && req.cookies.user_sid) {
         res.sendFile(path.join(__dirname, "/../statisticsPage.html"));
     } else {
-        res.sendFile(path.join(__dirname, "/../homePage.html"));
+        res.sendFile(path.join(__dirname, "/../index.html"));
     }    
 });
 
@@ -311,7 +311,7 @@ function getBeginEndOfWeek (year, weekNumber) {
 app.get('/statistics/weekly', (req, res) => {
 
     if (!(req.session.user && req.cookies.user_sid)) {
-        res.sendFile(path.join(__dirname, "/../homePage.html"));        
+        res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
     let year = req.query.year;
@@ -354,7 +354,7 @@ app.get('/statistics/weekly', (req, res) => {
 app.get('/statistics/monthly', (req, res) => {
 
     if (!(req.session.user && req.cookies.user_sid)) {
-        res.sendFile(path.join(__dirname, "/../homePage.html"));        
+        res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
     let year = req.query.year;
@@ -383,7 +383,7 @@ app.get('/statistics/monthly', (req, res) => {
 app.get('/statistics/yearly', (req, res) => {
 
     if (!(req.session.user && req.cookies.user_sid)) {
-        res.sendFile(path.join(__dirname, "/../homePage.html"));        
+        res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
     let year = req.query.year;

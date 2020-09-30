@@ -1,22 +1,26 @@
 {
-  "name": "crud",
+  "name": "exp-view",
   "version": "1.0.0",
-  "description": "Basic CRUD app",
-  "main": "./src/index.js",
+  "description": "Expenditure Overview",
+  "main": "./src/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "node ./src/server.js",
     "dev": "nodemon ./src/server.js"
   },
-  "author": "",
+  "author": "Cristian",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
     "cookie-parser": "^1.4.5",
+    "cookie-session": "^1.4.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "moment": "^2.27.0",
     "mysql": "^2.18.1",
     "nouislider": "^14.6.1"
+  },
+  "engines": {
+    "node": "12.16.3"
   }
 }

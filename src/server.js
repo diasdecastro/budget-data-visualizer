@@ -5,8 +5,7 @@ const path = require('path');
 const bodyparser = require('body-parser');
 const moment = require('moment');
 const { type } = require('os');
-var session = require('express-session');
-var coockieParser = require('cookie-parser');
+var session = require('cookie-session');
 const cookieParser = require('cookie-parser');
 // CORS on ExpressJS
 app.use((req, res, next) => {
@@ -22,13 +21,9 @@ app.use(bodyparser.json());
 app.use(cookieParser());
 
 app.use(session({
-    key: 'user_sid',
-    secret: 'bigSecret',
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-        expires: new Date(Date.now() + 1600000) //30 min
-    }
+    name: 'session',
+    keys: 'secret',
+    maxAge: new Date(Date.now() + 1600000)    
 }));
 
 //if coockie exists and user no user, delete coockie

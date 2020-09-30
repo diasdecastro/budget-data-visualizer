@@ -28,7 +28,7 @@ app.use(session({
 
 //if coockie exists and user no user, delete coockie
 app.use((req, res, next) => {
-    if (req.cookies.user_sid && !req.session.user) {
+    if (req.cookies.user_sid && !req.session.value) {
         res.clearCookie('user_sid');
     }
     next();
@@ -64,7 +64,7 @@ app.listen(process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, '/../')));
 
 app.get('/', (req, res) => {
-    if (req.session.user && req.cookies.user_sid) {
+    if (req.session.value && req.cookies.user_sid) {
         res.sendFile(path.join(__dirname, "/../listPage.html"));
     } else {
         res.sendFile(path.join(__dirname, "/../index.html"));
@@ -116,7 +116,7 @@ app.post('/signup', (req, res) => {
                         if (err) {
                             throw err;
                         } else {
-                            req.session.user = username;
+                            req.session.value = username;
 
                             let signupQuery = "INSERT INTO accounts (id, username, password, email) VALUES (0, ?, ?, ?);";
                             mysqlConnection.query(signupQuery, [username, password, email], (err, results, fields) => {
@@ -151,7 +151,7 @@ app.post('/login',  (req, res) => {
             }
             if (results.length > 0) {           
                 console.log("login arrived");                       
-                req.session.user = username;
+                req.session.value = username;
                 res.send("true");              
             } else {
                 res.send("false");
@@ -163,8 +163,9 @@ app.post('/login',  (req, res) => {
 //############################## LOGOUT ########################################
 
 app.post("/logout", (req, res) => {
-    if (req.session.user && req.cookies.user_sid) {        
+    if (req.session.value && req.cookies.user_sid) {        
         res.clearCookie('user_sid');
+        req.session = null;
         res.send("logout");
     }
 });
@@ -174,7 +175,7 @@ app.post("/logout", (req, res) => {
 //budget_data: day_date | category | amount_cents | details | id
 
 app.get('/list', (req, res) => {
-    if (req.session.user && req.cookies.user_sid) {
+    if (req.session.value && req.cookies.user_sid) {
         res.sendFile(path.join(__dirname, "/../listPage.html"));
     } else {
         res.sendFile(path.join(__dirname, "/../index.html"));
@@ -184,12 +185,12 @@ app.get('/list', (req, res) => {
 
 //get entries
 app.get('/list/budget', (req, res) => {
-    if (!(req.session.user && req.cookies.user_sid)) {
+    if (!(req.session.value && req.cookies.user_sid)) {
         res.sendFile(path.join(__dirname, "/../index.html"));        
     }
     //FILTERS TODO: Handle categories filters
-    let minDate = (req.query.mindate != "undefined") ? "\'" + req.query.mindate + "\'" : `(SELECT MIN(day_date) from ${req.session.user}_budget_data)`;
-    let maxDate = (req.query.maxdate != "undefined") ? "\'" + req.query.maxdate + "\'" : `(SELECT MAX(day_date) from ${req.session.user}_budget_data)`;
+    let minDate = (req.query.mindate != "undefined") ? "\'" + req.query.mindate + "\'" : `(SELECT MIN(day_date) from ${req.session.value}_budget_data)`;
+    let maxDate = (req.query.maxdate != "undefined") ? "\'" + req.query.maxdate + "\'" : `(SELECT MAX(day_date) from ${req.session.value}_budget_data)`;
     let minAmountCents = (req.query.mincents != "undefined") ? req.query.mincents : 0;
     let maxAmountCents = (req.query.maxcents != "undefined") ? req.query.maxcents : 9223372036854775807; //infinity
     let categoryArr = req.query.category; //returns elements of the category Array as a string e.g. "Housing, Other"
@@ -203,7 +204,7 @@ app.get('/list/budget', (req, res) => {
     let column = (req.query.column != "undefined") ? req.query.column : "day_date";
     let order = (req.query.order != "undefined") ? req.query.order : "desc";
     
-    let mySqlQuery = `SELECT * FROM ${req.session.user}_budget_data WHERE day_date >= ${minDate} AND day_date <= ${maxDate} AND amount_cents >= ${minAmountCents} AND amount_cents <= ${maxAmountCents} ${categoryHandler} ORDER BY ${column} ${order};`;
+    let mySqlQuery = `SELECT * FROM ${req.session.value}_budget_data WHERE day_date >= ${minDate} AND day_date <= ${maxDate} AND amount_cents >= ${minAmountCents} AND amount_cents <= ${maxAmountCents} ${categoryHandler} ORDER BY ${column} ${order};`;
     
     
     mysqlConnection.query(mySqlQuery, (err, results, fields) => {
@@ -220,7 +221,7 @@ app.get('/list/budget', (req, res) => {
 //insert new entry
 app.post('/list/budget', (req, res) => {
 
-    if (!(req.session.user && req.cookies.user_sid)) {
+    if (!(req.session.value && req.cookies.user_sid)) {
         res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
@@ -229,7 +230,7 @@ app.post('/list/budget', (req, res) => {
     let amount = req.body.amount * 100;
     let details = req.body.details;
 
-    let insertNewEntry = `INSERT INTO ${req.session.user}_budget_data (id, day_date, category, amount_cents, details) VALUES (0, '${day_date}', '${category}', ${amount}, '${details}');`;
+    let insertNewEntry = `INSERT INTO ${req.session.value}_budget_data (id, day_date, category, amount_cents, details) VALUES (0, '${day_date}', '${category}', ${amount}, '${details}');`;
     mysqlConnection.query(insertNewEntry, (err, results, fields) => {
         if (err) {
             throw err;
@@ -242,13 +243,13 @@ app.post('/list/budget', (req, res) => {
 //delete entry
 app.delete('/list/budget', (req, res) => {
 
-    if (!(req.session.user && req.cookies.user_sid)) {
+    if (!(req.session.value && req.cookies.user_sid)) {
         res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
     let id = req.query.id;
 
-    let deleteQuery = `DELETE FROM ${req.session.user}_budget_data WHERE id = ${id};`;
+    let deleteQuery = `DELETE FROM ${req.session.value}_budget_data WHERE id = ${id};`;
     mysqlConnection.query(deleteQuery, (err, results, fields) => {
         if (err) {
             throw err;
@@ -261,7 +262,7 @@ app.delete('/list/budget', (req, res) => {
 /* update entry */
 app.put('/list/budget', (req, res) => {
 
-    if (!(req.session.user && req.cookies.user_sid)) {
+    if (!(req.session.value && req.cookies.user_sid)) {
         res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
@@ -271,7 +272,7 @@ app.put('/list/budget', (req, res) => {
     let amount = req.query.amount * 100;
     let details = req.query.details;
 
-    let updateQuery = `UPDATE ${req.session.user}_budget_data SET day_date = '${date}', category = '${category}', amount_cents = ${amount}, details = '${details}' WHERE ID = ${id}`;
+    let updateQuery = `UPDATE ${req.session.value}_budget_data SET day_date = '${date}', category = '${category}', amount_cents = ${amount}, details = '${details}' WHERE ID = ${id}`;
     mysqlConnection.query(updateQuery, (err, results, fields) => {
         if (err) {
             throw err;
@@ -286,7 +287,7 @@ app.put('/list/budget', (req, res) => {
 //############################### ROUTERS FOR THE STATISTICS PAGE (SETERS) #############################################
 
 app.get('/statistics', (req, res) => {
-    if (req.session.user && req.cookies.user_sid) {
+    if (req.session.value && req.cookies.user_sid) {
         res.sendFile(path.join(__dirname, "/../statisticsPage.html"));
     } else {
         res.sendFile(path.join(__dirname, "/../index.html"));
@@ -310,7 +311,7 @@ function getBeginEndOfWeek (year, weekNumber) {
 
 app.get('/statistics/weekly', (req, res) => {
 
-    if (!(req.session.user && req.cookies.user_sid)) {
+    if (!(req.session.value && req.cookies.user_sid)) {
         res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
@@ -322,9 +323,9 @@ app.get('/statistics/weekly', (req, res) => {
 
     if (displayType == "Amount") {
         console.log("comming here");
-        getWeeklyQuery = `SELECT day_date AS date, DAYNAME(day_date) AS day, SUM(amount_cents) AS sum FROM ${req.session.user}_budget_data WHERE day_date >= '${dates[0]}' AND day_date <= '${dates[1]}' GROUP BY 1, 2;`;
+        getWeeklyQuery = `SELECT day_date AS date, DAYNAME(day_date) AS day, SUM(amount_cents) AS sum FROM ${req.session.value}_budget_data WHERE day_date >= '${dates[0]}' AND day_date <= '${dates[1]}' GROUP BY 1, 2;`;
     } else {
-        getWeeklyQuery = `SELECT category, SUM(amount_cents) AS sum FROM ${req.session.user}_budget_data WHERE day_date >= '${dates[0]}' AND day_date <= '${dates[1]}' GROUP BY 1`;
+        getWeeklyQuery = `SELECT category, SUM(amount_cents) AS sum FROM ${req.session.value}_budget_data WHERE day_date >= '${dates[0]}' AND day_date <= '${dates[1]}' GROUP BY 1`;
     }
     console.log(getWeeklyQuery);
     
@@ -353,7 +354,7 @@ app.get('/statistics/weekly', (req, res) => {
 
 app.get('/statistics/monthly', (req, res) => {
 
-    if (!(req.session.user && req.cookies.user_sid)) {
+    if (!(req.session.value && req.cookies.user_sid)) {
         res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
@@ -363,9 +364,9 @@ app.get('/statistics/monthly', (req, res) => {
     let getMonthlyQuery = "";
 
     if (displayType === "Amount") {
-        getMonthlyQuery = `SELECT day_date AS date, SUM(amount_cents) AS sum FROM ${req.session.user}_budget_data WHERE MONTH(day_date) = ${month} and YEAR(day_date) = ${year} GROUP BY 1`;
+        getMonthlyQuery = `SELECT day_date AS date, SUM(amount_cents) AS sum FROM ${req.session.value}_budget_data WHERE MONTH(day_date) = ${month} and YEAR(day_date) = ${year} GROUP BY 1`;
     } else {
-        getMonthlyQuery = `SELECT category, SUM(amount_cents) AS sum FROM ${req.session.user}_budget_data WHERE MONTH(day_date) = ${month} AND YEAR(day_date) =${year} GROUP BY 1;`;
+        getMonthlyQuery = `SELECT category, SUM(amount_cents) AS sum FROM ${req.session.value}_budget_data WHERE MONTH(day_date) = ${month} AND YEAR(day_date) =${year} GROUP BY 1;`;
     }
     console.log(getMonthlyQuery);
 
@@ -382,7 +383,7 @@ app.get('/statistics/monthly', (req, res) => {
 
 app.get('/statistics/yearly', (req, res) => {
 
-    if (!(req.session.user && req.cookies.user_sid)) {
+    if (!(req.session.value && req.cookies.user_sid)) {
         res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
@@ -391,9 +392,9 @@ app.get('/statistics/yearly', (req, res) => {
     let getYearlyQuery = "";
 
     if (displayType === "Amount") {
-        getYearlyQuery = `SELECT MONTH(day_date) AS month, SUM(amount_cents) AS sum FROM ${req.session.user}_budget_data WHERE YEAR(day_date) = ${year} GROUP BY 1`;
+        getYearlyQuery = `SELECT MONTH(day_date) AS month, SUM(amount_cents) AS sum FROM ${req.session.value}_budget_data WHERE YEAR(day_date) = ${year} GROUP BY 1`;
     } else {
-        getYearlyQuery = `SELECT category, SUM(amount_cents) AS sum FROM ${req.session.user}_budget_data WHERE YEAR(day_date) = ${year} GROUP BY 1;`
+        getYearlyQuery = `SELECT category, SUM(amount_cents) AS sum FROM ${req.session.value}_budget_data WHERE YEAR(day_date) = ${year} GROUP BY 1;`
     }
     console.log(getYearlyQuery);
 

@@ -109,7 +109,7 @@ body {
     display: flex;
     justify-content: space-around;
     width: 40vw;
-    margin: 0 auto;
+    margin: 7em auto 0 auto;
 }
 
 #weekStats, #monthStats, #yearStats {

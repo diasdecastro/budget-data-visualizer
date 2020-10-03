@@ -7,6 +7,7 @@ const moment = require('moment');
 const { type } = require('os');
 var cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
+const bcrypt = require('bcrypt');
 require('dotenv').config();
 // CORS on ExpressJS
 app.use((req, res, next) => {
@@ -110,6 +111,7 @@ app.post('/signup', (req, res) => {
     let username = req.body.username;
     let email = req.body.email;
     let password = req.body.password;
+    let hashedPassword = bcrypt.hashSync(password, 10);
     let confirm = req.body.confirm;
     var create = false;
 
@@ -152,7 +154,7 @@ app.post('/signup', (req, res) => {
                             req.session.value = username;
 
                             let signupQuery = "INSERT INTO accounts (id, username, password, email) VALUES (0, ?, ?, ?);";
-                            mysqlConnection.query(signupQuery, [username, password, email], (err, results, fields) => {
+                            mysqlConnection.query(signupQuery, [username, hashedPassword, email], (err, results, fields) => {
                                 if (err) {
                                     throw err;
                                 } else {
@@ -174,23 +176,38 @@ app.post('/signup', (req, res) => {
 
 app.post('/login',  (req, res) => {
     let username = req.body.username;
-    let password = req.body.password;    
+    let password = req.body.password;
+    var hash;
 
-    if (username && password) {
-        let sqlSearchforMatchQuery = `SELECT * FROM accounts WHERE username = '${username}' AND password = '${password}';`;
-        mysqlConnection.query(sqlSearchforMatchQuery, (err, results, fields) => {
-            if(err) {
-                throw err;
-            }
-            if (results.length > 0) {                  
-                req.session.value = username;
-                res.end("true");              
-            } else {
-                res.end("false");
-            }
-        });
-    }
-});
+    let getHashQuery = `SELECT * FROM accounts WHERE username = '${username}'`
+    mysqlConnection.query(getHashQuery, (err, results, fields) => {
+        if (err) {
+            throw err;
+        } else {
+            hash = results.password;
+        }
+    });
+    
+    if (bcrypt.compareSync(password, hash)) {
+        if (username && password) {
+            let sqlSearchforMatchQuery = `SELECT * FROM accounts WHERE username = '${username}' AND password = '${password}';`;
+            mysqlConnection.query(sqlSearchforMatchQuery, (err, results, fields) => {
+                if(err) {
+                    throw err;
+                }
+                else {                  
+                    req.session.value = username;
+                    res.end("true");              
+                }
+            });
+        }
+    } else {
+        res.end("false");
+    };
+    
+    
+
+    
 
 //############################## LOGOUT ########################################
 

@@ -184,7 +184,7 @@ app.post('/login',  (req, res) => {
         if (err) {
             throw err;
         } else {
-            hash = results.password;
+            hash = results[0][password];
         }
     });
     

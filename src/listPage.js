@@ -430,7 +430,7 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
         categoryArray.push("\'" + categ[i] + "\'")
     }
 
-    httpRequest.open("GET", `http://localhost:3000/list/budget?mindate=${minDate}&maxdate=${maxDate}&mincents=${minAmountCents}&maxcents=${maxAmountCents}&category=${categoryArray}&column=${column}&order=${order}`, true);
+    httpRequest.open("GET", `https://my-expenditure-overview.herokuapp.com/list/budget?mindate=${minDate}&maxdate=${maxDate}&mincents=${minAmountCents}&maxcents=${maxAmountCents}&category=${categoryArray}&column=${column}&order=${order}`, true);
     httpRequest.send();
 
     httpRequest.onreadystatechange = () => {
@@ -453,7 +453,7 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
 function insertNewEntry(date, category, amount, details) {
     let httpRequest = new XMLHttpRequest();
 
-    httpRequest.open("POST", "http://localhost:3000/list/budget/", true);
+    httpRequest.open("POST", "https://my-expenditure-overview.herokuapp.com/list/budget/", true);
     httpRequest.setRequestHeader("Content-Type", "application/json");
     httpRequest.send(JSON.stringify({
         "day_date": date,
@@ -485,7 +485,7 @@ function insertNewEntry(date, category, amount, details) {
 function deleteEntry(id) {
     let httpRequest = new XMLHttpRequest();
 
-    httpRequest.open("DELETE", `http://localhost:3000/list/budget?id=${id}`, true);
+    httpRequest.open("DELETE", `https://my-expenditure-overview.herokuapp.com/list/budget?id=${id}`, true);
     httpRequest.send();
 
     httpRequest.onreadystatechange = () => {
@@ -509,7 +509,7 @@ function deleteEntry(id) {
 function editEntry(id, date, category, amount, details, keepOrderCol) {   
     let httpRequest = new XMLHttpRequest();
 
-    httpRequest.open("PUT", `http://localhost:3000/list/budget?id=${id}&date=${date}&category=${category}&amount=${amount}&details=${details}`);
+    httpRequest.open("PUT", `https://my-expenditure-overview.herokuapp.com/list/budget?id=${id}&date=${date}&category=${category}&amount=${amount}&details=${details}`);
     httpRequest.send();
 
     httpRequest.onreadystatechange = () => {
@@ -531,13 +531,13 @@ function editEntry(id, date, category, amount, details, keepOrderCol) {
 function logout() {
     let httpRequest = new XMLHttpRequest();
 
-    httpRequest.open("POST", 'http://localhost:3000/logout');
+    httpRequest.open("POST", 'https://my-expenditure-overview.herokuapp.com/logout');
     httpRequest.send(JSON.stringify(null));
 
     httpRequest.onreadystatechange = () => {
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
-                window.location.replace("http://localhost:3000/");
+                window.location.replace("https://my-expenditure-overview.herokuapp.com");
             }
         }
     }

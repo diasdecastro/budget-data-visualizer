@@ -693,7 +693,7 @@ function getWeekData(year, weekNumber, displayType) {
 
     console.log(displayType);
 
-    httpRequest.open("GET", `http://localhost:3000/statistics/weekly?year=${year}&weekNumber=${weekNumber}&displayType=${displayType}`, true);
+    httpRequest.open("GET", `https://my-expenditure-overview.herokuapp.com/statistics/weekly?year=${year}&weekNumber=${weekNumber}&displayType=${displayType}`, true);
     httpRequest.send();
 
     httpRequest.onreadystatechange = () => {
@@ -725,7 +725,7 @@ function getMonthData(year, month, displayType) {
 
     console.log(displayType);
 
-    httpRequest.open("GET", `http://localhost:3000/statistics/monthly?year=${year}&month=${month}&displayType=${displayType}`, true);
+    httpRequest.open("GET", `https://my-expenditure-overview.herokuapp.com/statistics/monthly?year=${year}&month=${month}&displayType=${displayType}`, true);
     httpRequest.send();
 
     httpRequest.onreadystatechange = () => {
@@ -752,7 +752,7 @@ function getYearData(year, displayType) {
 
     console.log(displayType);
 
-    httpRequest.open("GET", `http://localhost:3000/statistics/yearly?year=${year}&displayType=${displayType}`, true);
+    httpRequest.open("GET", `https://my-expenditure-overview.herokuapp.com/statistics/yearly?year=${year}&displayType=${displayType}`, true);
     httpRequest.send();
 
     httpRequest.onreadystatechange = () => {
@@ -780,13 +780,13 @@ function getYearData(year, displayType) {
 function logout() {
     let httpRequest = new XMLHttpRequest();
 
-    httpRequest.open("POST", 'http://localhost:3000/logout');
+    httpRequest.open("POST", 'https://my-expenditure-overview.herokuapp.com/logout');
     httpRequest.send(JSON.stringify(null));
 
     httpRequest.onreadystatechange = () => {
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
-                window.location.replace("http://localhost:3000/");
+                window.location.replace("https://my-expenditure-overview.herokuapp.com");
             }
         }
     }

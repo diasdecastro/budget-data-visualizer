@@ -4,7 +4,7 @@ function login(username, password) {
 
     
 
-    httpRequest.open("POST", "http://localhost:3000/login", true);
+    httpRequest.open("POST", "https://my-expenditure-overview.herokuapp.com/login", true);
     httpRequest.setRequestHeader("Content-Type", "application/json");
     httpRequest.send(JSON.stringify({
         "username": username,
@@ -29,7 +29,7 @@ function login(username, password) {
                     return;
                 } else {
                     console.log("i'm here");
-                    // window.location.replace("https://my-expenditure-overview.herokuapp.com/list");
+                    window.location.replace("https://my-expenditure-overview.herokuapp.com/list");
                 }                    
             }
         }

@@ -5,6 +5,25 @@ body {
     font-family: 'Libre Baskerville', serif;
 }
 
+.warning {
+    background-color: #ffcccb;
+    width: 60%;
+    margin: 0 auto;
+    
+}
+
+.warning > h2 {
+    margin-left: 5%;
+    font-size: 2em;
+    padding-top: 3%;
+}
+
+.warning > p {
+    margin-left: 5%;
+    padding-bottom: 3%;
+    font-size: 1.2em;
+}
+
 h1 {
     font-family: 'Libre Baskerville', serif;
     font-size: 3em;

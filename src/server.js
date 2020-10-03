@@ -154,8 +154,7 @@ app.post('/login',  (req, res) => {
             if(err) {
                 throw err;
             }
-            if (results.length > 0) {           
-                console.log("login arrived");                       
+            if (results.length > 0) {                  
                 req.session.value = username;
                 res.end("true");              
             } else {
@@ -305,7 +304,6 @@ function getBeginEndOfWeek (year, weekNumber) {
     
     let begin = moment().year(year).week(weekNumber).weekday(0).format("YYYY-MM-DD");
     let end = moment().year(year).week(weekNumber).weekday(6).format("YYYY-MM-DD");
-    console.log(begin + " : " + end);
     return [begin, end];
 }
 
@@ -327,20 +325,16 @@ app.get('/statistics/weekly', (req, res) => {
     let getWeeklyQuery = "";
 
     if (displayType == "Amount") {
-        console.log("comming here");
         getWeeklyQuery = `SELECT day_date AS date, DAYNAME(day_date) AS day, SUM(amount_cents) AS sum FROM ${req.session.value}_budget_data WHERE day_date >= '${dates[0]}' AND day_date <= '${dates[1]}' GROUP BY 1, 2;`;
     } else {
         getWeeklyQuery = `SELECT category, SUM(amount_cents) AS sum FROM ${req.session.value}_budget_data WHERE day_date >= '${dates[0]}' AND day_date <= '${dates[1]}' GROUP BY 1`;
     }
-    console.log(getWeeklyQuery);
     
     mysqlConnection.query(getWeeklyQuery, (err, results, fields) => {
         if (err) {
             throw err;
         } else {
-            console.log(results);
             if (displayType === "Amount") {
-                console.log("comming here too");
                 res.json({
                     begWeek: dates[0],
                     endWeek: dates[1],
@@ -373,13 +367,11 @@ app.get('/statistics/monthly', (req, res) => {
     } else {
         getMonthlyQuery = `SELECT category, SUM(amount_cents) AS sum FROM ${req.session.value}_budget_data WHERE MONTH(day_date) = ${month} AND YEAR(day_date) =${year} GROUP BY 1;`;
     }
-    console.log(getMonthlyQuery);
 
     mysqlConnection.query(getMonthlyQuery, (err, results, fields) => {
         if (err) {
             throw err;
         } else {
-            console.log(results);
             res.send(results);
         }
     });
@@ -401,13 +393,11 @@ app.get('/statistics/yearly', (req, res) => {
     } else {
         getYearlyQuery = `SELECT category, SUM(amount_cents) AS sum FROM ${req.session.value}_budget_data WHERE YEAR(day_date) = ${year} GROUP BY 1;`
     }
-    console.log(getYearlyQuery);
 
     mysqlConnection.query(getYearlyQuery, (err, results, fields) => {
         if (err) {
             throw err;
         } else {
-            console.log(results);
             res.send(results)
         }
     });

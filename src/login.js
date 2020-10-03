@@ -28,7 +28,6 @@ function login(username, password) {
                     loginForm.insertBefore(errorMessege, document.getElementById("loginSubmit"));
                     return;
                 } else {
-                    console.log("i'm here");
                     window.location.replace("https://my-expenditure-overview.herokuapp.com/list");
                 }                    
             }

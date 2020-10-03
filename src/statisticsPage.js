@@ -284,7 +284,7 @@ function createWeekBarChart(data, year, weekNumber, begWeek, endWeek) {
     let dataX = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
     let dataY = [0, 0, 0, 0, 0, 0, 0];
     
-    console.log(typeof results);
+    
 
 
     for (let i = 0; i < results.length; i++) {
@@ -422,8 +422,7 @@ function createMonthBarChart(data, year, month) {
         dataY[date.getDate() - 1] = data[i]["sum"] / 100;
     } 
 
-    console.log(dataY);
-    console.log(month + " : " + year);
+   
 
     let monthBarChart = new Chart( canvasElem, {
         type: 'bar',            
@@ -503,7 +502,7 @@ function createYearBarChart(data, year) {
         dataY[data[i]["month"] - 1] = data[i]["sum"] / 100;
     }
 
-    console.log(dataY);
+    
 
     let yearBarChart = new Chart( canvasElem, {
         type: 'bar',            
@@ -691,8 +690,7 @@ function createDoughnutChart (data, titleString, noDataString) {
 function getWeekData(year, weekNumber, displayType) {
     let httpRequest = new XMLHttpRequest();
 
-    console.log(displayType);
-
+    
     httpRequest.open("GET", `https://my-expenditure-overview.herokuapp.com/statistics/weekly?year=${year}&weekNumber=${weekNumber}&displayType=${displayType}`, true);
     httpRequest.send();
 
@@ -723,7 +721,7 @@ function getWeekData(year, weekNumber, displayType) {
 function getMonthData(year, month, displayType) {
     let httpRequest = new XMLHttpRequest();
 
-    console.log(displayType);
+    
 
     httpRequest.open("GET", `https://my-expenditure-overview.herokuapp.com/statistics/monthly?year=${year}&month=${month}&displayType=${displayType}`, true);
     httpRequest.send();
@@ -750,7 +748,7 @@ function getMonthData(year, month, displayType) {
 function getYearData(year, displayType) {
     let httpRequest = new XMLHttpRequest();
 
-    console.log(displayType);
+    
 
     httpRequest.open("GET", `https://my-expenditure-overview.herokuapp.com/statistics/yearly?year=${year}&displayType=${displayType}`, true);
     httpRequest.send();

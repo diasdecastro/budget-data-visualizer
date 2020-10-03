@@ -377,13 +377,13 @@ function addEventsForWindow() {
                 hideCollapseButton.title = "Hide";
                 filterContainer.className = "filter collapse";
                 filterToggle.className = "collapseToggle";
-                /* console.log("collapse"); */
+                
             } else {
                 hideCollapseButton.className = "fa fa-angle-down";
                 hideCollapseButton.title = "Collapse";
                 filterContainer.className = "filter hidden";
                 filterToggle.className = "hiddenToggle";
-                /* console.log("hidden"); */
+                
             }
         });
 
@@ -437,7 +437,6 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
                 filters();
-                console.log(httpRequest.response);
                 makeList(httpRequest.response);
             } else {
                 alert("something wrong");

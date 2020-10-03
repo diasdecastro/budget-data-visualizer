@@ -58,7 +58,7 @@ var mysqlConnection = mysql.createConnection({
 
 mysqlConnection.connect((err) => {
     if(!err){
-        console.log("DB connection success");
+        console.log("DB connection success!");
     } else {
         console.log("DB connection failed \n Error: " + JSON.stringify(err, undefined, 2));
     }

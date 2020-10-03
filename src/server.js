@@ -23,7 +23,7 @@ app.use(cookieParser());
 app.use(cookieSession({
     name: 'session',
     keys: 'secret',
-    maxAge: new Date(Date.now() + 1600000)    
+    maxAge: 60 * 60 * 1000 //1 hour    
 }));
 
 //if coockie exists and user no user, delete coockie
@@ -141,7 +141,7 @@ app.post('/signup', (req, res) => {
 
 app.post('/login',  (req, res) => {
     let username = req.body.username;
-    let password = req.body.password;
+    let password = req.body.password;    
 
     if (username && password) {
         let sqlSearchforMatchQuery = `SELECT * FROM accounts WHERE username = '${username}' AND password = '${password}';`;
@@ -152,9 +152,9 @@ app.post('/login',  (req, res) => {
             if (results.length > 0) {           
                 console.log("login arrived");                       
                 req.session.value = username;
-                res.send("true");              
+                res.end("true");              
             } else {
-                res.send("false");
+                res.end("false");
             }
         });
     }

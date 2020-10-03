@@ -25,6 +25,7 @@ app.set('trust proxy', 1);
 app.use(cookieSession({
     name: 'session',
     keys: 'secret',
+    secureProxy: true,
     maxAge: 60 * 60 * 1000 //1 hour    
 }));
 

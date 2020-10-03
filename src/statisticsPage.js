@@ -712,7 +712,7 @@ function getWeekData(year, weekNumber, displayType) {
                     createDoughnutChart(formatedResponse["results"], titleString, noDataString);
                 }
             } else {
-                alert("Something wrong");
+                window.location.replace("https://my-expenditure-overview.herokuapp.com/404");
             }
         }
     }
@@ -739,7 +739,7 @@ function getMonthData(year, month, displayType) {
                     createDoughnutChart(formatedResponse, titleString, noDataString);
                 }
             } else {
-                alert("Something wrong");
+                window.location.replace("https://my-expenditure-overview.herokuapp.com/404");
             }
         }
     }
@@ -765,7 +765,7 @@ function getYearData(year, displayType) {
                     createDoughnutChart(formatedResponse, titleString, noDataString);
                 }
             } else {
-                alert("Something Wrong");
+                window.location.replace("https://my-expenditure-overview.herokuapp.com/404");
             }
         }
     }

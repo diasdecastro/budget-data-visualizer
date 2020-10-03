@@ -3,7 +3,13 @@ body {
     padding: 0;
     background-color: #eff4f5;
     font-family: 'Libre Baskerville', serif;
-}  
+}
+
+h1 {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 3em;
+    text-align: center;
+}
 
 #loginSignup {
     width: 40vw;

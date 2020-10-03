@@ -439,7 +439,7 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
                 filters();
                 makeList(httpRequest.response);
             } else {
-                alert("something wrong");
+                window.location.replace("https://my-expenditure-overview.herokuapp.com/404");
             }
         }
     }
@@ -494,7 +494,7 @@ function deleteEntry(id) {
                     console.log("Entry deleted");
                     getEntries();
                 } else {
-                    alert("Something Wrong");
+                    window.location.replace("https://my-expenditure-overview.herokuapp.com/404");
                 }
             }
         }
@@ -517,7 +517,7 @@ function editEntry(id, date, category, amount, details, keepOrderCol) {
                 console.log("Entry updated");
                 getEntries(orderCol, keepOrderCol, minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
             } else {
-                alert("Something wrong");
+                window.location.replace("https://my-expenditure-overview.herokuapp.com/404");
             }
         }
     }
@@ -537,6 +537,8 @@ function logout() {
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
                 window.location.replace("https://my-expenditure-overview.herokuapp.com");
+            } else {
+                window.location.replace("https://my-expenditure-overview.herokuapp.com/404");
             }
         }
     }

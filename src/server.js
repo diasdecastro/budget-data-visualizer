@@ -76,6 +76,10 @@ app.get('/', (req, res) => {
     }    
 });
 
+app.get('/404', (req, res) => {
+    res.sendFile(path.join(__dirname, "/../errorPage.html"));
+});
+
 //############################## SIGN IN ##########################################
 
 app.post('/signup', (req, res) => {

@@ -5,7 +5,7 @@ const path = require('path');
 const bodyparser = require('body-parser');
 const moment = require('moment');
 const { type } = require('os');
-var session = require('express-session');
+var cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
 // CORS on ExpressJS
 app.use((req, res, next) => {
@@ -20,18 +20,13 @@ app.use(bodyparser.json());
 
 app.use(cookieParser());
 
-app.use(session({
-    name: "session",
-    secret: "secret",
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-        path: "/",
-        secure: true,
-        httpOnly: true,
-        maxAge: 60 * 60 * 1000 // 1hour
-    }    
-})); 
+app.set('trust proxy', 1);
+
+app.use(cookieSession({
+    name: 'session',
+    keys: 'secret',
+    maxAge: 60 * 60 * 1000 //1 hour    
+}));
 
 //if coockie exists and user no user, delete coockie
 /* app.use((req, res, next) => {

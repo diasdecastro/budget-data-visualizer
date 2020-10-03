@@ -7,6 +7,7 @@ const moment = require('moment');
 const { type } = require('os');
 var cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
+const dotenv = require('dotenv');
 // CORS on ExpressJS
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*"); // * allows any origin
@@ -24,8 +25,8 @@ app.set('trust proxy', 1);
 
 app.use(cookieSession({
     name: 'session',
-    keys: ['key1', 'key2'],
-    secret: 'secret',
+    keys: [process.env.KEY_ONE, process.env.KEY_TWO],
+    secret: process.env.COOKIE_SECRET,
     secureProxy: true,
     maxAge: 60 * 60 * 1000 //1 hour    
 }));
@@ -48,10 +49,10 @@ app.use(cookieSession({
 }); */
 
 var mysqlConnection = mysql.createConnection({
-    host: 'eu-cdbr-west-03.cleardb.net',
-    user: 'b7fb6d40b8a98c',
-    password: 'df93831d',
-    database:'heroku_e8b20f35a10448a',
+    host: process.env.DB_HOST,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
+    database: process.env.DB_NAME,
     multipleStatements: true
 });
 

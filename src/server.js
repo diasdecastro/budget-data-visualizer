@@ -27,12 +27,12 @@ app.use(cookieSession({
 }));
 
 //if coockie exists and user no user, delete coockie
-app.use((req, res, next) => {
+/* app.use((req, res, next) => {
     if (req.cookies.user_sid && !req.session.value) {
         res.clearCookie('user_sid');
     }
     next();
-});
+}); */
 
 //check if user is logged in. if logged in redirect to listpage
 /* app.use((req, res, next) => {
@@ -64,7 +64,7 @@ app.listen(process.env.PORT || 3000);
 app.use(express.static(path.join(__dirname, '/../')));
 
 app.get('/', (req, res) => {
-    if (req.session.value && req.cookies.user_sid) {
+    if (req.session.value) {
         res.sendFile(path.join(__dirname, "/../listPage.html"));
     } else {
         res.sendFile(path.join(__dirname, "/../index.html"));
@@ -163,7 +163,7 @@ app.post('/login',  (req, res) => {
 //############################## LOGOUT ########################################
 
 app.post("/logout", (req, res) => {
-    if (req.session.value && req.cookies.user_sid) {        
+    if (req.session.value) {        
         res.clearCookie('user_sid');
         req.session = null;
         res.send("logout");
@@ -175,7 +175,7 @@ app.post("/logout", (req, res) => {
 //budget_data: day_date | category | amount_cents | details | id
 
 app.get('/list', (req, res) => {
-    if (req.session.value && req.cookies.user_sid) {
+    if (req.session.value) {
         res.sendFile(path.join(__dirname, "/../listPage.html"));
     } else {
         res.sendFile(path.join(__dirname, "/../index.html"));
@@ -185,7 +185,7 @@ app.get('/list', (req, res) => {
 
 //get entries
 app.get('/list/budget', (req, res) => {
-    if (!(req.session.value && req.cookies.user_sid)) {
+    if (!(req.session.value)) {
         res.sendFile(path.join(__dirname, "/../index.html"));        
     }
     //FILTERS TODO: Handle categories filters
@@ -221,7 +221,7 @@ app.get('/list/budget', (req, res) => {
 //insert new entry
 app.post('/list/budget', (req, res) => {
 
-    if (!(req.session.value && req.cookies.user_sid)) {
+    if (!(req.session.value)) {
         res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
@@ -243,7 +243,7 @@ app.post('/list/budget', (req, res) => {
 //delete entry
 app.delete('/list/budget', (req, res) => {
 
-    if (!(req.session.value && req.cookies.user_sid)) {
+    if (!(req.session.value)) {
         res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
@@ -262,7 +262,7 @@ app.delete('/list/budget', (req, res) => {
 /* update entry */
 app.put('/list/budget', (req, res) => {
 
-    if (!(req.session.value && req.cookies.user_sid)) {
+    if (!(req.session.value)) {
         res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
@@ -287,7 +287,7 @@ app.put('/list/budget', (req, res) => {
 //############################### ROUTERS FOR THE STATISTICS PAGE (SETERS) #############################################
 
 app.get('/statistics', (req, res) => {
-    if (req.session.value && req.cookies.user_sid) {
+    if (req.session.value) {
         res.sendFile(path.join(__dirname, "/../statisticsPage.html"));
     } else {
         res.sendFile(path.join(__dirname, "/../index.html"));
@@ -311,7 +311,7 @@ function getBeginEndOfWeek (year, weekNumber) {
 
 app.get('/statistics/weekly', (req, res) => {
 
-    if (!(req.session.value && req.cookies.user_sid)) {
+    if (!(req.session.value)) {
         res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
@@ -354,7 +354,7 @@ app.get('/statistics/weekly', (req, res) => {
 
 app.get('/statistics/monthly', (req, res) => {
 
-    if (!(req.session.value && req.cookies.user_sid)) {
+    if (!(req.session.value)) {
         res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 
@@ -383,7 +383,7 @@ app.get('/statistics/monthly', (req, res) => {
 
 app.get('/statistics/yearly', (req, res) => {
 
-    if (!(req.session.value && req.cookies.user_sid)) {
+    if (!(req.session.value)) {
         res.sendFile(path.join(__dirname, "/../index.html"));        
     }
 

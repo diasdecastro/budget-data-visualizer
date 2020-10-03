@@ -7,7 +7,7 @@ const moment = require('moment');
 const { type } = require('os');
 var cookieSession = require('cookie-session');
 const cookieParser = require('cookie-parser');
-const dotenv = require('dotenv');
+require('dotenv').config();
 // CORS on ExpressJS
 app.use((req, res, next) => {
     res.header("Access-Control-Allow-Origin", "*"); // * allows any origin

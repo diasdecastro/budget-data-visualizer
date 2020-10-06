@@ -230,7 +230,7 @@ app.get('/list/budget', (req, res) => {
     let page = req.query.page;
     let numberOfPages;
 
-    mysqlConnection.query(`SELECT COUNT(*) FROM ${req.session.value}_budget_data;`, (err, results, fields) => {
+    mysqlConnection.query(`SELECT COUNT(*) AS count FROM ${req.session.value}_budget_data;`, (err, results, fields) => {
         if (err) {
             throw err;
         } else {

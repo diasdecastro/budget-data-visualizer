@@ -395,6 +395,7 @@ input[name='date'] {
 
 #pageNavigation {
     width: 50%;
+    overflow: hidden;
     margin: 0 auto 3% auto;    
 }
 

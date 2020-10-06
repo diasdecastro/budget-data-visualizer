@@ -237,7 +237,7 @@ app.get('/list/budget', (req, res) => {
     let column = (req.query.column != "undefined") ? req.query.column : "day_date";
     let order = (req.query.order != "undefined") ? req.query.order : "desc";
     
-    let mySqlQuery = `SELECT * FROM ${req.session.value}_budget_data WHERE day_date >= ${minDate} AND day_date <= ${maxDate} AND amount_cents >= ${minAmountCents} AND amount_cents <= ${maxAmountCents} ${categoryHandler} ORDER BY ${column} ${order} limit ${page}, 50;`;
+    let mySqlQuery = `SELECT * FROM ${req.session.value}_budget_data WHERE day_date >= ${minDate} AND day_date <= ${maxDate} AND amount_cents >= ${minAmountCents} AND amount_cents <= ${maxAmountCents} ${categoryHandler} ORDER BY ${column} ${order} LIMIT ${page}, 50;`;
     
     
     mysqlConnection.query(mySqlQuery, (err, results, fields) => {

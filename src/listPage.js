@@ -35,7 +35,7 @@ function makeList(entries) {
         listTable.id = "listTable";
         rootElem.appendChild(listTable);
     }
-    let results = JSON.parse(entries);                
+    let results = entries;                
     let listTableELem = document.getElementById("listTable");
     listTableELem.innerHTML = "<thead>" + 
                                     "<tr>" + 

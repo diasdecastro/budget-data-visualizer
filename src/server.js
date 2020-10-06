@@ -228,7 +228,16 @@ app.get('/list/budget', (req, res) => {
     let categoryArr = req.query.category; //returns elements of the category Array as a string e.g. "Housing, Other"
     let categoryHandler = "";
     let page = req.query.page;
-    
+    let numberOfPages;
+
+    mysqlConnection.query(`SELECT COUNT(*) FROM ${req.session.value}_budget_data;`, (err, results, fields) => {
+        if (err) {
+            throw err;
+        } else {
+            numberOfPages = Math.ceil(results.length / 50);
+        }
+    });
+
     if (categoryArr.length > 0) {
         categoryHandler = "AND category in " + "(" + categoryArr + ")";        
     }
@@ -245,7 +254,7 @@ app.get('/list/budget', (req, res) => {
             throw err;
         } else {
             // console.log(results);
-            res.send(results);
+            res.send([results, numberOfPages]);
         }
     });     
        

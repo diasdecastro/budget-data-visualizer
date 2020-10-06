@@ -234,7 +234,7 @@ app.get('/list/budget', (req, res) => {
         if (err) {
             throw err;
         } else {
-            numberOfPages = Math.ceil(results / 50);
+            numberOfPages = results;
         }
     });
 

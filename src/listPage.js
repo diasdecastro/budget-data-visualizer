@@ -463,7 +463,7 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
                 filters();
                 let formattedResponse = JSON.parse(httpRequest.response)
                 makeList(formattedResponse["results"]);
-                console.log(formattedResponse["numberOfPages"]);         
+                console.log(formattedResponse);         
                 pageNavRender(Math.ceil(formattedResponse["numberOfPages"]));
                 
             } else {

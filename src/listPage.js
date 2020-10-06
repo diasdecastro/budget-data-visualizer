@@ -435,7 +435,7 @@ function pageNavRender (lastPage) {
         document.getElementById("next").className = "hide";  
     } else {
         document.getElementById("prev").className = "show";    
-        document.getElementById("next").className = "hide";  
+        document.getElementById("next").className = "show";  
     }
 }
 
@@ -461,7 +461,8 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
                 filters();
-                makeList(httpRequest.response);                
+                makeList(httpRequest.response);  
+                console.log(Math.ceil(httpRequest.response.length / 50));              
                 pageNavRender(Math.ceil(httpRequest.response.length / 50));
                 
             } else {

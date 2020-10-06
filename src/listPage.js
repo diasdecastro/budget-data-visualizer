@@ -462,7 +462,8 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
             if (httpRequest.status === 200) {
                 filters();
                 let formattedResponse = JSON.parse(httpRequest.response)
-                makeList(formattedResponse["results"]);           
+                makeList(formattedResponse["results"]);
+                console.log(Math.ceil(formattedResponse["numberOfPages"] / 50));         
                 pageNavRender(Math.ceil(formattedResponse["numberOfPages"] / 50));
                 
             } else {

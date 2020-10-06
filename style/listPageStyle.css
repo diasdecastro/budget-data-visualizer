@@ -395,7 +395,7 @@ input[name='date'] {
 
 #pageNavigation {
     width: 50%;
-    margin: 0 auto;    
+    margin: 0 auto 3% auto;    
 }
 
 #next {
@@ -417,3 +417,4 @@ input[name='date'] {
 .hide {
     display: none;
 }
+

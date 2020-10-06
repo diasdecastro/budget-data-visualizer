@@ -252,14 +252,12 @@ function changeFilters(minDate, maxDate, minAmount, maxAmount) {
 
 function nextPage() {
     pageNum += 1;
-    console.log(pageNum);
-    /* getEntries(); */
+    getEntries();
 }
 
 function prevPage() {
     pageNum -= 1;
-    console.log(pageNum);
-    /* getEntries(); */
+    getEntries();
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -463,9 +461,8 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
         if (httpRequest.readyState === XMLHttpRequest.DONE) {
             if (httpRequest.status === 200) {
                 filters();
-                makeList(httpRequest.response);
-                console.log("number of pages is: " + Math.ceil(httpRequest.response.length));
-                pageNavRender(Math.ceil(httpRequest.response.length));
+                makeList(httpRequest.response);                
+                pageNavRender(Math.ceil(httpRequest.response.length / 50));
                 
             } else {
                 window.location.replace("https://my-expenditure-overview.herokuapp.com/404");

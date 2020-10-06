@@ -227,6 +227,7 @@ app.get('/list/budget', (req, res) => {
     let maxAmountCents = (req.query.maxcents != "undefined") ? req.query.maxcents : 9223372036854775807; //infinity
     let categoryArr = req.query.category; //returns elements of the category Array as a string e.g. "Housing, Other"
     let categoryHandler = "";
+    let page = req.query.page;
     
     if (categoryArr.length > 0) {
         categoryHandler = "AND category in " + "(" + categoryArr + ")";        
@@ -236,7 +237,7 @@ app.get('/list/budget', (req, res) => {
     let column = (req.query.column != "undefined") ? req.query.column : "day_date";
     let order = (req.query.order != "undefined") ? req.query.order : "desc";
     
-    let mySqlQuery = `SELECT * FROM ${req.session.value}_budget_data WHERE day_date >= ${minDate} AND day_date <= ${maxDate} AND amount_cents >= ${minAmountCents} AND amount_cents <= ${maxAmountCents} ${categoryHandler} ORDER BY ${column} ${order};`;
+    let mySqlQuery = `SELECT * FROM ${req.session.value}_budget_data WHERE day_date >= ${minDate} AND day_date <= ${maxDate} AND amount_cents >= ${minAmountCents} AND amount_cents <= ${maxAmountCents} ${categoryHandler} ORDER BY ${column} ${order} limit ${page}, 50;`;
     
     
     mysqlConnection.query(mySqlQuery, (err, results, fields) => {

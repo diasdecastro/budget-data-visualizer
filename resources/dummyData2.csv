@@ -1,0 +1,567 @@
+day_date;category;amount_cents;details;id
+"2019-03-15";"Transportation";3,51;"Detail 878";1170
+"2019-03-16";"Food";17,95;"Detail 879";1171
+"2019-03-17";"Utilities";23,23;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1172
+"2019-03-18";"Insurance";11,93;"Detail 880";1173
+"2019-03-19";"Health";5,95;"Detail 881";1174
+"2019-03-20";"Saving";0,14;"Detail 882";1175
+"2019-03-21";"Other";22,64;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1176
+"2019-03-22";"Housing";10,26;"Detail 883";1177
+"2019-03-23";"Transportation";6,91;"Detail 884";1178
+"2019-03-24";"Food";0,22;"Detail 885";1179
+"2019-03-25";"Utilities";19,92;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1180
+"2019-03-26";"Insurance";27,63;"Detail 886";1181
+"2019-03-27";"Health";22,51;"Detail 887";1182
+"2019-03-28";"Saving";15,06;"Detail 888";1183
+"2019-03-29";"Other";6,1;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1184
+"2019-03-30";"Housing";26,98;"Detail 889";1185
+"2019-03-31";"Transportation";8,29;"Detail 890";1186
+"2019-04-01";"Food";4,24;"Detail 891";1187
+"2019-04-02";"Utilities";11,19;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1188
+"2019-04-03";"Insurance";23,17;"Detail 892";1189
+"2019-04-04";"Health";23,67;"Detail 893";1190
+"2019-04-05";"Saving";22,84;"Detail 894";1191
+"2019-04-06";"Other";3,02;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1192
+"2019-04-07";"Housing";17,1;"Detail 895";1193
+"2019-04-08";"Transportation";9,29;"Detail 896";1194
+"2019-04-09";"Food";16,65;"Detail 897";1195
+"2019-04-10";"Utilities";29,74;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1196
+"2019-04-11";"Insurance";15,42;"Detail 898";1197
+"2019-04-12";"Health";11,63;"Detail 899";1198
+"2019-04-13";"Saving";15,96;"Detail 900";1199
+"2019-04-14";"Other";21,1;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1200
+"2019-04-15";"Housing";8,52;"Detail 901";1201
+"2019-04-16";"Transportation";25,12;"Detail 902";1202
+"2019-04-17";"Food";18,64;"Detail 903";1203
+"2019-04-18";"Utilities";8,22;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1204
+"2019-04-19";"Insurance";28,66;"Detail 904";1205
+"2019-04-20";"Health";5,23;"Detail 905";1206
+"2019-04-21";"Saving";20,44;"Detail 906";1207
+"2019-04-22";"Other";18,87;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1208
+"2019-04-23";"Housing";9,04;"Detail 907";1209
+"2019-04-24";"Transportation";22,14;"Detail 908";1210
+"2019-04-25";"Food";20,16;"Detail 909";1211
+"2019-04-26";"Utilities";12,36;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1212
+"2019-04-27";"Insurance";11,6;"Detail 910";1213
+"2019-04-28";"Health";28,74;"Detail 911";1214
+"2019-04-29";"Saving";16,42;"Detail 912";1215
+"2019-04-30";"Other";9,69;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1216
+"2019-05-01";"Housing";8,68;"Detail 913";1217
+"2019-05-02";"Transportation";14,19;"Detail 914";1218
+"2019-05-03";"Food";21,03;"Detail 915";1219
+"2019-05-04";"Utilities";1,9;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1220
+"2019-05-05";"Insurance";11,95;"Detail 916";1221
+"2019-05-06";"Health";18,37;"Detail 917";1222
+"2019-05-07";"Saving";6,42;"Detail 918";1223
+"2019-05-08";"Other";25,93;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1224
+"2019-05-09";"Housing";11,74;"Detail 919";1225
+"2019-05-10";"Transportation";10,28;"Detail 920";1226
+"2019-05-11";"Food";17,37;"Detail 921";1227
+"2019-05-12";"Utilities";8,48;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1228
+"2019-05-13";"Insurance";7,56;"Detail 922";1229
+"2019-05-14";"Health";11;"Detail 923";1230
+"2019-05-15";"Saving";23,27;"Detail 924";1231
+"2019-05-16";"Other";2,98;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1232
+"2019-05-17";"Housing";29,84;"Detail 925";1233
+"2019-05-18";"Transportation";4,84;"Detail 926";1234
+"2019-05-19";"Food";16,35;"Detail 927";1235
+"2019-05-20";"Utilities";13,8;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1236
+"2019-05-21";"Insurance";20,29;"Detail 928";1237
+"2019-05-22";"Health";14,34;"Detail 929";1238
+"2019-05-23";"Saving";21,86;"Detail 930";1239
+"2019-05-24";"Other";14,15;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1240
+"2019-05-25";"Housing";27,38;"Detail 931";1241
+"2019-05-26";"Transportation";10,59;"Detail 932";1242
+"2019-05-27";"Food";28,88;"Detail 933";1243
+"2019-05-28";"Utilities";9,43;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1244
+"2019-05-29";"Insurance";19,18;"Detail 934";1245
+"2019-05-30";"Health";3,92;"Detail 935";1246
+"2019-05-31";"Saving";19,35;"Detail 936";1247
+"2019-06-01";"Other";11,67;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1248
+"2019-06-02";"Housing";10;"Detail 937";1249
+"2019-06-03";"Transportation";6,45;"Detail 938";1250
+"2019-06-04";"Food";14,24;"Detail 939";1251
+"2019-06-05";"Utilities";3,53;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1252
+"2019-06-06";"Insurance";12,04;"Detail 940";1253
+"2019-06-07";"Health";25,25;"Detail 941";1254
+"2019-06-08";"Saving";4,33;"Detail 942";1255
+"2019-06-09";"Other";19,03;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1256
+"2019-06-10";"Housing";29,46;"Detail 943";1257
+"2019-06-11";"Transportation";3,24;"Detail 944";1258
+"2019-06-12";"Food";26,26;"Detail 945";1259
+"2019-06-13";"Utilities";11,08;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1260
+"2019-06-14";"Insurance";0,83;"Detail 946";1261
+"2019-06-15";"Health";24,09;"Detail 947";1262
+"2019-06-16";"Saving";17,77;"Detail 948";1263
+"2019-06-17";"Other";16,1;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1264
+"2019-06-18";"Housing";4,35;"Detail 949";1265
+"2019-06-19";"Transportation";14,01;"Detail 950";1266
+"2019-06-20";"Food";15,24;"Detail 951";1267
+"2019-06-21";"Utilities";0,32;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1268
+"2019-06-22";"Insurance";4,09;"Detail 952";1269
+"2019-06-23";"Health";9,85;"Detail 953";1270
+"2019-06-24";"Saving";21,62;"Detail 954";1271
+"2019-06-25";"Other";8,65;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1272
+"2019-06-26";"Housing";14,74;"Detail 955";1273
+"2019-06-27";"Transportation";22,59;"Detail 956";1274
+"2019-06-28";"Food";19,01;"Detail 957";1275
+"2019-06-29";"Utilities";1,93;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1276
+"2019-06-30";"Insurance";28,69;"Detail 958";1277
+"2019-07-01";"Health";10,27;"Detail 959";1278
+"2019-07-02";"Saving";12,98;"Detail 960";1279
+"2019-07-03";"Other";7,64;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1280
+"2019-07-04";"Housing";14,19;"Detail 961";1281
+"2019-07-05";"Transportation";12,34;"Detail 962";1282
+"2019-07-06";"Food";8,07;"Detail 963";1283
+"2019-07-07";"Utilities";9,53;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1284
+"2019-07-08";"Insurance";18,32;"Detail 964";1285
+"2019-07-09";"Health";27,57;"Detail 965";1286
+"2019-07-10";"Saving";26,57;"Detail 966";1287
+"2019-07-11";"Other";25,13;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1288
+"2019-07-12";"Housing";4,16;"Detail 967";1289
+"2019-07-13";"Transportation";11,67;"Detail 968";1290
+"2019-07-14";"Food";25,23;"Detail 969";1291
+"2019-07-15";"Utilities";4,91;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1292
+"2019-07-16";"Insurance";1,01;"Detail 970";1293
+"2019-07-17";"Health";29,5;"Detail 971";1294
+"2019-07-18";"Saving";15,5;"Detail 972";1295
+"2019-07-19";"Other";25,03;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1296
+"2019-07-20";"Housing";14,99;"Detail 973";1297
+"2019-07-21";"Transportation";18,03;"Detail 974";1298
+"2019-07-22";"Food";29,26;"Detail 975";1299
+"2019-07-23";"Utilities";10,42;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1300
+"2019-07-24";"Insurance";27,09;"Detail 976";1301
+"2019-07-25";"Health";19,89;"Detail 977";1302
+"2019-07-26";"Saving";28,82;"Detail 978";1303
+"2019-07-27";"Other";25,04;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1304
+"2019-07-28";"Housing";4,95;"Detail 979";1305
+"2019-07-29";"Transportation";26,84;"Detail 980";1306
+"2019-07-30";"Food";24,91;"Detail 981";1307
+"2019-07-31";"Utilities";4,59;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1308
+"2019-08-01";"Insurance";27,55;"Detail 982";1309
+"2019-08-02";"Health";8,49;"Detail 983";1310
+"2019-08-03";"Saving";7,34;"Detail 984";1311
+"2019-08-04";"Other";1,85;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1312
+"2019-08-05";"Housing";9,95;"Detail 985";1313
+"2019-08-06";"Transportation";15,11;"Detail 986";1314
+"2019-08-07";"Food";19,91;"Detail 987";1315
+"2019-08-08";"Utilities";15,68;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1316
+"2019-08-09";"Insurance";7,96;"Detail 988";1317
+"2019-08-10";"Health";12,6;"Detail 989";1318
+"2019-08-11";"Saving";5,19;"Detail 990";1319
+"2019-08-12";"Other";0,08;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1320
+"2019-08-13";"Housing";6,54;"Detail 991";1321
+"2019-08-14";"Transportation";7,07;"Detail 992";1322
+"2019-08-15";"Food";22,64;"Detail 993";1323
+"2019-08-16";"Utilities";25,8;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1324
+"2019-08-17";"Insurance";17,51;"Detail 994";1325
+"2019-08-18";"Health";28,96;"Detail 995";1326
+"2019-08-19";"Saving";17,67;"Detail 996";1327
+"2019-08-20";"Other";6,51;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1328
+"2019-08-21";"Housing";20,08;"Detail 997";1329
+"2019-08-22";"Transportation";26,03;"Detail 998";1330
+"2019-08-23";"Food";20,41;"Detail 999";1331
+"2019-08-24";"Utilities";20,02;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1332
+"2019-08-25";"Insurance";3,01;"Detail 1000";1333
+"2019-08-26";"Health";23,72;"Detail 1001";1334
+"2019-08-27";"Saving";27,96;"Detail 1002";1335
+"2019-08-28";"Other";17,67;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1336
+"2019-08-29";"Housing";1,14;"Detail 1003";1337
+"2019-08-30";"Transportation";5,84;"Detail 1004";1338
+"2019-08-31";"Food";15,59;"Detail 1005";1339
+"2019-09-01";"Utilities";0,33;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1340
+"2019-09-02";"Insurance";27,03;"Detail 1006";1341
+"2019-09-03";"Health";15,57;"Detail 1007";1342
+"2019-09-04";"Saving";7,6;"Detail 1008";1343
+"2019-09-05";"Other";5,31;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1344
+"2019-09-06";"Housing";27,25;"Detail 1009";1345
+"2019-09-07";"Transportation";25,82;"Detail 1010";1346
+"2019-09-08";"Food";7,56;"Detail 1011";1347
+"2019-09-09";"Utilities";26,61;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1348
+"2019-09-10";"Insurance";17,14;"Detail 1012";1349
+"2019-09-11";"Health";6,29;"Detail 1013";1350
+"2019-09-12";"Saving";26,45;"Detail 1014";1351
+"2019-09-13";"Other";5,96;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1352
+"2019-09-14";"Housing";28,67;"Detail 1015";1353
+"2019-09-15";"Transportation";16,98;"Detail 1016";1354
+"2019-09-16";"Food";12,75;"Detail 1017";1355
+"2019-09-17";"Utilities";20,87;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1356
+"2019-09-18";"Insurance";11,65;"Detail 1018";1357
+"2019-09-19";"Health";29,11;"Detail 1019";1358
+"2019-09-20";"Saving";25,6;"Detail 1020";1359
+"2019-09-21";"Other";22,18;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1360
+"2019-09-22";"Housing";28,97;"Detail 1021";1361
+"2019-09-23";"Transportation";0,1;"Detail 1022";1362
+"2019-09-24";"Food";27,31;"Detail 1023";1363
+"2019-09-25";"Utilities";17,78;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1364
+"2019-09-26";"Insurance";17,89;"Detail 1024";1365
+"2019-09-27";"Health";19,61;"Detail 1025";1366
+"2019-09-28";"Saving";9,92;"Detail 1026";1367
+"2019-09-29";"Other";28,59;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1368
+"2019-09-30";"Housing";4,82;"Detail 1027";1369
+"2019-10-01";"Transportation";22,25;"Detail 1028";1370
+"2019-10-02";"Food";22,53;"Detail 1029";1371
+"2019-10-03";"Utilities";27,95;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1372
+"2019-10-04";"Insurance";12,38;"Detail 1030";1373
+"2019-10-05";"Health";28,58;"Detail 1031";1374
+"2019-10-06";"Saving";6,39;"Detail 1032";1375
+"2019-10-07";"Other";10,56;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1376
+"2019-10-08";"Housing";17,08;"Detail 1033";1377
+"2019-10-09";"Transportation";8,39;"Detail 1034";1378
+"2019-10-10";"Food";6,85;"Detail 1035";1379
+"2019-10-11";"Utilities";12,62;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1380
+"2019-10-12";"Insurance";11,83;"Detail 1036";1381
+"2019-10-13";"Health";19,37;"Detail 1037";1382
+"2019-10-14";"Saving";1,24;"Detail 1038";1383
+"2019-10-15";"Other";13,37;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1384
+"2019-10-16";"Housing";29,85;"Detail 1039";1385
+"2019-10-17";"Transportation";24,53;"Detail 1040";1386
+"2019-10-18";"Food";3,55;"Detail 1041";1387
+"2019-10-19";"Utilities";6,59;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1388
+"2019-10-20";"Insurance";28,34;"Detail 1042";1389
+"2019-10-21";"Health";17,1;"Detail 1043";1390
+"2019-10-22";"Saving";2,63;"Detail 1044";1391
+"2019-10-23";"Other";22,9;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1392
+"2019-10-24";"Housing";1,18;"Detail 1045";1393
+"2019-10-25";"Transportation";26,37;"Detail 1046";1394
+"2019-10-26";"Food";18,83;"Detail 1047";1395
+"2019-10-27";"Utilities";0,38;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1396
+"2019-10-28";"Insurance";24,66;"Detail 1048";1397
+"2019-10-29";"Health";28,59;"Detail 1049";1398
+"2019-10-30";"Saving";8,12;"Detail 1050";1399
+"2019-10-31";"Other";20,11;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1400
+"2019-11-01";"Housing";2,4;"Detail 1051";1401
+"2019-11-02";"Transportation";6,8;"Detail 1052";1402
+"2019-11-03";"Food";11,24;"Detail 1053";1403
+"2019-11-04";"Utilities";5,66;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1404
+"2019-11-05";"Insurance";14,43;"Detail 1054";1405
+"2019-11-06";"Health";5,69;"Detail 1055";1406
+"2019-11-07";"Saving";22,61;"Detail 1056";1407
+"2019-11-08";"Other";0,54;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1408
+"2019-11-09";"Housing";1,5;"Detail 1057";1409
+"2019-11-10";"Transportation";8,26;"Detail 1058";1410
+"2019-11-11";"Food";0,21;"Detail 1059";1411
+"2019-11-12";"Utilities";19,42;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1412
+"2019-11-13";"Insurance";26;"Detail 1060";1413
+"2019-11-14";"Health";21,09;"Detail 1061";1414
+"2019-11-15";"Saving";3,76;"Detail 1062";1415
+"2019-11-16";"Other";11,99;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1416
+"2019-11-17";"Housing";0,2;"Detail 1063";1417
+"2019-11-18";"Transportation";29,4;"Detail 1064";1418
+"2019-11-19";"Food";20,92;"Detail 1065";1419
+"2019-11-20";"Utilities";7,33;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1420
+"2019-11-21";"Insurance";1,11;"Detail 1066";1421
+"2019-11-22";"Health";4,45;"Detail 1067";1422
+"2019-11-23";"Saving";22,37;"Detail 1068";1423
+"2019-11-24";"Other";21,56;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1424
+"2019-11-25";"Housing";3,32;"Detail 1069";1425
+"2019-11-26";"Transportation";21,13;"Detail 1070";1426
+"2019-11-27";"Food";3,58;"Detail 1071";1427
+"2019-11-28";"Utilities";17,95;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1428
+"2019-11-29";"Insurance";20,26;"Detail 1072";1429
+"2019-11-30";"Health";20,3;"Detail 1073";1430
+"2019-12-01";"Saving";2,75;"Detail 1074";1431
+"2019-12-02";"Other";4,26;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1432
+"2019-12-03";"Housing";12,86;"Detail 1075";1433
+"2019-12-04";"Transportation";3,84;"Detail 1076";1434
+"2019-12-05";"Food";29,57;"Detail 1077";1435
+"2019-12-06";"Utilities";19,5;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1436
+"2019-12-07";"Insurance";0,32;"Detail 1078";1437
+"2019-12-08";"Health";26,2;"Detail 1079";1438
+"2019-12-09";"Saving";28,97;"Detail 1080";1439
+"2019-12-10";"Other";25,91;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1440
+"2019-12-11";"Housing";28,48;"Detail 1081";1441
+"2019-12-12";"Transportation";25,36;"Detail 1082";1442
+"2019-12-13";"Food";12,87;"Detail 1083";1443
+"2019-12-14";"Utilities";2,62;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1444
+"2019-12-15";"Insurance";5,64;"Detail 1084";1445
+"2019-12-16";"Health";25,54;"Detail 1085";1446
+"2019-12-17";"Saving";13,72;"Detail 1086";1447
+"2019-12-18";"Other";17,98;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1448
+"2019-12-19";"Housing";28,84;"Detail 1087";1449
+"2019-12-20";"Transportation";3,19;"Detail 1088";1450
+"2019-12-21";"Food";19,68;"Detail 1089";1451
+"2019-12-22";"Utilities";3,77;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1452
+"2019-12-23";"Insurance";1,36;"Detail 1090";1453
+"2019-12-24";"Health";12,48;"Detail 1091";1454
+"2019-12-25";"Saving";21,27;"Detail 1092";1455
+"2019-12-26";"Other";7,86;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1456
+"2019-12-27";"Housing";6,25;"Detail 1093";1457
+"2019-12-28";"Transportation";11,41;"Detail 1094";1458
+"2019-12-29";"Food";4,88;"Detail 1095";1459
+"2019-12-30";"Utilities";17,24;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1460
+"2019-12-31";"Insurance";5,1;"Detail 1096";1461
+"2020-01-01";"Health";26,19;"Detail 1097";1462
+"2020-01-02";"Saving";10,48;"Detail 1098";1463
+"2020-01-03";"Other";29,31;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1464
+"2020-01-04";"Housing";25,64;"Detail 1099";1465
+"2020-01-05";"Transportation";17,24;"Detail 1100";1466
+"2020-01-06";"Food";11,26;"Detail 1101";1467
+"2020-01-07";"Utilities";10,37;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1468
+"2020-01-08";"Insurance";21,81;"Detail 1102";1469
+"2020-01-09";"Health";29,83;"Detail 1103";1470
+"2020-01-10";"Saving";24,54;"Detail 1104";1471
+"2020-01-11";"Other";25,42;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1472
+"2020-01-12";"Housing";14,34;"Detail 1105";1473
+"2020-01-13";"Transportation";15,43;"Detail 1106";1474
+"2020-01-14";"Food";27,13;"Detail 1107";1475
+"2020-01-15";"Utilities";17,5;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1476
+"2020-01-16";"Insurance";7,61;"Detail 1108";1477
+"2020-01-17";"Health";14,55;"Detail 1109";1478
+"2020-01-18";"Saving";1,65;"Detail 1110";1479
+"2020-01-19";"Other";25,59;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1480
+"2020-01-20";"Housing";23,63;"Detail 1111";1481
+"2020-01-21";"Transportation";29,76;"Detail 1112";1482
+"2020-01-22";"Food";9,13;"Detail 1113";1483
+"2020-01-23";"Utilities";12,58;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1484
+"2020-01-24";"Insurance";21,71;"Detail 1114";1485
+"2020-01-25";"Health";9,5;"Detail 1115";1486
+"2020-01-26";"Saving";2,18;"Detail 1116";1487
+"2020-01-27";"Other";5,37;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1488
+"2020-01-28";"Housing";4,62;"Detail 1117";1489
+"2020-01-29";"Transportation";25,04;"Detail 1118";1490
+"2020-01-30";"Food";29,47;"Detail 1119";1491
+"2020-01-31";"Utilities";21,34;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1492
+"2020-02-01";"Insurance";17,19;"Detail 1120";1493
+"2020-02-02";"Health";4,1;"Detail 1121";1494
+"2020-02-03";"Saving";17,7;"Detail 1122";1495
+"2020-02-04";"Other";29,22;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1496
+"2020-02-05";"Housing";10,01;"Detail 1123";1497
+"2020-02-06";"Transportation";16,74;"Detail 1124";1498
+"2020-02-07";"Food";22,46;"Detail 1125";1499
+"2020-02-08";"Utilities";19,32;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1500
+"2020-02-09";"Insurance";27,27;"Detail 1126";1501
+"2020-02-10";"Health";19,66;"Detail 1127";1502
+"2020-02-11";"Saving";5,78;"Detail 1128";1503
+"2020-02-12";"Other";2,18;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1504
+"2020-02-13";"Housing";16,75;"Detail 1129";1505
+"2020-02-14";"Transportation";13,65;"Detail 1130";1506
+"2020-02-15";"Food";9,39;"Detail 1131";1507
+"2020-02-16";"Utilities";11,81;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1508
+"2020-02-17";"Insurance";7,6;"Detail 1132";1509
+"2020-02-18";"Health";8,7;"Detail 1133";1510
+"2020-02-19";"Saving";27,12;"Detail 1134";1511
+"2020-02-20";"Other";0,6;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1512
+"2020-02-21";"Housing";17,04;"Detail 1135";1513
+"2020-02-22";"Transportation";18,83;"Detail 1136";1514
+"2020-02-23";"Food";1,7;"Detail 1137";1515
+"2020-02-24";"Utilities";8,48;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1516
+"2020-02-25";"Insurance";11,97;"Detail 1138";1517
+"2020-02-26";"Health";25,43;"Detail 1139";1518
+"2020-02-27";"Saving";24,87;"Detail 1140";1519
+"2020-02-28";"Other";11,93;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1520
+"2020-02-29";"Housing";22,65;"Detail 1141";1521
+"2020-03-01";"Transportation";18,23;"Detail 1142";1522
+"2020-03-02";"Food";29,56;"Detail 1143";1523
+"2020-03-03";"Utilities";15,43;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1524
+"2020-03-04";"Insurance";16,94;"Detail 1144";1525
+"2020-03-05";"Health";1,44;"Detail 1145";1526
+"2020-03-06";"Saving";13,53;"Detail 1146";1527
+"2020-03-07";"Other";7,35;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1528
+"2020-03-08";"Housing";9,27;"Detail 1147";1529
+"2020-03-09";"Transportation";17,93;"Detail 1148";1530
+"2020-03-10";"Food";18,66;"Detail 1149";1531
+"2020-03-11";"Utilities";3,4;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1532
+"2020-03-12";"Insurance";12,36;"Detail 1150";1533
+"2020-03-13";"Health";7,38;"Detail 1151";1534
+"2020-03-14";"Saving";26,13;"Detail 1152";1535
+"2020-03-15";"Other";14,4;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1536
+"2020-03-16";"Housing";11,32;"Detail 1153";1537
+"2020-03-17";"Transportation";0,93;"Detail 1154";1538
+"2020-03-18";"Food";23,51;"Detail 1155";1539
+"2020-03-19";"Utilities";12,65;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1540
+"2020-03-20";"Insurance";8,08;"Detail 1156";1541
+"2020-03-21";"Health";10,9;"Detail 1157";1542
+"2020-03-22";"Saving";22,86;"Detail 1158";1543
+"2020-03-23";"Other";18,34;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1544
+"2020-03-24";"Housing";15,62;"Detail 1159";1545
+"2020-03-25";"Transportation";29,87;"Detail 1160";1546
+"2020-03-26";"Food";7,39;"Detail 1161";1547
+"2020-03-27";"Utilities";26,31;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1548
+"2020-03-28";"Insurance";1,97;"Detail 1162";1549
+"2020-03-29";"Health";14,44;"Detail 1163";1550
+"2020-03-30";"Saving";26,96;"Detail 1164";1551
+"2020-03-31";"Other";0,13;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1552
+"2020-04-01";"Housing";4,86;"Detail 1165";1553
+"2020-04-02";"Transportation";16,86;"Detail 1166";1554
+"2020-04-03";"Food";22,23;"Detail 1167";1555
+"2020-04-04";"Utilities";12,69;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1556
+"2020-04-05";"Insurance";1,41;"Detail 1168";1557
+"2020-04-06";"Health";24,25;"Detail 1169";1558
+"2020-04-07";"Saving";19,39;"Detail 1170";1559
+"2020-04-08";"Other";21,13;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1560
+"2020-04-09";"Housing";23,77;"Detail 1171";1561
+"2020-04-10";"Transportation";28,25;"Detail 1172";1562
+"2020-04-11";"Food";4,93;"Detail 1173";1563
+"2020-04-12";"Utilities";9,97;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1564
+"2020-04-13";"Insurance";28,32;"Detail 1174";1565
+"2020-04-14";"Health";10,6;"Detail 1175";1566
+"2020-04-15";"Saving";24,85;"Detail 1176";1567
+"2020-04-16";"Other";24,72;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1568
+"2020-04-17";"Housing";19,66;"Detail 1177";1569
+"2020-04-18";"Transportation";2,81;"Detail 1178";1570
+"2020-04-19";"Food";19,07;"Detail 1179";1571
+"2020-04-20";"Utilities";28,8;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1572
+"2020-04-21";"Insurance";21,77;"Detail 1180";1573
+"2020-04-22";"Health";16,59;"Detail 1181";1574
+"2020-04-23";"Saving";6,86;"Detail 1182";1575
+"2020-04-24";"Other";15,96;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1576
+"2020-04-25";"Housing";28,33;"Detail 1183";1577
+"2020-04-26";"Transportation";11,97;"Detail 1184";1578
+"2020-04-27";"Food";7,91;"Detail 1185";1579
+"2020-04-28";"Utilities";18,28;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1580
+"2020-04-29";"Insurance";21,04;"Detail 1186";1581
+"2020-04-30";"Health";0,75;"Detail 1187";1582
+"2020-05-01";"Saving";29,67;"Detail 1188";1583
+"2020-05-02";"Other";1,86;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1584
+"2020-05-03";"Housing";4,47;"Detail 1189";1585
+"2020-05-04";"Transportation";2,47;"Detail 1190";1586
+"2020-05-05";"Food";15,91;"Detail 1191";1587
+"2020-05-06";"Utilities";24,75;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1588
+"2020-05-07";"Insurance";7,61;"Detail 1192";1589
+"2020-05-08";"Health";24,19;"Detail 1193";1590
+"2020-05-09";"Saving";21,76;"Detail 1194";1591
+"2020-05-10";"Other";10,02;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1592
+"2020-05-11";"Housing";24,91;"Detail 1195";1593
+"2020-05-12";"Transportation";11,96;"Detail 1196";1594
+"2020-05-13";"Food";9,17;"Detail 1197";1595
+"2020-05-14";"Utilities";2,99;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1596
+"2020-05-15";"Insurance";19,94;"Detail 1198";1597
+"2020-05-16";"Health";12,75;"Detail 1199";1598
+"2020-05-17";"Saving";12,58;"Detail 1200";1599
+"2020-05-18";"Other";7,03;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1600
+"2020-05-19";"Housing";17,9;"Detail 1201";1601
+"2020-05-20";"Transportation";6,02;"Detail 1202";1602
+"2020-05-21";"Food";28,15;"Detail 1203";1603
+"2020-05-22";"Utilities";11,63;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1604
+"2020-05-23";"Insurance";0,25;"Detail 1204";1605
+"2020-05-24";"Health";25,78;"Detail 1205";1606
+"2020-05-25";"Saving";7,38;"Detail 1206";1607
+"2020-05-26";"Other";17,81;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1608
+"2020-05-27";"Housing";24,78;"Detail 1207";1609
+"2020-05-28";"Transportation";11,32;"Detail 1208";1610
+"2020-05-29";"Food";23,19;"Detail 1209";1611
+"2020-05-30";"Utilities";24,6;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1612
+"2020-05-31";"Insurance";4,28;"Detail 1210";1613
+"2020-06-01";"Health";24,33;"Detail 1211";1614
+"2020-06-02";"Saving";10,32;"Detail 1212";1615
+"2020-06-03";"Other";14,58;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1616
+"2020-06-04";"Housing";29,38;"Detail 1213";1617
+"2020-06-05";"Transportation";9,92;"Detail 1214";1618
+"2020-06-06";"Food";21,82;"Detail 1215";1619
+"2020-06-07";"Utilities";6,16;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1620
+"2020-06-08";"Insurance";3,65;"Detail 1216";1621
+"2020-06-09";"Health";12,71;"Detail 1217";1622
+"2020-06-10";"Saving";3,18;"Detail 1218";1623
+"2020-06-11";"Other";15,32;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1624
+"2020-06-12";"Housing";5,84;"Detail 1219";1625
+"2020-06-13";"Transportation";18,25;"Detail 1220";1626
+"2020-06-14";"Food";5,55;"Detail 1221";1627
+"2020-06-15";"Utilities";3,93;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1628
+"2020-06-16";"Insurance";26,88;"Detail 1222";1629
+"2020-06-17";"Health";7,07;"Detail 1223";1630
+"2020-06-18";"Saving";1,2;"Detail 1224";1631
+"2020-06-19";"Other";27,91;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1632
+"2020-06-20";"Housing";16,17;"Detail 1225";1633
+"2020-06-21";"Transportation";10,99;"Detail 1226";1634
+"2020-06-22";"Food";22,46;"Detail 1227";1635
+"2020-06-23";"Utilities";4,9;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1636
+"2020-06-24";"Insurance";26,84;"Detail 1228";1637
+"2020-06-25";"Health";3,04;"Detail 1229";1638
+"2020-06-26";"Saving";28,41;"Detail 1230";1639
+"2020-06-27";"Other";21,54;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1640
+"2020-06-28";"Housing";24,03;"Detail 1231";1641
+"2020-06-29";"Transportation";12,06;"Detail 1232";1642
+"2020-06-30";"Food";24,44;"Detail 1233";1643
+"2020-07-01";"Utilities";5,97;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1644
+"2020-07-02";"Insurance";9,76;"Detail 1234";1645
+"2020-07-03";"Health";2,18;"Detail 1235";1646
+"2020-07-04";"Saving";9,98;"Detail 1236";1647
+"2020-07-05";"Other";2,27;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1648
+"2020-07-06";"Housing";20,75;"Detail 1237";1649
+"2020-07-07";"Transportation";29,44;"Detail 1238";1650
+"2020-07-08";"Food";23,9;"Detail 1239";1651
+"2020-07-09";"Utilities";23,95;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1652
+"2020-07-10";"Insurance";10,41;"Detail 1240";1653
+"2020-07-11";"Health";13,58;"Detail 1241";1654
+"2020-07-12";"Saving";20,85;"Detail 1242";1655
+"2020-07-13";"Other";20,97;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1656
+"2020-07-14";"Housing";21,12;"Detail 1243";1657
+"2020-07-15";"Transportation";3,19;"Detail 1244";1658
+"2020-07-16";"Food";26,63;"Detail 1245";1659
+"2020-07-17";"Utilities";0,28;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1660
+"2020-07-18";"Insurance";22,3;"Detail 1246";1661
+"2020-07-19";"Health";28,73;"Detail 1247";1662
+"2020-07-20";"Saving";17,47;"Detail 1248";1663
+"2020-07-21";"Other";25,15;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1664
+"2020-07-22";"Housing";4,77;"Detail 1249";1665
+"2020-07-23";"Transportation";8,05;"Detail 1250";1666
+"2020-07-24";"Food";12,31;"Detail 1251";1667
+"2020-07-25";"Utilities";5,83;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1668
+"2020-07-26";"Insurance";17,56;"Detail 1252";1669
+"2020-07-27";"Health";25,5;"Detail 1253";1670
+"2020-07-28";"Saving";20,16;"Detail 1254";1671
+"2020-07-29";"Other";17,24;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1672
+"2020-07-30";"Housing";23,31;"Detail 1255";1673
+"2020-07-31";"Transportation";0,31;"Detail 1256";1674
+"2020-08-01";"Food";24,74;"Detail 1257";1675
+"2020-08-02";"Utilities";11,97;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1676
+"2020-08-03";"Insurance";2,01;"Detail 1258";1677
+"2020-08-04";"Health";19,75;"Detail 1259";1678
+"2020-08-05";"Saving";2,24;"Detail 1260";1679
+"2020-08-06";"Other";23,25;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1680
+"2020-08-07";"Housing";12,43;"Detail 1261";1681
+"2020-08-08";"Transportation";28,42;"Detail 1262";1682
+"2020-08-09";"Food";18,22;"Detail 1263";1683
+"2020-08-10";"Utilities";15,66;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1684
+"2020-08-11";"Insurance";6,69;"Detail 1264";1685
+"2020-08-12";"Health";11,32;"Detail 1265";1686
+"2020-08-13";"Saving";12,68;"Detail 1266";1687
+"2020-08-14";"Other";12,34;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1688
+"2020-08-15";"Housing";19,88;"Detail 1267";1689
+"2020-08-16";"Transportation";8,48;"Detail 1268";1690
+"2020-08-17";"Food";2,97;"Detail 1269";1691
+"2020-08-18";"Utilities";18,47;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1692
+"2020-08-19";"Insurance";14,6;"Detail 1270";1693
+"2020-08-20";"Health";26,87;"Detail 1271";1694
+"2020-08-21";"Saving";3,96;"Detail 1272";1695
+"2020-08-22";"Other";24,53;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1696
+"2020-08-23";"Housing";22,14;"Detail 1273";1697
+"2020-08-24";"Transportation";7,2;"Detail 1274";1698
+"2020-08-25";"Food";17,65;"Detail 1275";1699
+"2020-08-26";"Utilities";15,78;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1700
+"2020-08-27";"Insurance";24,49;"Detail 1276";1701
+"2020-08-28";"Health";9,08;"Detail 1277";1702
+"2020-08-29";"Saving";17,04;"Detail 1278";1703
+"2020-08-30";"Other";21,44;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1704
+"2020-08-31";"Housing";10,76;"Detail 1279";1705
+"2020-09-01";"Transportation";11,75;"Detail 1280";1706
+"2020-09-02";"Food";11,39;"Detail 1281";1707
+"2020-09-03";"Utilities";17,47;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1708
+"2020-09-04";"Insurance";20,99;"Detail 1282";1709
+"2020-09-05";"Health";0,55;"Detail 1283";1710
+"2020-09-06";"Saving";8,87;"Detail 1284";1711
+"2020-09-07";"Other";6,31;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1712
+"2020-09-08";"Housing";12,17;"Detail 1285";1713
+"2020-09-09";"Transportation";23,65;"Detail 1286";1714
+"2020-09-10";"Food";25,83;"Detail 1287";1715
+"2020-09-11";"Utilities";2,53;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1716
+"2020-09-12";"Insurance";17,97;"Detail 1288";1717
+"2020-09-13";"Health";21,74;"Detail 1289";1718
+"2020-09-14";"Saving";6,25;"Detail 1290";1719
+"2020-09-15";"Other";12,04;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1720
+"2020-09-16";"Housing";9,63;"Detail 1291";1721
+"2020-09-17";"Transportation";4,88;"Detail 1292";1722
+"2020-09-18";"Food";0,96;"Detail 1293";1723
+"2020-09-19";"Utilities";28,34;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1724
+"2020-09-20";"Insurance";11,52;"Detail 1294";1725
+"2020-09-21";"Health";19,83;"Detail 1295";1726
+"2020-09-22";"Saving";11,02;"Detail 1296";1727
+"2020-09-23";"Other";4,89;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1728
+"2020-09-24";"Housing";2,36;"Detail 1297";1729
+"2020-09-25";"Transportation";11,42;"Detail 1298";1730
+"2020-09-26";"Food";6,42;"Detail 1299";1731
+"2020-09-27";"Utilities";14,8;"Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail Detail DetailDetailDetailDetail";1732
+"2020-09-28";"Insurance";3,08;"Detail 1300";1733
+"2020-09-29";"Health";10,42;"Detail 1301";1734
+"2020-09-30";"Saving";23,28;"Detail 1302";1735

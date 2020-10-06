@@ -392,3 +392,28 @@ input[name='date'] {
 *.fa-trash:hover , *.fa-edit:hover, *.fa-times:hover {
     cursor: pointer;    
 }
+
+#pageNavigation {
+    width: 50%;
+    margin: 0 auto;    
+}
+
+#next {
+    float: right;
+    border: none;
+    background: none;
+}
+
+#prev {
+    float: left;
+    border: none;
+    background: none;
+}
+
+#next:hover, #prev:hover {
+    cursor: pointer;
+}
+
+.hide {
+    display: none;
+}

@@ -3,6 +3,7 @@
 /* Global variables */
 
 var orderCol = "day_date"; //ordered by this column
+var pageNum = 0;
 
 /* order varables */
 var day_date = "asc";
@@ -141,7 +142,7 @@ function filters() {
                                 "<div class='categCol'>" +
                                     "<div class='input'>" +
                                         "<input class='categoryCheck' type='checkbox' name='Insurence'>" +
-                                        "<lable for='Insurance'>Insurence</lable>" +
+                                        "<lable for='Insurance'>Insurance</lable>" +
                                     "</div>" +
                                     "<div class='input'>" +
                                         "<input class='categoryCheck' type='checkbox' name='Health'>" +
@@ -247,6 +248,18 @@ function changeFilters(minDate, maxDate, minAmount, maxAmount) {
     categoriesVar = chekedBoxes;
 
     getEntries("day_date", "desc", minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
+}
+
+function nextPage() {
+    pageNum += 1;
+    console.log(pageNum);
+    /* getEntries(); */
+}
+
+function prevPage() {
+    pageNum -= 1;
+    console.log(pageNum);
+    /* getEntries(); */
 }
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -415,6 +428,19 @@ function addEventsForWindow() {
     
 }
 
+function pageNavRender (lastPage) {
+    if(pageNum === 0) {
+        document.getElementById("prev").className = "hide";    
+        document.getElementById("next").className = "show";    
+    } else if (pageNum === lastPage) {
+        document.getElementById("prev").className = "show";    
+        document.getElementById("next").className = "hide";  
+    } else {
+        document.getElementById("prev").className = "show";    
+        document.getElementById("next").className = "hide";  
+    }
+}
+
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -430,7 +456,7 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
         categoryArray.push("\'" + categ[i] + "\'")
     }
 
-    httpRequest.open("GET", `https://my-expenditure-overview.herokuapp.com/list/budget?mindate=${minDate}&maxdate=${maxDate}&mincents=${minAmountCents}&maxcents=${maxAmountCents}&category=${categoryArray}&column=${column}&order=${order}`, true);
+    httpRequest.open("GET", `https://my-expenditure-overview.herokuapp.com/list/budget?mindate=${minDate}&maxdate=${maxDate}&mincents=${minAmountCents}&maxcents=${maxAmountCents}&category=${categoryArray}&column=${column}&order=${order}&page=${pageNum*50}`, true);
     httpRequest.send();
 
     httpRequest.onreadystatechange = () => {
@@ -438,6 +464,9 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
             if (httpRequest.status === 200) {
                 filters();
                 makeList(httpRequest.response);
+                console.log("number of pages is: " + Math.ceil(httpRequest.response.length));
+                pageNavRender(Math.ceil(httpRequest.response.length));
+                
             } else {
                 window.location.replace("https://my-expenditure-overview.herokuapp.com/404");
             }

@@ -254,7 +254,10 @@ app.get('/list/budget', (req, res) => {
             throw err;
         } else {
             // console.log(results);
-            res.send([results, numberOfPages]);
+            res.json({
+                results: results,
+                numberOfPages: numberOfPages
+            });
         }
     });     
        

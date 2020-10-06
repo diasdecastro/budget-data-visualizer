@@ -462,8 +462,8 @@ function getEntries(column, order, minDate, maxDate, minAmountCents, maxAmountCe
             if (httpRequest.status === 200) {
                 filters();
                 let formattedResponse = JSON.parse(httpRequest.response)
-                makeList(formattedResponse[results]);           
-                pageNavRender(Math.ceil(formattedResponse[numberOfPages] / 50));
+                makeList(formattedResponse["results"]);           
+                pageNavRender(Math.ceil(formattedResponse["numberOfPages"] / 50));
                 
             } else {
                 window.location.replace("https://my-expenditure-overview.herokuapp.com/404");

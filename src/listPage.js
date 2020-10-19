@@ -6,7 +6,7 @@ var orderCol = "day_date"; //ordered by this column
 var pageNum = 0;
 
 /* order varables */
-var day_date = "asc";
+var day_date = "desc";
 var category = "desc";
 var amount_cents = "desc";
 var details = "desc";
@@ -16,7 +16,7 @@ var minDateVar = "2000-01-01";
 var maxDateVar = "2030-01-01";
 var categoriesVar;
 var minAmountVar = 0;
-var maxAmountVar = 9223372036854775807; //infinity
+var maxAmountVar = 9223372036854775; //infinity
 
 /* helpers to check if insert or hide/collapse filters have events */
 var insertHasEvent = false;
@@ -283,10 +283,10 @@ function createInsertEditForm(action, editId) {
                         "<td>" + 
                         "<select name='category' form='insertForm'>" + 
                             "<option value='Housing'>Housing</option>" + 
-                            "<option value='Tranportation'>Transportation</option>" +
+                            "<option value='Transportation'>Transportation</option>" +
                             "<option value='Food'>Food</option>" +
                             "<option value='Utilities'>Utilities</option>" +
-                            "<option value='Insurence'>Insurence</option>" +
+                            "<option value='Insurance'>Insurance</option>" +
                             "<option value='Health'>Health</option>" +
                             "<option value='Saving'>Saving</option>" +
                             "<option value='Other'>Other</option>" +

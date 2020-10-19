@@ -330,7 +330,7 @@ function createInsertEditForm(action, editId) {
                         document.getElementById("insertForm").remove();
                         document.getElementById("insertSubmit").remove();
                         getEntries(orderCol, window[orderCol], minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
-                    } else if (document.getElementById("insertForm") && document.getElementById("insertSubmit")){
+                    } else if (document.getElementById("insertForm")){
                         //if elements exist
                         document.getElementById("insertForm").remove();
                         document.getElementById("insertSubmit").remove();

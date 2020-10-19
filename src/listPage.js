@@ -127,7 +127,7 @@ function filters() {
                                         "<lable for='Housing'>Housing</lable>" +
                                     "</div>" +
                                     "<div class='input'>" +
-                                        "<input class='categoryCheck' type='checkbox' name='Tranportation'>" +
+                                        "<input class='categoryCheck' type='checkbox' name='Transportation'>" +
                                         "<lable for='Transportation'>Transportation</lable>" +
                                     "</div>" +
                                     "<div class='input'>" +
@@ -141,7 +141,7 @@ function filters() {
                                 "</div>" +
                                 "<div class='categCol'>" +
                                     "<div class='input'>" +
-                                        "<input class='categoryCheck' type='checkbox' name='Insurence'>" +
+                                        "<input class='categoryCheck' type='checkbox' name='Insurance'>" +
                                         "<lable for='Insurance'>Insurance</lable>" +
                                     "</div>" +
                                     "<div class='input'>" +

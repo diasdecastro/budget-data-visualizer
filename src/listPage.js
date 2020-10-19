@@ -21,7 +21,7 @@ var maxAmountVar = 9223372036854775; //infinity
 /* helpers to check if insert or hide/collapse filters have events */
 var insertHasEvent = false;
 var hideCollapseHasEvent = false;
-
+var escapeRemoveEvent = false;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -264,8 +264,7 @@ function prevPage() {
 
 /* Helper functions */
 
-function createInsertEditForm(action, editId) {
-    var escapeRemoveEvent = false;
+function createInsertEditForm(action, editId) {    
     if (!document.getElementById("insertForm")){ //if for element doesn't already exist, create one
         let rootElem = document.getElementById("root");
         if (action == "insert") {

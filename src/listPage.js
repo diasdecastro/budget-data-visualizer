@@ -334,6 +334,7 @@ function createInsertEditForm(action, editId) {
                         //if elements exist
                         document.getElementById("insertForm").remove();
                         document.getElementById("insertSubmit").remove();
+                        getEntries(orderCol, window[orderCol], minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
                     }
                     newRow.remove();
                     escapeRemoveEvent = true;

@@ -311,7 +311,7 @@ function createInsertEditForm(action, editId) {
                     document.getElementById("insertForm").remove();
                     document.getElementById("insertSubmit").remove();
                     getEntries(orderCol, window[orderCol], minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
-                } else if (document.getElementById("insertForm")){
+                } else if (document.getElementById("insertForm") && document.getElementById("insertSubmit")){
                     //if elements exist
                     document.getElementById("insertForm").remove();
                     document.getElementById("insertSubmit").remove();
@@ -330,15 +330,15 @@ function createInsertEditForm(action, editId) {
                         document.getElementById("insertForm").remove();
                         document.getElementById("insertSubmit").remove();
                         getEntries(orderCol, window[orderCol], minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
-                    } else if (document.getElementById("insertForm")){
+                    } else if (document.getElementById("insertForm") && document.getElementById("insertSubmit")){
                         //if elements exist
                         document.getElementById("insertForm").remove();
                         document.getElementById("insertSubmit").remove();
                     }
                     newRow.remove();
+                    escapeRemoveEvent = true;
                 }
             });
-            escapeRemoveEvent = true;
         }
         
     } else {

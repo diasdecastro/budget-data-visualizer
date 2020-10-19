@@ -101,7 +101,7 @@ function changeOrder(column, order){
         orderCol = column;
         window[column] = "asc";
     }
-    getEntries(column, order, minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
+    getEntries(column, window[column], minDateVar, maxDateVar, minAmountVar*100, maxAmountVar*100, categoriesVar);
 }
 
 /* Filter data */

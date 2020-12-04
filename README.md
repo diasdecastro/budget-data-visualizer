@@ -8,5 +8,5 @@ https://my-expenditure-overview.herokuapp.com/
 
 ## Or if you just want to take a look without login with:
 
-**Username: dummy**
+**Username: dummy** <br>
 **Password: dummy**
